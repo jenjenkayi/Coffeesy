@@ -13,7 +13,7 @@ def get_curr_reviews():
     return 
 
 # Edit a Review
-@review_routes.route('/<:reviewId>', methods=['PUT'])
+@review_routes.route('/<int:reviewId>', methods=['PUT'])
 @login_required
 def edit_review(reviewId):
     form = ReviewForm()
@@ -30,7 +30,7 @@ def edit_review(reviewId):
 
 
 # Delete a Review
-@review_routes.route('/<:reviewId>', methods=['DELETE'])
+@review_routes.route('/<int:reviewId>', methods=['DELETE'])
 @login_required
 def delete_review(reviewId):
     return

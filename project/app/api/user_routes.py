@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
+from flask_login import login_required, current_user, login_user
 from app.models import User, Product
+from ..models.db import db
 
 user_routes = Blueprint('users', __name__)
 
@@ -20,9 +21,7 @@ def users():
 def get_curr_user(id):
     pass
 
-# Get detail of User by id
-
-
+# Get details of User by id
 @user_routes.route('/<int:id>')
 @login_required
 def user(id):
@@ -32,11 +31,18 @@ def user(id):
     user = User.query.get(id)
     if user:
         products = Product.query.filter(Product.user_id == id)
-
-    return user.to_dict()
+        result = user.to_dict()
+        result["Products"] = [product.to_dict_no_relations() for product in products]
+        return result
+    # else: 
+    #     raise ValueError({"message": "User couldn't be found", "statusCode": 404})
 
 
 # Get all Products by a UserId
-@user_routes.route('/<:userId>/products')
+@user_routes.route('/<int:userId>/products')
+@login_required
 def get_user_products(userId):
     pass
+
+
+

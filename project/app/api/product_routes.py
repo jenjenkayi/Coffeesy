@@ -29,25 +29,25 @@ def create_product():
 
 
 # Edit a Product
-@product_routes.route('/<:productId>', methods=['PUT'])
+@product_routes.route('/<int:productId>', methods=['PUT'])
 def edit_product():
     return 
 
 
 # Delete a Product
-@product_routes.route('/<:productId>', methods=['DELETE'])
+@product_routes.route('/<int:productId>', methods=['DELETE'])
 def delete_product():
     return 
 
 
 # Get all Reviews by a Product's id
-@product_routes.route('/<:productId>/reviews')
+@product_routes.route('/<int:productId>/reviews')
 def get_reviews():
     return
 
 
 # Create a Review for a Product based on the Product's id
-@product_routes.route('/<:productId>/reviews', methods=['POST'])
+@product_routes.route('/<int:productId>/reviews', methods=['POST'])
 def create_review(productId):
     return
 
