@@ -15,12 +15,6 @@ def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
-# Get the Current User
-@user_routes.route('/current')
-@login_required
-def get_curr_user(id):
-    pass
-
 # Get details of User by id
 @user_routes.route('/<int:id>')
 @login_required
@@ -42,7 +36,9 @@ def user(id):
 @user_routes.route('/<int:userId>/products')
 @login_required
 def get_user_products(userId):
-    pass
+    products = Product.query.filter(Product.user_id == userId)
+    return {'Products': [product.to_dict() for product in products]}
+ 
 
 
 

@@ -37,6 +37,13 @@ def one_product(productId):
     else:
         return {"message": "Product not found"}
 
+# Get Current User's products
+@product_routes.route('/current')
+@login_required
+def get_curr_product():
+    products = Product.query.filter(Product.user_id == current_user.id)
+    return {'Products': [product.to_dict() for product in products]}
+
 
 # Create a Product
 @product_routes.route('/', methods=['POST'])
@@ -58,7 +65,7 @@ def create_product():
         )
         db.session.add(new_product)
         db.session.commit()
-        return jsonify(new_product.to_dict_no_relations())
+        return jsonify(new_product.to_dict())
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
  
 

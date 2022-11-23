@@ -12,7 +12,8 @@ review_routes = Blueprint('reviews', __name__)
 def get_curr_reviews():
     reviews = Review.query.filter(Review.user_id == current_user.id)
     if reviews:
-        return reviews.to_dict()
+        return {'Reviews': [review.to_dict() for review in reviews]}
+
     else:
         return {"message": "No Reviews Found"}
 
