@@ -8,7 +8,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 // import CreateProduct from './components/CreateProduct';
 // import EditProduct from './components/EditProduct';
-// import GetOneProduct from './components/GetOneProduct';
+import GetOneProduct from './components/GetOneProduct/GetOneProduct';
 import GetAllProducts from './components/GetAllProducts/GetAllProducts';
 
 function App() {
@@ -39,16 +39,16 @@ function App() {
         <Route path='/users/:userId' exact={true} >
           <User />
         </Route>
+        <Route path="/products/:productId">
+          <GetOneProduct />
+        </Route>
         <Route path='/'>
           <GetAllProducts />
         </Route>
-        <Route path="/products/productId">
-          {/* <GetOneProduct /> */}
-        </Route>
-          <Route path="/product/new">
+          <Route path="/products/new">
           {/* <CreateProduct /> */}
         </Route>
-        <Route path="/product/:productId/edit">
+        <Route path="/products/:productId/edit">
           {/* <EditProduct /> */}
         </Route>
       </Switch>

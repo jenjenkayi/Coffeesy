@@ -12,6 +12,8 @@ const GetAllProducts = () => {
   const products = useSelector(state => state.product.allProducts);
   const productsArr = Object.values(products);
 
+  console.log("productsArr", productsArr)
+  
   useEffect(() => {
     dispatch(getAllProductsThunk())
   }, [dispatch]);
@@ -22,7 +24,26 @@ const GetAllProducts = () => {
 
 
 return (
-    <h1>All Products</h1>
+    productsArr && (
+        <div className="products-container">
+            {productsArr.map((product) => {
+                return (
+                    <>
+                    {/* <div>{product.image} */}
+                    <NavLink key={product.id} to={`/products/${product.id}`}>
+                    <div>
+                    <img className="products-image" src="https://cdn.pixabay.com/photo/2017/06/02/11/49/still-life-2366084__340.jpg" alt="default"/>
+                    </div>
+                    <div>{product.name}</div>
+                    <div>{product.avgRating}</div>
+                    <div>{product.reviewCount}</div>
+                    <div>${product.price}</div>
+                    </NavLink>
+                    </>
+                )
+            })}
+        </div>
+    )
  )
 }
 
