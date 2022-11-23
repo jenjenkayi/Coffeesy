@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { getOneProductThunk, EditProductThunk } from '../../store/product';
+import { getOneProductThunk, editProductThunk } from '../../store/product';
 import "./EditProduct.css";
 
 const EditProduct = () => {
@@ -49,7 +49,7 @@ const EditProduct = () => {
     if (!data.image.endsWith('.jpg') && !data.image.includes('.jpeg') && !data.image.includes('.png')) return setErrors(['Image must be in .jpg, .jpeg, or .png format']);
         
        
-    dispatch(EditProductThunk(productId, data)).then(() => {
+    dispatch(editProductThunk(productId, data)).then(() => {
             history.push(`/`);
         });
     };
@@ -62,6 +62,7 @@ const EditProduct = () => {
 
     return (
         <>
+        <h1>Edit a listing</h1>
         {user && <div className="form-wrapper">
             <h1>Edit a listing</h1>
             <h5>Add some details about your item. Fill out what you can for now—you’ll be able to edit this later.</h5>

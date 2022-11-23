@@ -4,10 +4,9 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
-import User from './components/User';
 import { authenticate } from './store/session';
 import CreateProduct from './components/CreateProduct/CreateProduct';
-// import EditProduct from './components/EditProduct';
+import EditProduct from './components/EditProduct/EditProduct';
 import GetOneProduct from './components/GetOneProduct/GetOneProduct';
 import GetAllProducts from './components/GetAllProducts/GetAllProducts';
 
@@ -41,15 +40,15 @@ function App() {
         </Route> */}
         <Route path="/products/:productId">
           <GetOneProduct />
-        <Route path="/products/new">
-        <CreateProduct />
         </Route>
+        <Route path="/products/new">
+          <CreateProduct />
+        </Route>
+        <Route path="/products/:productId/edit">
+          <EditProduct />
         </Route>
         <Route path='/'>
           <GetAllProducts />
-        </Route>
-        <Route path="/products/:productId/edit">
-          {/* <EditProduct /> */}
         </Route>
       </Switch>
     </BrowserRouter>

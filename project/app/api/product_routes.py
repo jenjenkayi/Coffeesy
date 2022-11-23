@@ -84,7 +84,7 @@ def edit_product(productId):
     
     if product.user_id != current_user.id:
         return {"message": "You are not authorized to edit the product"}
-
+  
     if form.validate_on_submit():
         edited_product = Product.query.get(productId)
         edited_product.name = form.data['name']
@@ -95,9 +95,7 @@ def edit_product(productId):
         edited_product.quantity = form.data['quantity']
         edited_product.created_at = datetime.now()
         db.session.commit()
-        return jsonify(edited_product.to_dict())
-    else:
-        return {"message": "Product not found", "statusCode": 404}
+    return jsonify(edited_product.to_dict())
 
 
 # Delete a Product
