@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import Review, db, User
+from app.models import Review, db
 from app.forms.review_form import ReviewForm
 from datetime import datetime
 
@@ -10,7 +10,12 @@ review_routes = Blueprint('reviews', __name__)
 @review_routes.route('/current')
 @login_required
 def get_curr_reviews():
-    return 
+    reviews = Review.query.filter(Review.user_id == current_user.id)
+    if reviews:
+        return reviews.to_dict()
+    else:
+        return {"message": "No Reviews Found"}
+
 
 # Edit a Review
 @review_routes.route('/<int:reviewId>', methods=['PUT'])
@@ -28,9 +33,16 @@ def edit_review(reviewId):
         return jsonify(edited_review.to_dict())
 
 
-
 # Delete a Review
 @review_routes.route('/<int:reviewId>', methods=['DELETE'])
 @login_required
 def delete_review(reviewId):
-    return
+    deleted_review = Review.query.get(reviewId)
+
+    if deleted_review:
+        db.session.delete(deleted_review)
+        db.session.commit()
+        return {"message": "Review successfully deleted.", "statusCode": 200}
+    else:
+        return {"message": "Review not found"}
+

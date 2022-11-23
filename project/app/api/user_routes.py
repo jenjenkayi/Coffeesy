@@ -33,7 +33,7 @@ def user(id):
         products = Product.query.filter(Product.user_id == id)
         result = user.to_dict()
         result["Products"] = [product.to_dict_no_relations() for product in products]
-        return result
+    return result
     # else: 
     #     raise ValueError({"message": "User couldn't be found", "statusCode": 404})
 
