@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import "./GetOneProduct.css";
 import {getOneProductThunk} from '../../store/product';
+import GetProductReviews from '../GetProductReviews/GetProductReviews'
 
 const GetOneProduct = () => {
   const dispatch = useDispatch();
@@ -20,9 +21,9 @@ const GetOneProduct = () => {
     return null;
   }
 
-return (
+return ( 
+        <>
         <div className="product-container">
-            <>
             <div>{product.image}</div>
             <div>
             <img className="product-image" src="https://cdn.pixabay.com/photo/2017/06/02/11/49/still-life-2366084__340.jpg" alt="default"/>
@@ -33,9 +34,12 @@ return (
             <div>${product.price}</div>
             <div>{product.quantity}</div>
             <div>{product.description}</div>
-
-            </>
         </div>
+       
+            <div>
+                <GetProductReviews />
+            </div>
+        </>
     )
 }
 

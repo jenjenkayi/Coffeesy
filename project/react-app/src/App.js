@@ -6,7 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import User from './components/User';
 import { authenticate } from './store/session';
-// import CreateProduct from './components/CreateProduct';
+import CreateProduct from './components/CreateProduct/CreateProduct';
 // import EditProduct from './components/EditProduct';
 import GetOneProduct from './components/GetOneProduct/GetOneProduct';
 import GetAllProducts from './components/GetAllProducts/GetAllProducts';
@@ -41,12 +41,12 @@ function App() {
         </Route>
         <Route path="/products/:productId">
           <GetOneProduct />
+        <Route path="/products/new">
+        <CreateProduct />
+        </Route>
         </Route>
         <Route path='/'>
           <GetAllProducts />
-        </Route>
-          <Route path="/products/new">
-          {/* <CreateProduct /> */}
         </Route>
         <Route path="/products/:productId/edit">
           {/* <EditProduct /> */}

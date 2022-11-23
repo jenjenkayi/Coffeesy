@@ -11,8 +11,6 @@ const GetAllProducts = () => {
   const user = useSelector((state) => state.session.user);
   const products = useSelector(state => state.product.allProducts);
   const productsArr = Object.values(products);
-
-  console.log("productsArr", productsArr)
   
   useEffect(() => {
     dispatch(getAllProductsThunk())
