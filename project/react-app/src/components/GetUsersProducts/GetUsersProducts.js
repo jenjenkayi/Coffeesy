@@ -2,32 +2,34 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import "./GetUsersProducts.css";
-import { getUsersProductsThunk } from '../../store/product';
+import { getAllProductsThunk, deleteProductThunk } from '../../store/product';
 
 const GetUsersProducts = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const user = useSelector((state) => state.session.user);
-  const userId = user.id
   const products = useSelector(state => state.product.allProducts);
   const productsArr = Object.values(products);
-  
-  console.log("productsArr-------", productsArr)
-  
-  useEffect(() => {
-    dispatch(getUsersProductsThunk(userId))
-  }, [dispatch, userId]);
+  const userProducts = productsArr.filter((product) => product.user_id === user.id);
 
-  if (Object.keys(productsArr).length === 0) {
+  useEffect(() => {
+    dispatch(getAllProductsThunk())
+  }, [dispatch]);
+
+  if (Object.keys(userProducts).length === 0) {
     return null;
   }
 
+  const deleteProductHandler = (productId) => {
+  dispatch(deleteProductThunk(productId));
+  history.push("/");
+  };
 
 return (
-    productsArr && (
+    userProducts && (
         <div className="products-container">
-            {productsArr.map((product) => {
+            {userProducts.map((product) => {
                 return (
                     <>
                     {/* <div>{product.image} */}
@@ -40,6 +42,26 @@ return (
                     <div>{product.reviewCount}</div>
                     <div>${product.price}</div>
                     </NavLink>
+                     <div className="product-buttons">
+                      {user && user.id === product.user_id && (
+                        <button
+                          className="edit-product-button"
+                          onClick={() =>
+                            history.push(`/story/${product.id}/edit`)
+                          }
+                        >
+                          Edit Listing
+                        </button>
+                      )}
+                      {user && user.id === product.user_id && (
+                        <button
+                          className="delete-product-button"
+                          onClick={() => deleteProductHandler(product.id)}
+                        >
+                          Delete Listing
+                        </button>
+                      )}
+                  </div>
                     </>
                 )
             })}
