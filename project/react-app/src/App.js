@@ -36,9 +36,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/users/:userId' exact={true} >
+        {/* <Route path='/users/:userId' exact={true} >
           <User />
-        </Route>
+        </Route> */}
         <Route path="/products/:productId">
           <GetOneProduct />
         <Route path="/products/new">
