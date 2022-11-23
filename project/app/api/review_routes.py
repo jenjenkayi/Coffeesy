@@ -15,7 +15,7 @@ def get_curr_reviews():
         return {'Reviews': [review.to_dict() for review in reviews]}
 
     else:
-        return {"message": "No Reviews Found"}
+        return {"message": "No Reviews Found", "statusCode": 404}
 
 
 # Edit a Review
@@ -24,6 +24,15 @@ def get_curr_reviews():
 def edit_review(reviewId):
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    review = Review.query.get(reviewId)
+
+    if not review:
+        return {"message": "Review not found", "statusCode": 404}
+    
+    if review.user_id != current_user.id:
+        return {"message": "You are not authorized to edit the review"}
+
     if form.validate_on_submit():
         data = form.data
         edited_review = Review.query.get(reviewId)
@@ -40,10 +49,13 @@ def edit_review(reviewId):
 def delete_review(reviewId):
     deleted_review = Review.query.get(reviewId)
 
+    if not deleted_review:
+        return {"message": "Review not found", "statusCode": 404}
+
+    if deleted_review.user_id != current_user.id:
+        return {"message": "You are not authorized to delete the review"}
+
     if deleted_review:
         db.session.delete(deleted_review)
         db.session.commit()
-        return {"message": "Review successfully deleted.", "statusCode": 200}
-    else:
-        return {"message": "Review not found"}
-
+    return {"message": "Review successfully deleted.", "statusCode": 200}

@@ -24,25 +24,26 @@ def all_products():
     products = Product.query.all()
 
     if not products:
-        return {"message": "No Products found"}
+        return {"message": "No Products found", "statusCode": 404}
     return jsonify({"Products": [product.to_dict() for product in products]})
 
 
 # Get details of a Product from an id
 @product_routes.route('/<int:productId>')
-def one_product(productId):
+def single_product(productId):
     product = Product.query.get(productId)
     if product:
         return jsonify(product.to_dict())
     else:
-        return {"message": "Product not found"}
+        return {"message": "Product not found", "statusCode": 404}
+
 
 # Get Current User's products
 @product_routes.route('/current')
 @login_required
-def get_curr_product():
+def currentuser_products():
     products = Product.query.filter(Product.user_id == current_user.id)
-    return {'Products': [product.to_dict() for product in products]}
+    return jsonify({'Products': [product.to_dict() for product in products]})
 
 
 # Create a Product
@@ -76,6 +77,14 @@ def edit_product(productId):
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    product = Product.query.get(productId)
+
+    if not product:
+        return {"message": "Product not found", "statusCode": 404}
+    
+    if product.user_id != current_user.id:
+        return {"message": "You are not authorized to edit the product"}
+
     if form.validate_on_submit():
         edited_product = Product.query.get(productId)
         edited_product.name = form.data['name']
@@ -88,7 +97,7 @@ def edit_product(productId):
         db.session.commit()
         return jsonify(edited_product.to_dict())
     else:
-        return {"message": "Product not found"}
+        return {"message": "Product not found", "statusCode": 404}
 
 
 # Delete a Product
@@ -97,18 +106,22 @@ def edit_product(productId):
 def delete_product(productId):
     deleted_product = Product.query.get(productId)
 
+    if not deleted_product:
+        return {"message": "Product not found", "statusCode": 404}
+
+    if deleted_product.user_id != current_user.id:
+        return {"message": "You are not authorized to delete the product"}
+
     if deleted_product:
         db.session.delete(deleted_product)
         db.session.commit()
-        return {"message": "Product successfully deleted.", "statusCode": 200}
-    else:
-        return {"message": "Product not found"}
-
+    return {"message": "Product successfully deleted.", "statusCode": 200}
+   
 
 # Get all Reviews by a Product's id
 @product_routes.route('/<int:productId>/reviews')
 def get_reviews(productId):
-    reviews = Review.query.filter(Review.product_id == productId)
+    reviews = Review.query.filter(Review.product_id == productId).all()
     if not reviews:
         return {"Reviews": []}
     return jsonify({"Reviews": [review.to_dict_with_user() for review in reviews]})
