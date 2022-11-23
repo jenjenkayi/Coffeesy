@@ -59,38 +59,26 @@ export const getAllReviewsThunk = (productId) => async (dispatch) => {
 }
 
 export const getUsersReviewsThunk = (userId) => async (dispatch) => {
-  const response = await csrfFetch('/api/reviews/current')
+  const response = await csrfFetch(`/api/users/${userId}/reviews`)
   
   if (response.ok) {
     const reviews = await response.json()
-    dispatch(getUserReviews(reviews))
+    dispatch(getUsersReviews(reviews))
     return reviews
   }
 }
 
-export const updateReviewThunk = (review, reviewId) => async (dispatch) => {
+export const editReviewThunk = (reviewId, data) => async (dispatch) => {
    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
      method: 'PUT',
-     headers: {
-       'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(review)
+     headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
     });
     
-    if(response.ok){
-      const data = await response.json()
-      dispatch(updateReview(data))
-      return data;
-  }
-}
-
-export const getOneReviewThunk = (spotId, reviewId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/spots/${spotId}/reviews/${reviewId}`)
-
-  if(response.ok){
-    const data = await response.json()
-    dispatch(getOneReview(data))
-    return response;
+    if (response.ok) {
+      const review = await response.json()
+      dispatch(editReview(review))
+      return review;
   }
 }
 
@@ -99,50 +87,43 @@ export const deleteReviewThunk = (reviewId) => async (dispatch) => {
     method: 'DELETE',
   });
 
-  if(response.ok){
-    // const review = await response.json()
+  if (response.ok) {
     dispatch(deleteReview(reviewId))
-    // return review
   } 
 }
 
 // reducers
-const initialState = {spotReviews:{}, userReviews:{}}
-export default function reviewsReducer(state=initialState, action){
+const initialState = {allReviews:{}, singleReview:{}};
+export default function reviewReducer(state=initialState, action){
   switch(action.type) {
     case CREATE_REVIEW: {
-      // const newState = { ...state, spotReviews:{...state.spotReviews}}
-      // console.log("newState", newState)
-      // newState.spotReviews[action.payload.id] = action.payload
-      // return newState
-      const newState = {...state}
-        newState[action.payload.id] = action.payload
+      const newState = {...state, singleReview:{}}
+        newState.singleReview = action.payload
         return newState;
   }
     case LOAD_ALL_REVIEWS: {
-      const newState = { ...state, spotReviews:{...state.spotReviews}}
-        action.payload.forEach(review => {
-        newState.spotReviews = review
+      const newState = { ...state, allReviews:{}}
+        action.payload.Reviews.forEach(review => {
+        newState.allReviews[review.id] = review
       });
      return newState
     }
     case LOAD_USERS_REVIEWS: {
-      const newState = { ...state, userReviews:{...state.userReviews}}
+      const newState = { ...state, allReviews:{}}
         action.payload.Reviews.forEach(review => {
         newState.userReviews[review.id] = review
       });
-      console.log('thunk', newState)
       return newState;
     }
     case EDIT_REVIEW: {
-      const newState = {...state, userReviews:{...state.userReviews}}
-      newState.userReviews[action.payload.id] = action.payload
+      const newState = {...state, singleReview:{}}
+      newState.singleReview = action.payload
       return newState
     }
     case DELETE_REVIEW: {
-      const newState = { ...state, spotReviews:{...state.spotReviews}, userReviews:{...state.userReviews}}
-      delete newState.spotReviews[action.payload]
-      delete newState.userReviews[action.payload]
+      const newState = { ...state, allReviews:{...state.allReviews}, singleReviews:{...state.singleReview}}
+      delete newState.allReviews[action.payload]
+      delete newState.singleReviews[action.payload]
       return newState
     }
     default:
