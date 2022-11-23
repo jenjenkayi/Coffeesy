@@ -11,7 +11,7 @@ const CreateProduct = () => {
 
   const categories = ["Whole Beans", "Ground Coffee", "Pods", "Drinkware", "Equipment", "Accessories"]
 
-  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -23,31 +23,30 @@ const CreateProduct = () => {
     e.preventDefault();
     setErrors([]);
 
-    const data = { category, title, description, price, quantity, image };
+    const data = { category, name, description, price, quantity, image };
 
-        if (!data.category.length) return setErrors(['Category can not be empty.'])
-        if (!data.title.length) return setErrors(['Title can not be empty.'])
-        if (!data.description.length) return setErrors(['Description can not be empty.'])
-        if (!data.price.length) return setErrors(['Price can not be empty.'])
-        if (!data.quantity.length || data.quantity < 0) return setErrors(['Quantity can not be empty and it must be greater than 1.'])
-        if (!data.image.length) return setErrors(['Image can not be empty.'])
-        if (!data.image.endsWith('.jpg') && !data.image.includes('.jpeg') && !data.image.includes('.png')) return setErrors(['Image must be in .jpg, .jpeg, or .png format']);
+    if (!data.category.length) return setErrors(['Category can not be empty.'])
+    if (!data.name.length) return setErrors(['Name can not be empty.'])
+    if (!data.description.length) return setErrors(['Description can not be empty.'])
+    if (!data.price.length) return setErrors(['Price can not be empty.'])
+    if (!data.quantity.length || data.quantity < 0) return setErrors(['Quantity can not be empty and it must be greater than 1.'])
+    if (!data.image.length) return setErrors(['Image can not be empty.'])
+    if (!data.image.endsWith('.jpg') && !data.image.includes('.jpeg') && !data.image.includes('.png')) return setErrors(['Image must be in .jpg, .jpeg, or .png format']);
         
-        let createdProduct;
-        createdProduct = dispatch(createProductThunk(data)).then(() => {
-            history.push(`/products/${createdProduct.id}`);
-        });
+    dispatch(createProductThunk(data)).then(() => {
+        history.push(`/`);
+    });
     };
     
-        const cancelHandler = (e) => {
+    const cancelHandler = (e) => {
         e.preventDefault();
         history.push('/');
-        }; 
+    }; 
     
 
     return (
         <>
-        <div className="form-wrapper">
+        {user && <div className="form-wrapper">
             <h1>Create a listing</h1>
             <h5>Add some details about your item. Fill out what you can for now—you’ll be able to edit this later.</h5>
             <form className="form-container" onSubmit={submit}>
@@ -55,12 +54,12 @@ const CreateProduct = () => {
                     {errors.length > 0 &&
                         errors.map((error) => <li key={error}>{error}</li>)}
                 </div>
-                <span>Title*</span>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
+                <span>Name*</span>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
                 <span>Category*</span>
                 <select
                     name={category}
@@ -84,7 +83,7 @@ const CreateProduct = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
-                <span>Price *</span>
+                <span>Price*</span>
                 <input
                     type="text"
                     value={price}
@@ -107,7 +106,7 @@ const CreateProduct = () => {
                 Cancel
                 </button>
             </form>
-        </div>  
+        </div>}  
     </>
   );
 };
