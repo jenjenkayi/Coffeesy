@@ -32,7 +32,7 @@ def user(id):
         return {"message": "User not found", "statusCode": 404}
 
 
-# Get all Products by a UserId
+# Get All Products by a UserId
 @user_routes.route('/<int:userId>/products')
 @login_required
 def get_user_products(userId):
