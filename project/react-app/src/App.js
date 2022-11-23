@@ -4,10 +4,11 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import CreateProduct from './components/CreateProduct';
+import EditProduct from './components/EditProduct';
+import GetOneProduct from './components/GetOneProduct';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,14 +35,20 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <Route path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
-        <Route path='/' exact={true} >
+        </Route>
+        <Route path='/'>
           <h1>My Home Page</h1>
+        </Route>
+        <Route path="/products/productId">
+          <GetOneProduct />
+        </Route>
+          <Route path="/product/new">
+          <CreateProduct />
+        </Route>
+        <Route path="/product/:productId/edit">
+          <EditProduct />
         </Route>
       </Switch>
     </BrowserRouter>
