@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import "./GetAllProducts.css";
-import getAllProductsThunk from '../../store/product';
+import {getAllProductsThunk} from '../../store/product';
 
-const GetAllProducts = ({ products }) => {
+const GetAllProducts = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 

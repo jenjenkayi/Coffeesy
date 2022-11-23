@@ -1,4 +1,4 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from './csrf';
 
 // TYPES
 const CREATE_PRODUCT = 'products/CREATE_PRODUCT'
@@ -42,7 +42,7 @@ export const deleteProduct = (productId) => ({
 
 // THUNKS
 export const createProductThunk = (data) => async (dispatch) => {
-  const response = await csrfFetch('/api/products', {
+  const response = await csrfFetch('/api/products/', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(data)
@@ -56,7 +56,7 @@ export const createProductThunk = (data) => async (dispatch) => {
 }
 
 export const getAllProductsThunk = () => async (dispatch) => {
-  const response = await csrfFetch('/api/products')
+  const response = await csrfFetch('/api/products/')
 
   if (response.ok) {
     const products = await response.json()
@@ -111,7 +111,7 @@ export const deleteProductThunk = (productId) => async (dispatch) => {
 
 // reducers
 let initialState = {allProducts:{}, singleProduct:{}};
-export default function productReducer(state = initialState, action){
+export const productReducer = (state = initialState, action) => {
   switch(action.type){
     case CREATE_PRODUCT: 
      const newState = { ...state, singleProduct: {}};

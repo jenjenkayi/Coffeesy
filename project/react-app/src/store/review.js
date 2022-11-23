@@ -94,13 +94,13 @@ export const deleteReviewThunk = (reviewId) => async (dispatch) => {
 
 // reducers
 const initialState = {allReviews:{}, singleReview:{}};
-export default function reviewReducer(state=initialState, action){
+export const reviewReducer = (state=initialState, action) => {
   switch(action.type) {
     case CREATE_REVIEW: {
       const newState = {...state, singleReview:{}}
         newState.singleReview = action.payload
         return newState;
-  }
+    }
     case LOAD_ALL_REVIEWS: {
       const newState = { ...state, allReviews:{}}
         action.payload.Reviews.forEach(review => {
@@ -127,6 +127,6 @@ export default function reviewReducer(state=initialState, action){
       return newState
     }
     default:
-      return state
+      return state;
   }
 }

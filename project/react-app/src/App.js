@@ -6,9 +6,10 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import User from './components/User';
 import { authenticate } from './store/session';
-import CreateProduct from './components/CreateProduct';
-import EditProduct from './components/EditProduct';
-import GetOneProduct from './components/GetOneProduct';
+// import CreateProduct from './components/CreateProduct';
+// import EditProduct from './components/EditProduct';
+// import GetOneProduct from './components/GetOneProduct';
+import GetAllProducts from './components/GetAllProducts/GetAllProducts';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,16 +40,16 @@ function App() {
           <User />
         </Route>
         <Route path='/'>
-          <h1>My Home Page</h1>
+          <GetAllProducts />
         </Route>
         <Route path="/products/productId">
-          <GetOneProduct />
+          {/* <GetOneProduct /> */}
         </Route>
           <Route path="/product/new">
-          <CreateProduct />
+          {/* <CreateProduct /> */}
         </Route>
         <Route path="/product/:productId/edit">
-          <EditProduct />
+          {/* <EditProduct /> */}
         </Route>
       </Switch>
     </BrowserRouter>
