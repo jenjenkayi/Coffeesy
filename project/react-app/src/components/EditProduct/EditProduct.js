@@ -62,10 +62,8 @@ const EditProduct = () => {
 
     return (
         <>
-        <h1>Edit a listing</h1>
         {user && <div className="form-wrapper">
             <h1>Edit a listing</h1>
-            <h5>Add some details about your item. Fill out what you can for now—you’ll be able to edit this later.</h5>
             <form className="form-container" onSubmit={submit}>
                 <div className="errors">
                     {errors.length > 0 &&

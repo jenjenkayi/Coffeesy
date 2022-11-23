@@ -9,6 +9,7 @@ import CreateProduct from './components/CreateProduct/CreateProduct';
 import EditProduct from './components/EditProduct/EditProduct';
 import GetOneProduct from './components/GetOneProduct/GetOneProduct';
 import GetAllProducts from './components/GetAllProducts/GetAllProducts';
+import GetUsersProducts from './components/GetUsersProducts/GetUsersProducts';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,17 +36,17 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        {/* <Route path='/users/:userId' exact={true} >
-          <User />
-        </Route> */}
+        <Route path='/users/:userId/products'>
+          <GetUsersProducts />
+        </Route>
+        <Route path="/products/:productId/edit">
+          <EditProduct />
+        </Route>
         <Route path="/products/:productId">
           <GetOneProduct />
         </Route>
         <Route path="/products/new">
           <CreateProduct />
-        </Route>
-        <Route path="/products/:productId/edit">
-          <EditProduct />
         </Route>
         <Route path='/'>
           <GetAllProducts />
