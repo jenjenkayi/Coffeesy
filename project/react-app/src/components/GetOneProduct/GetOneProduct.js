@@ -14,6 +14,9 @@ const GetOneProduct = () => {
   const product = useSelector(state => state.product.singleProduct);
   const productArr = Object.values(product);
 
+  const reviews = useSelector(state => state.review.allReviews);
+  const userReview = Object.values(reviews).filter(review => review.user_id === user.id)
+
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
   }, [dispatch, productId]);
@@ -65,6 +68,13 @@ return (
             <div>
                 <GetProductReviews />
             </div>
+            {!userReview.length && user && <NavLink to={`/products/${productId}/new-review`}>
+            <button 
+              type="submit"
+              className="one_spot_create_review_button"
+              >Create a Review
+            </button>
+            </NavLink>}
         </>
     )
 }

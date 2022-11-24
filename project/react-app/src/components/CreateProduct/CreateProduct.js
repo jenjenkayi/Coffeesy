@@ -93,6 +93,7 @@ const CreateProduct = () => {
                 <input
                     type="number"
                     value={quantity}
+                    min="1"
                     onChange={(e) => setQuantity(e.target.value)}
                 />
                 <span>Image*</span>
