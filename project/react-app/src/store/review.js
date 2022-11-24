@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 // TYPES
 const CREATE_REVIEW = 'reviews/CREATE_REVIEW'
 const LOAD_ALL_REVIEWS = 'reviews/LOAD_ALL_REVIEWS'
+const LOAD_ONE_REVIEW = 'reviews/LOAD_ONE_REVIEW'
 const LOAD_USERS_REVIEWS = 'reviews/LOAD_USERS_REVIEWS'
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW'
 const EDIT_REVIEW = 'reviews/EDIT_REVIEW'
@@ -16,6 +17,11 @@ export const createReview = (review) => ({
 export const getAllReviews = (reviews) => ({
     type: LOAD_ALL_REVIEWS,
     payload: reviews
+})
+
+export const getOneReview = (review) => ({
+    type: LOAD_ONE_REVIEW,
+    payload: review
 })
 
 export const getUsersReviews = (reviews) => ({
@@ -58,6 +64,16 @@ export const getAllReviewsThunk = (productId) => async (dispatch) => {
   }
 }
 
+export const getOneReviewThunk = (reviewId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/reviews/${reviewId}`)
+  
+  if (response.ok) {
+    const review = await response.json()
+    dispatch(getOneReview(review))
+    return review
+  }
+}
+
 export const getUsersReviewsThunk = (userId) => async (dispatch) => {
   const response = await csrfFetch(`/api/users/${userId}/reviews`)
   
@@ -68,8 +84,8 @@ export const getUsersReviewsThunk = (userId) => async (dispatch) => {
   }
 }
 
-export const editReviewThunk = (reviewId, data) => async (dispatch) => {
-   const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+export const editReviewThunk = (data) => async (dispatch) => {
+   const response = await csrfFetch(`/api/reviews/${data.reviewId}`, {
      method: 'PUT',
      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)
@@ -108,6 +124,10 @@ export const reviewReducer = (state=initialState, action) => {
       });
      return newState
     }
+    case LOAD_ONE_REVIEW: {
+      const newState = {...state, singleReview: action.payload}
+      return { ...newState }
+    }
     case LOAD_USERS_REVIEWS: {
       const newState = { ...state, allReviews:{}}
         action.payload.Reviews.forEach(review => {
@@ -121,9 +141,9 @@ export const reviewReducer = (state=initialState, action) => {
       return newState
     }
     case DELETE_REVIEW: {
-      const newState = { ...state, allReviews:{...state.allReviews}, singleReviews:{...state.singleReview}}
+      const newState = { ...state, allReviews:{...state.allReviews}, singleReview:{...state.singleReview}}
       delete newState.allReviews[action.payload]
-      delete newState.singleReviews[action.payload]
+      delete newState.singleReview[action.payload]
       return newState
     }
     default:

@@ -1,36 +1,33 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams} from 'react-router-dom';
-import { editReviewThunk, getAllReviewsThunk } from '../../store/review';
+import { editReviewThunk, getAllReviewsThunk, getOneReviewThunk } from '../../store/review';
 import './EditReview.css';
 
 const EditReview = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { reviewId } = useParams();
-    const { productId } = useParams();
 
     const user = useSelector((state) => state.session.user);
-    const currReview = useSelector(state => state.review.allReviews);
-    console.log("review------", currReview)
+    const currReview = useSelector(state => state.review.singleReview);
+    const productId = currReview.product_id
+
     const [review, setReview] = useState(currReview.review);
     const [stars, setStars] = useState(currReview.stars);
     const [errors, setErrors] = useState([]);
 
-    const updateReview = (e) => setReview(e.target.value)
-    const updateStars = (e) => setStars(e.target.value)
-    
     useEffect(() => {
-    dispatch(getAllReviewsThunk(productId))
-  }, [dispatch, productId])
+    dispatch(getOneReviewThunk(reviewId))
+  }, [dispatch, reviewId])
 
     const submitHandler = async (e) => {
     e.preventDefault();
     setErrors([]);
 
     const data = {
-        reviewId: currReview.id,
-        productId: currReview.product_id,
+        reviewId: reviewId,
+        productId: productId,
         review, 
         stars
     };
@@ -39,7 +36,7 @@ const EditReview = () => {
     if (!data.review.length) return setErrors(["Please provide a review"]);
     if (data.stars > 5 || data.stars < 1) return setErrors(["Stars must be between 1 to 5"]);
   
-    dispatch(editReviewThunk(data, reviewId)).then(() => {
+    dispatch(editReviewThunk(data)).then(() => {
         history.push(`/products/${productId}`);
         })
     }
