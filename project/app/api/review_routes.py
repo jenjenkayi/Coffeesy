@@ -17,6 +17,15 @@ def get_curr_reviews():
     else:
         return {"message": "No Reviews Found", "statusCode": 404}
 
+# Get a Review by review id
+@review_routes.route('/<int:reviewId')
+def get_one_review(reviewId):
+    review = Review.query.get(reviewId)
+    if review:
+        return jsonify(review.to_dict())
+    else:
+        return {"message": "Review Not Found", "statusCode": 404}
+
 
 # Edit a Review
 @review_routes.route('/<int:reviewId>', methods=['PUT'])

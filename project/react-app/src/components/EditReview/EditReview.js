@@ -11,28 +11,26 @@ const EditReview = () => {
     const { productId } = useParams();
 
     const user = useSelector((state) => state.session.user);
-    const currentReview = useSelector(state => state.review.allReviews);
-    console.log("review------", currentReview)
-    const [review, setReview] = useState("");
-    const [stars, setStars] = useState("");
+    const currReview = useSelector(state => state.review.allReviews);
+    console.log("review------", currReview)
+    const [review, setReview] = useState(currReview.review);
+    const [stars, setStars] = useState(currReview.stars);
     const [errors, setErrors] = useState([]);
 
+    const updateReview = (e) => setReview(e.target.value)
+    const updateStars = (e) => setStars(e.target.value)
+    
     useEffect(() => {
     dispatch(getAllReviewsThunk(productId))
   }, [dispatch, productId])
-
-    useEffect(() => {
-        setReview(currentReview.review)
-        setStars(currentReview.stars)
-  }, [currentReview])
 
     const submitHandler = async (e) => {
     e.preventDefault();
     setErrors([]);
 
     const data = {
-        reviewId: currentReview.id,
-        productId: currentReview.productId,
+        reviewId: currReview.id,
+        productId: currReview.product_id,
         review, 
         stars
     };
@@ -41,7 +39,7 @@ const EditReview = () => {
     if (!data.review.length) return setErrors(["Please provide a review"]);
     if (data.stars > 5 || data.stars < 1) return setErrors(["Stars must be between 1 to 5"]);
   
-    dispatch(editReviewThunk(data)).then(() => {
+    dispatch(editReviewThunk(data, reviewId)).then(() => {
         history.push(`/products/${productId}`);
         })
     }

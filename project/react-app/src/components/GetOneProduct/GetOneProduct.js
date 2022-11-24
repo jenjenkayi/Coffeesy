@@ -26,7 +26,7 @@ const GetOneProduct = () => {
     return null;
   }
 
-  const deleteProductHandler = (productId) => {
+  const deleteHandler = (productId) => {
     dispatch(deleteProductThunk(productId));
     history.push("/");
   };
@@ -56,7 +56,7 @@ return (
                         <button
                           className="edit-product-button"
                           onClick={() =>
-                            history.push(`/story/${product.id}/edit`)
+                            history.push(`/products/${product.id}/edit`)
                           }
                         >
                           Edit Listing
@@ -65,7 +65,7 @@ return (
                       {user && user.id === product.user_id && (
                         <button
                           className="delete-product-button"
-                          onClick={() => deleteProductHandler(product.id)}
+                          onClick={() => deleteHandler(product.id)}
                         >
                           Delete Listing
                         </button>

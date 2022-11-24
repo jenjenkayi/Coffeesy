@@ -54,11 +54,11 @@ function App() {
         <Route path='/products/:productId/new-review'>
           <CreateReview />
         </Route>
+        <Route path="/products/new" exact={true}>
+          <CreateProduct />
+        </Route>
         <Route path="/products/:productId">
           <GetOneProduct />
-        </Route>
-        <Route path="/products/new">
-          <CreateProduct />
         </Route>
         <Route path='/'>
           <GetAllProducts />
