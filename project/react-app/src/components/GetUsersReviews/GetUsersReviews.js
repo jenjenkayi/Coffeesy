@@ -39,7 +39,7 @@ const GetUsersReviews = () => {
                         <button
                           className="edit-review-button"
                           onClick={() =>
-                            history.push(`/story/${review.id}/edit`)
+                            history.push(`/reviews/${review.id}/edit`)
                           }
                         >
                           Edit Review

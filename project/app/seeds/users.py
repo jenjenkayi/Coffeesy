@@ -9,8 +9,6 @@ def seed_users():
         password='password',
         first_name = "demo",
         last_name = "user",
-        profile_picture = "pic_png",
-        
     )
     instance2 = User(
         username='marnie', 
@@ -18,7 +16,6 @@ def seed_users():
         password='password',
         first_name = "Marnie",
         last_name = "Smith",
-        profile_picture = "pic_png",
     )
     instance3 = User(
         username='bobbie', 
@@ -26,12 +23,27 @@ def seed_users():
         password='password',
         first_name = "Bobbie",
         last_name = "Brown",
-        profile_picture = "pic_png",
     )
-
+    instance4 = User(
+        username='daniel', 
+        email='daniele@aa.io', 
+        password='password',
+        first_name = "Daniel",
+        last_name = "Reyes",
+    )
+    instance5 = User(
+        username='miguel', 
+        email='miguel@aa.io', 
+        password='password',
+        first_name = "Miguel",
+        last_name = "Martinez",
+    )
+    
     db.session.add(instance1)
     db.session.add(instance2)
     db.session.add(instance3)
+    db.session.add(instance4)
+    db.session.add(instance5)
     db.session.commit()
 
 
