@@ -12,7 +12,6 @@ const CreateReview = () => {
     const user = useSelector(state => state.session.user);
     const product = useSelector(state => state.product.singleProduct);
     const userId = user.id
-    // const productId = product.id
 
     const [review, setReview] = useState('');
     const [stars, setStars] = useState('');
@@ -28,14 +27,14 @@ const CreateReview = () => {
     if (!Review.stars.length) return setErrors(["Star can not be empty"]);
     if (Review.stars > 5 || Review.stars < 1) return setErrors(["Stars must be between 1 to 5"]);
 
-    const payload = {
-        user_id: userId,
-        product_id: productId, 
+    const data = { 
+        user_id: user.id,
+        productId: productId,
         review, 
         stars
-    };
-  
-    dispatch(createReviewThunk(payload, productId)).then(() => {
+    }
+    
+    dispatch(createReviewThunk(data)).then(() => {
         history.push(`/products/${productId}`);
     })
     }

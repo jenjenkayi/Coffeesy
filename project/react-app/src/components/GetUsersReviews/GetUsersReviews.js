@@ -23,7 +23,7 @@ const GetUsersReviews = () => {
 
   const deleteReviewHandler = (reviewId) => {
   dispatch(deleteReviewThunk(reviewId));
-  history.push("/");
+  history.push("/reviews/current");
   };
 
   return (

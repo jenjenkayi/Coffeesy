@@ -12,6 +12,7 @@ import GetAllProducts from './components/GetAllProducts/GetAllProducts';
 import GetUsersProducts from './components/GetUsersProducts/GetUsersProducts';
 import CreateReview from './components/CreateReview/CreateReview';
 import GetUsersReviews from './components/GetUsersReviews/GetUsersReviews';
+import EditReview from './components/EditReview/EditReview';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route path='/reviews/current'>
           <GetUsersReviews />
+        </Route>
+        <Route path="/reviews/:reviewId/edit">
+          <EditReview />
         </Route>
         <Route path='/products/:productId/new-review'>
           <CreateReview />
