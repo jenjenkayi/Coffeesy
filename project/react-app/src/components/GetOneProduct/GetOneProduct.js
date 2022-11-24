@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import "./GetOneProduct.css";
 import {deleteProductThunk, getOneProductThunk} from '../../store/product';
+import { deleteReviewThunk } from '../../store/review';
 import GetProductReviews from '../GetProductReviews/GetProductReviews'
 
 const GetOneProduct = () => {
@@ -15,7 +16,7 @@ const GetOneProduct = () => {
   const productArr = Object.values(product);
 
   const reviews = useSelector(state => state.review.allReviews);
-  const userReview = Object.values(reviews).filter(review => review.user_id === user.id)
+  const userReviews = Object.values(reviews).filter(review => review.user_id === user.id)
 
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
@@ -28,6 +29,11 @@ const GetOneProduct = () => {
   const deleteProductHandler = (productId) => {
     dispatch(deleteProductThunk(productId));
     history.push("/");
+  };
+
+  const deleteReviewHandler = (reviewId) => {
+  dispatch(deleteReviewThunk(reviewId));
+  history.push("/");
   };
 
 return ( 
@@ -68,14 +74,28 @@ return (
             <div>
                 <GetProductReviews />
             </div>
-            {!userReview.length && user && <NavLink to={`/products/${productId}/new-review`}>
+            {!userReviews.length && user && <NavLink to={`/products/${productId}/new-review`}>
             <button 
               type="submit"
               className="one_spot_create_review_button"
               >Create a Review
             </button>
             </NavLink>}
-        </>
+            {userReviews.map(review => {
+                return (
+                  <>
+                    {user && user.id === review.user_id && (
+                      <button
+                        className="delete-review-button"
+                        onClick={() => deleteReviewHandler(review.id)}
+                      >
+                        Delete Review
+                      </button>
+                    )}
+                  </>
+                )
+              })}
+      </>
     )
 }
 
