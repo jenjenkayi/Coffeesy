@@ -84,6 +84,14 @@ return (
             {userReviews.map(review => {
                 return (
                   <>
+                    {user && user.id === review.user_id && <NavLink to={`/reviews/${review.id}/edit`}>
+                      <button
+                        className="edit-review-button"
+                      >
+                        Edit Review
+                      </button>
+                    </NavLink>}
+              
                     {user && user.id === review.user_id && (
                       <button
                         className="delete-review-button"
@@ -94,7 +102,7 @@ return (
                     )}
                   </>
                 )
-              })}
+            })}
       </>
     )
 }

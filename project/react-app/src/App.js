@@ -39,6 +39,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <Route path="/reviews/:reviewId/edit">
+          <EditReview />
+        </Route>
         <Route path='/products/current'>
           <GetUsersProducts />
         </Route>
@@ -47,9 +50,6 @@ function App() {
         </Route>
         <Route path='/reviews/current'>
           <GetUsersReviews />
-        </Route>
-        <Route path="/reviews/:reviewId/edit">
-          <EditReview />
         </Route>
         <Route path='/products/:productId/new-review'>
           <CreateReview />

@@ -48,9 +48,8 @@ const EditProduct = () => {
     if (!data.image.length) return setErrors(['Image can not be empty.'])
     if (!data.image.endsWith('.jpg') && !data.image.includes('.jpeg') && !data.image.includes('.png')) return setErrors(['Image must be in .jpg, .jpeg, or .png format']);
         
-       
     dispatch(editProductThunk(productId, data)).then(() => {
-            history.push(`/`);
+        history.push(`/`);
         });
     };
     
