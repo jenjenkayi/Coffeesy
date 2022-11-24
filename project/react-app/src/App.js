@@ -11,6 +11,7 @@ import GetOneProduct from './components/GetOneProduct/GetOneProduct';
 import GetAllProducts from './components/GetAllProducts/GetAllProducts';
 import GetUsersProducts from './components/GetUsersProducts/GetUsersProducts';
 import CreateReview from './components/CreateReview/CreateReview';
+import GetUsersReviews from './components/GetUsersReviews/GetUsersReviews';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <Route path="/products/:productId/edit">
           <EditProduct />
+        </Route>
+        <Route path='/reviews/current'>
+          <GetUsersReviews />
         </Route>
         <Route path='/products/:productId/new-review'>
           <CreateReview />

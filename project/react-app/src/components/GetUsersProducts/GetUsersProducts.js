@@ -29,7 +29,7 @@ const GetUsersProducts = () => {
 return (
     userProducts && (
         <div className="products-container">
-            {userProducts.map((product) => {
+            {userProducts.map(product => {
                 return (
                     <>
                     {/* <div>{product.image} */}
