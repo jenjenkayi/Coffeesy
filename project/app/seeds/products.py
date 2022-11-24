@@ -22,7 +22,7 @@ def seed_products():
     product3 = Product(
         user_id=3,
         name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
+        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
         price=22.50,
         image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
         category="Whole Beans",
@@ -30,19 +30,19 @@ def seed_products():
     )
     product4 = Product(
         user_id=4,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
-        price=15.99,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        name="Hopped Up Coffee - Sample Pack, Beer Coffee, Specialty Coffee",
+        description="Specialty coffee blended to mimic different styles of beer. This gift box lets you try all five delicious flavors! Gift box includes: 5 - 2.5 oz Kraft Bags of Hopped Up Coffee - 1 Scottish Ale, 1 Winter Warmer, 1 Chocolate Stout, 1 Black IPA, 1 Pumpkin Ale",
+        price=25.99,
+        image="https://i.etsystatic.com/7169689/r/il/235d5e/4184325925/il_794xN.4184325925_tqao.jpg",
         category="Whole Beans",
         quantity=15
     )
     product5 = Product(
         user_id=5,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
-        price=20.00,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        name="Salem's Espresso Roast Whole Beans",
+        description="A pound of freshly roasted coffee beans blended for espresso. This is our in house espresso, and the coffee I drink the most of! I work hard to make each bag deliver a nice body with some toasted sweetness without the sour back end that so many espressos have.",
+        price=15.00,
+        image="https://i.etsystatic.com/11500191/r/il/124c41/3258849363/il_794xN.3258849363_mcm4.jpg",
         category="Whole Beans",
         quantity=15
     )
