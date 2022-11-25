@@ -191,7 +191,7 @@ def seed_products():
         quantity=10
     )
     product22 = Product(
-        user_id=1,
+        user_id=2,
         name="Walnut Coffee Scoop & Espresso Tamper Set",
         description="Hand-turned walnut coffee scoop (1 Tbsp) and matching espresso tamper.",
         price=61.50,
@@ -200,7 +200,7 @@ def seed_products():
         quantity=10
     )
     product23 = Product(
-        user_id=1,
+        user_id=3,
         name="Manual Coffee Grinder Wooden Vintage Style",
         description="This old fashioned coffee grinder is equipped with a ceramic core which is more resistant, sharper and do not rust.",
         price=50.00,
@@ -209,7 +209,7 @@ def seed_products():
         quantity=5
     )
     product24 = Product(
-        user_id=1,
+        user_id=4,
         name="Pour Over Coffee Set - Gooseneck Kettle and Coffee Dripper Brewer for Perfect Drip Coffee",
         description="The Ariq Kettle is shaped like a volcano to pay homage to the Ampato volcano in Peru, the inspiration for our coffee gear business. It has a durable stainless steel construction with an extra black Teflon coating for longevity and extra style.",
         price=100.00,
@@ -218,56 +218,56 @@ def seed_products():
         quantity=10
     )
     product25 = Product(
-        user_id=1,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
-        price=47.00,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        user_id=5,
+        name="Milk Frother - Coffee Drink Mixer - Handheld Electric Foam Maker",
+        description="A gourmet-quality milk frother that's perfect for home lattes, cappuccinos, hot chocolate and more. Get professional results for all of your favorite coffee-based drinks, milkshakes & protein drinks. Made of premium quality materials including ABS rubber and food-grade stainless steel.",
+        price=30.00,
+        image="https://i.etsystatic.com/14049319/r/il/bf1389/3895949132/il_794xN.3895949132_gl69.jpg",
         category="Equipment",
         quantity=10
     )
     product26 = Product(
         user_id=1,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
-        price=48.00,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        name="Iced Coffee Candle in Mug, Latte Candle, Nature Soy Wax & Essential Oil Candle",
+        description="Super cute coffee candle, Looks and smells like real coffee!",
+        price=18.00,
+        image="https://i.etsystatic.com/35483182/r/il/99a167/4404274233/il_794xN.4404274233_7w4q.jpg",
         category="Accessories",
         quantity=10
     )
     product27 = Product(
-        user_id=1,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
-        price=49.50,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        user_id=2,
+        name="Floating Spilling Coffee Cup",
+        description="This is a perfect gift for coffee lover or anybody that love sculpture decor. One cup will be ship chose your color.",
+        price=15.50,
+        image="https://i.etsystatic.com/14585603/r/il/964164/3058318415/il_794xN.3058318415_68xo.jpg",
         category="Accessories",
         quantity=10
     )
     product28 = Product(
-        user_id=1,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
+        user_id=3,
+        name="Latte Art Coffee Necklace",
         description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
         price=20.00,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        image="https://i.etsystatic.com/22371167/r/il/6edef3/3631025190/il_794xN.3631025190_6x0y.jpg",
         category="Accessories",
         quantity=10
     )
     product29 = Product(
-        user_id=1,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
-        price=21.50,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        user_id=4,
+        name="LIMITED-EDITION Fresh Coffee Soy Candle | Coffee Mug Candle",
+        description="Our limited-edition Fresh Coffee Mug Candle smells like your favorite sweet latte without even brewing one! You will love the coffee, caramel, mocha, rum cream and sweet sugar notes as they fill your home up. It brings the best coffee shop smells into your own home.",
+        price=25.50,
+        image="https://i.etsystatic.com/10385964/r/il/5020a9/3710948542/il_794xN.3710948542_33gu.jpg",
         category="Accessories",
         quantity=10
     )
     product30 = Product(
-        user_id=1,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this 100% organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
-        price=21.99,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        user_id=5,
+        name="Coffee Latte Art Stencil Sets",
+        description="Make some funny pattern on your coffee. It is made of safe and easy-clean plastic stencils. Let you enjoy a good mood when you put on the coffee cup. Great for making fancy Cappuccino's, Coffee, Latte's or Hot Chocolate 16 different design give your drinks a more attractive look!",
+        price=15.99,
+        image="https://i.etsystatic.com/38501045/r/il/75a8e2/4367269129/il_794xN.4367269129_k2u5.jpg",
         category="Accessories",
         quantity=10
     )
