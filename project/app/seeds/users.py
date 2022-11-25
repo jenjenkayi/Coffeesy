@@ -7,36 +7,36 @@ def seed_users():
         username='Demo', 
         email='demo@aa.io', 
         password='password',
-        first_name = "demo",
-        last_name = "user",
+        first_name="demo",
+        last_name="user",
     )
     instance2 = User(
         username='marnie', 
         email='marnie@aa.io', 
         password='password',
-        first_name = "Marnie",
-        last_name = "Smith",
+        first_name="Marnie",
+        last_name="Smith",
     )
     instance3 = User(
         username='bobbie', 
         email='bobbie@aa.io', 
         password='password',
-        first_name = "Bobbie",
-        last_name = "Brown",
+        first_name="Bobbie",
+        last_name="Brown",
     )
     instance4 = User(
         username='daniel', 
         email='daniele@aa.io', 
         password='password',
-        first_name = "Daniel",
-        last_name = "Reyes",
+        first_name="Daniel",
+        last_name="Reyes",
     )
     instance5 = User(
         username='miguel', 
         email='miguel@aa.io', 
         password='password',
-        first_name = "Miguel",
-        last_name = "Martinez",
+        first_name="Miguel",
+        last_name="Martinez",
     )
     
     db.session.add(instance1)
