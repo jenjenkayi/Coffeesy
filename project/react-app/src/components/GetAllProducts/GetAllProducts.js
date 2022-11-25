@@ -34,7 +34,7 @@ return (
         <div>Accessories</div>
         <NavLink to='/wholebeans'>
           <img
-            src="https://cdn.pixabay.com/photo/2016/04/12/11/19/coffee-1324126__480.jpg"
+            src="https://cdn.pixabay.com/photo/2016/03/30/21/59/coffee-beans-1291656__480.jpg"
             alt=""
             className="category-img"
           />
@@ -42,7 +42,7 @@ return (
         <div>Whole Beans</div>
         <NavLink to='/groundcoffee'>
           <img
-            src="https://cdn.pixabay.com/photo/2017/11/02/18/51/coffee-2912113__480.jpg"
+            src="https://cdn.pixabay.com/photo/2017/01/25/05/40/coffee-2007143__480.jpg"
             alt=""
             className="category-img"
           />

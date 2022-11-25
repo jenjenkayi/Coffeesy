@@ -26,3 +26,8 @@ img{
     object-fit: cover;
     border-radius: 50%;
 }
+
+.products-category {
+    display: flex;
+    flex-direction: row;
+}
