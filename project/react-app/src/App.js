@@ -13,6 +13,12 @@ import GetUsersProducts from './components/GetUsersProducts/GetUsersProducts';
 import CreateReview from './components/CreateReview/CreateReview';
 import GetUsersReviews from './components/GetUsersReviews/GetUsersReviews';
 import EditReview from './components/EditReview/EditReview';
+import Accessories from './components/Categories/Accesssories';
+import WholeBeans from './components/Categories/WholeBeans';
+import GroundCoffee from './components/Categories/GroundCoffee';
+import Pods from './components/Categories/Pods';
+import Drinkware from './components/Categories/Drinkware';
+import Equipment from './components/Categories/Equipment';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -56,6 +62,24 @@ function App() {
         </Route>
         <Route path="/products/new" exact={true}>
           <CreateProduct />
+        </Route>
+        <Route path="/accessories">
+          <Accessories />
+        </Route>
+        <Route path="/wholebeans">
+          <WholeBeans />
+        </Route>
+        <Route path="/groundcoffee">
+          <GroundCoffee />
+        </Route>
+        <Route path="/pods">
+          <Pods />
+        </Route>
+        <Route path="/drinkware">
+          <Drinkware />
+        </Route>
+        <Route path="/equipment">
+          <Equipment />
         </Route>
         <Route path="/products/:productId">
           <GetOneProduct />

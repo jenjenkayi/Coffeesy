@@ -272,8 +272,6 @@ def seed_products():
         quantity=10
     )
 
-
-
     db.session.add(product1)
     db.session.add(product2)
     db.session.add(product3)

@@ -39,10 +39,13 @@ const GetOneProduct = () => {
 return ( 
         <>
           <div className="product-container">
-              <div>{product.image}</div>
               <div>
-              <img className="product-image" src="https://cdn.pixabay.com/photo/2017/06/02/11/49/still-life-2366084__340.jpg" alt="default"/>
-              </div>
+                 <img
+                    className="stories-image"
+                    src={product.image}
+                    alt=""
+                    />
+                  </div>
               <div>{product.avgRating}</div>
               <div>{product.reviewCount}</div>
               <div>{product.name}</div>
