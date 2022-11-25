@@ -23,7 +23,10 @@ const GetAllProducts = () => {
 
 return (
   <>
-      <div className="products-category">
+  <div className="background"></div>
+  {user && 
+    <h1>Welcome back, {user.firstName}!</h1>}
+      <div className="category-container">
         <NavLink to='/accessories'>
           <img
             src="https://i.etsystatic.com/10385964/c/2484/1974/0/424/il/e0b9fe/2992396185/il_680x540.2992396185_82qj.jpg"
@@ -31,7 +34,7 @@ return (
             className="category-img"
           />
         </NavLink>
-        <div>Accessories</div>
+        <div className="category-name">Accessories</div>
         <NavLink to='/wholebeans'>
           <img
             src="https://cdn.pixabay.com/photo/2016/03/30/21/59/coffee-beans-1291656__480.jpg"
@@ -39,7 +42,7 @@ return (
             className="category-img"
           />
         </NavLink>
-        <div>Whole Beans</div>
+        <div className="category-name">Whole Beans</div>
         <NavLink to='/groundcoffee'>
           <img
             src="https://cdn.pixabay.com/photo/2017/01/25/05/40/coffee-2007143__480.jpg"
@@ -47,7 +50,7 @@ return (
             className="category-img"
           />
         </NavLink>
-        <div>Ground Coffee</div>
+        <div className="category-name">Ground Coffee</div>
         <NavLink to='/pods'>
           <img
             src="https://i.etsystatic.com/16336237/c/2353/1870/301/30/il/511af0/3363095094/il_680x540.3363095094_pms0.jpg"
@@ -55,7 +58,7 @@ return (
             className="category-img"
           />
         </NavLink>
-        <div>Pods</div>
+        <div className="category-name">Pods</div>
         <NavLink to='/drinkware'>
           <img
             src="https://cdn.pixabay.com/photo/2017/03/27/14/18/coffee-2179028__480.jpg"
@@ -63,7 +66,7 @@ return (
             className="category-img"
           />
         </NavLink>
-        <div>Drinkware</div>
+        <div className="category-name">Drinkware</div>
         <NavLink to='/equipment'>
           <img
             src="https://cdn.pixabay.com/photo/2017/03/12/21/31/coffee-grinder-2138170__480.jpg"
@@ -71,7 +74,7 @@ return (
             className="category-img"
           />
         </NavLink>
-        <div>Equipment</div>
+        <div className="category-name">Equipment</div>
       </div>
   
         <div className="products-container">
@@ -81,7 +84,7 @@ return (
                     <NavLink key={product.id} to={`/products/${product.id}`}>
                     <div>
                     <img
-                        className="stories-image"
+                        className="products-image"
                         src={product.image}
                         alt=""
                       />
