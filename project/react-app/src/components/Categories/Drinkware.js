@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {getAllProductsThunk} from '../../store/product';
 import "./Category.css";
 
 const DrinkwareCategory = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const products = useSelector(state => state.product.allProducts);
   const productsArr = Object.values(products);
