@@ -35,6 +35,8 @@ h1 {
     flex-direction: row;
     justify-content: center;
     position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .category-img {
@@ -58,4 +60,46 @@ h1 {
     height: 256px;
     border-radius: 2px;
     object-fit: cover;
+    gap: 2em;
+}
+
+.products-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5em;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.products-info {
+    display: flex;
+    flex-direction: column;
+    width: 323px;
+    white-space: nowrap;
+    overflow: clip;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-style: normal;
+    color: #222222;
+}
+
+.products-name {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    overflow: clip;
+    text-overflow: ellipsis;
+}
+
+.products-avgRating {
+    overflow: clip;
+    text-overflow: ellipsis;
+}
+
+.products-price {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 26px;
+    overflow: clip;
+    text-overflow: ellipsis;
 }

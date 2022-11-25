@@ -21,10 +21,10 @@ def seed_products():
     )
     product3 = Product(
         user_id=3,
-        name="Organic Bourbon Barrel Roasted Medium Roast Whole Beans",
-        description="Aged to perfection in award winning Bear Gully Classic Reserve bourbon barrels, this organic and single origin coffee is absolutely amazing. Notes of dark chocolate, oak, cream, and bourbon!",
-        price=22.50,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        name="Create your Own Coffee Sampler Box, World Coffee",
+        description="Create your own Gourmet Coffee Sampler Box from a selection of Caribbean and Latin America single origin specialty coffees!",
+        price=28.50,
+        image="https://i.etsystatic.com/24252290/r/il/e3b951/3515130241/il_340x270.3515130241_hkz2.jpg",
         category="Whole Beans",
         quantity=10
     )
@@ -87,7 +87,7 @@ def seed_products():
         name="Coffee Lover Sampler Pack, Boxed Set of 5 Fresh-Roasted Single Origin Coffees & Blends",
         description="Try a wide range of roasts and Java Jive's unique blends with this 5 pouch sampler box. Java Jive coffees are known for their smoothness and clarity of flavor notes; furthermore, those with sensitive stomachs will find Java Jive coffees more gentle.",
         price=20.00,
-        image="https://i.etsystatic.com/24721792/r/il/af470d/3941395791/il_794xN.3941395791_rvjs.jpg",
+        image="https://i.etsystatic.com/26855689/r/il/4aeb9c/3069868789/il_794xN.3069868789_tcvd.jpg",
         category="Ground Coffee",
         quantity=5
     )
@@ -271,6 +271,24 @@ def seed_products():
         category="Accessories",
         quantity=10
     )
+    product31 = Product(
+        user_id=1,
+        name="Caffeine Molecule Pendant Initial Necklace Personalized Coffee Lover Necklace",
+        description="Give the gift of energy! This necklace features the molecule caffeine, the most popular drug of choice consumed in your favorite iced and hot drinks. Not only does this molecule give us energy and prevent drowsiness, but its structure also looks good as well, making this easy-to-wear necklace a clever addition to any outfit.",
+        price=15.99,
+        image="https://i.etsystatic.com/10158348/r/il/f4cc9d/4253244113/il_794xN.4253244113_hqbm.jpg",
+        category="Accessories",
+        quantity=10
+    )
+    product32 = Product(
+        user_id=3,
+        name="Coffee Cork Coaster Set",
+        description="These coasters are the SURE way to get your guests to use a coaster! This set of coasters would make wonderful gifts for the best people in your life for any occasion!",
+        price=15.99,
+        image="https://i.etsystatic.com/14519444/r/il/11efe4/2967968170/il_794xN.2967968170_im4w.jpg",
+        category="Accessories",
+        quantity=10
+    )
 
     db.session.add(product1)
     db.session.add(product2)
@@ -302,6 +320,8 @@ def seed_products():
     db.session.add(product28)
     db.session.add(product29)
     db.session.add(product30)
+    db.session.add(product31)
+    db.session.add(product32)
 
     
     db.session.commit()
