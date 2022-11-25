@@ -33,48 +33,48 @@ return (
             alt=""
             className="category-img"
           />
-        </NavLink>
         <div className="category-name">Accessories</div>
+        </NavLink>
         <NavLink to='/drinkware'>
           <img
             src="https://cdn.pixabay.com/photo/2017/03/27/14/18/coffee-2179028__480.jpg"
             alt=""
             className="category-img"
           />
-        </NavLink>
         <div className="category-name">Drinkware</div>
+        </NavLink>
         <NavLink to='/equipment'>
           <img
             src="https://cdn.pixabay.com/photo/2017/03/12/21/31/coffee-grinder-2138170__480.jpg"
             alt=""
             className="category-img"
           />
-        </NavLink>
         <div className="category-name">Equipment</div>
+        </NavLink>
         <NavLink to='/groundcoffee'>
           <img
             src="https://cdn.pixabay.com/photo/2017/01/25/05/40/coffee-2007143__480.jpg"
             alt=""
             className="category-img"
           />
-        </NavLink>
         <div className="category-name">Ground Coffee</div>
+        </NavLink>
         <NavLink to='/pods'>
           <img
             src="https://i.etsystatic.com/16336237/c/2353/1870/301/30/il/511af0/3363095094/il_680x540.3363095094_pms0.jpg"
             alt=""
             className="category-img"
           />
+        <div className="category-name">Coffee Pods</div>
         </NavLink>
-        <div className="category-name">Pods</div>
         <NavLink to='/wholebeans'>
           <img
             src="https://cdn.pixabay.com/photo/2016/03/30/21/59/coffee-beans-1291656__480.jpg"
             alt=""
             className="category-img"
           />
-        </NavLink>
         <div className="category-name">Whole Beans</div>
+        </NavLink>
       </div>
   
         <div className="products-container">
@@ -91,8 +91,9 @@ return (
                     </div>
                     <div className="products-info">
                       <div className="products-name">{product.name}</div>
-                      <div className="products-avgRating">{product.avgRating}</div>
-                      <div className="products-reviewCount">{product.reviewCount}</div>
+                      <div className="products-rating-info">
+                        <span className="products-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
+                      </div>
                       <div className="products-price">${product.price}</div>
                     </div>
                     </NavLink>

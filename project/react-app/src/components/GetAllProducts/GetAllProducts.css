@@ -21,6 +21,9 @@ h1 {
     font-weight: 300;
     color: #222222;
     text-align: center;
+    margin-top: -50px;
+    position: relative;
+    top: -70px;
 }
 
 .background {
@@ -34,16 +37,22 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     position: relative;
-    margin-bottom: 20px;
+    gap: 5em;
     cursor: pointer;
+    position: relative;
+    top: -70px;
 }
+
 
 .category-img {
     width: 94px;
     height: 94px;
     object-fit: cover;
     border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(34, 34, 34, 0.15);
 }
 
 .category-name {
@@ -91,9 +100,20 @@ h1 {
     text-overflow: ellipsis;
 }
 
+.products-rating-info {
+    vertical-align: bottom;
+}
+
 .products-avgRating {
     overflow: clip;
     text-overflow: ellipsis;
+}
+
+.products-reviewCount {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #595959;
 }
 
 .products-price {
