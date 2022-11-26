@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import "./GetOneProduct.css";
@@ -47,13 +47,23 @@ return (
                     />
               </div>
               <div className="product-info">
-                <div className="shop-name">Coffeezy Shop</div>
+                <div className="shop-name">Coffeezy Store</div>
                 <div className="product-rating-info">
                     <span className="product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
                 </div>
                 <div className="product-name">{product.name}</div>
                 <div className="product-price">${product.price}</div>
-                <div className="product-quantity">{product.quantity}</div>
+                <div className="product-quantity">Only {product.quantity} left!</div>
+                <div className="product-info2">
+                  <i className="fa-solid fa-cart-shopping"></i>
+                    <span>Other people want this. Over 20 people have this in their carts right now.</span>
+                  <i className="fa-solid fa-gifts"></i>
+                    <span>Order soon to get by Nov 30-Dec 6.</span>
+                  <i className="fa-solid fa-star"></i>
+                    <span>Star Seller. This seller consistently earned 5-star reviews, shipped on time, and replied quickly to any messages they received.</span>
+                  <i className="fa-solid fa-truck"></i>
+                    <span>Hooray! This item ships free to the US</span>
+                </div>
                 <div className="product-description">{product.description}</div>
               </div>
           </div>
