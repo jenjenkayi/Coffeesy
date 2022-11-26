@@ -92,6 +92,9 @@ return (
                         </button>
                       )}
                   </div>
+                <div className="review-header">
+                  <div>{product.reviewCount} reviews {product.avgRating}</div>
+                </div>
             <div>
                 <GetProductReviews />
             </div>

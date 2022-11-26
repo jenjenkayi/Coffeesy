@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     first_name = db.Column(db.String(200), nullable=False)
     last_name = db.Column(db.String(200), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone=True))
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     products = db.relationship("Product", back_populates="user")
     reviews = db.relationship("Review", back_populates="user")

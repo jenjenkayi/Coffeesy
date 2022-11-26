@@ -97,3 +97,18 @@ i {
     line-height: 28px;
     color: #222222;
 }
+
+.review-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 42px;
+    color: #222222;
+}

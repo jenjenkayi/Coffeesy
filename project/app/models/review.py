@@ -16,8 +16,8 @@ class Review(db.Model):
         add_prefix_for_prod("products.id")), nullable=False)
     review = db.Column(db.String, nullable=False)
     stars = db.Column(db.Integer, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone=True))
-    updated_at = db.Column(db.DateTime, default=datetime.now(timezone=True))
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship("User", back_populates="reviews")
     product = db.relationship("Product", back_populates="reviews")
