@@ -41,17 +41,21 @@ return (
           <div className="product-container">
               <div>
                  <img
-                    className="stories-image"
+                    className="product-image"
                     src={product.image}
                     alt=""
                     />
-                  </div>
-              <div>{product.avgRating}</div>
-              <div>{product.reviewCount}</div>
-              <div>{product.name}</div>
-              <div>${product.price}</div>
-              <div>{product.quantity}</div>
-              <div>{product.description}</div>
+              </div>
+              <div className="product-info">
+                <div className="shop-name">Coffeezy Shop</div>
+                <div className="product-rating-info">
+                    <span className="product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
+                </div>
+                <div className="product-name">{product.name}</div>
+                <div className="product-price">${product.price}</div>
+                <div className="product-quantity">{product.quantity}</div>
+                <div className="product-description">{product.description}</div>
+              </div>
           </div>
         
           <div className="product-buttons">

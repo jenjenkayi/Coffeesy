@@ -23,22 +23,25 @@ const PodsCategory = () => {
 
 
 return (
-    <div className="products_container">
+    <div className="products-container">
         {podsProducts && podsProducts.map(product => {
           return (
             <>
             <NavLink key={product.id} to={`/products/${product.id}`}>
             <div>
             <img
-                className="stories-image"
+                className="products-image"
                 src={product.image}
                 alt=""
                 />
             </div>
-            <div>{product.name}</div>
-            <div>{product.avgRating}</div>
-            <div>{product.reviewCount}</div>
-            <div>${product.price}</div>
+            <div className="products-info">
+              <div className="products-name">{product.name}</div>
+              <div className="products-rating-info">
+                <span className="products-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
+              </div>
+              <div className="products-price">${product.price}</div>
+              </div>
             </NavLink>
             </>
             
