@@ -3,11 +3,11 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
-import SignupFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
 import Coffeesy from '../../assets/Coffeesy.png';
 
-function Navigation({ isLoaded }){
+function Navigation({ loaded }){
   const sessionUser = useSelector(state => state.session.user);
   const history = useHistory();
 
@@ -40,7 +40,7 @@ function Navigation({ isLoaded }){
             onClick={() => history.push("/createSpot")}>
             Become a Host
           </button>} */}
-            {isLoaded && sessionLinks}
+          {loaded && sessionLinks}
       </div>
   );
 }

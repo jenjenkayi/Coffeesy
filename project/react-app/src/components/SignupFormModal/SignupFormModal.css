@@ -21,6 +21,10 @@
     font-size: 12px;
 }
 
+.Nav-Signup-Button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2);
+}
+
 .SignupForm-Container {
     display: flex;
     flex-direction: column;
