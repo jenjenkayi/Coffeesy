@@ -19,10 +19,14 @@ import GroundCoffee from './components/Categories/GroundCoffee';
 import Pods from './components/Categories/Pods';
 import Drinkware from './components/Categories/Drinkware';
 import Equipment from './components/Categories/Equipment';
+import Navigation from './components/Navigation/Navigation';
+import SignupFormPage from './components/SignupFormPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     (async() => {
@@ -37,57 +41,59 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <Route path="/reviews/:reviewId/edit">
-          <EditReview />
-        </Route>
-        <Route path='/products/current'>
-          <GetUsersProducts />
-        </Route>
-        <Route path="/products/:productId/edit">
-          <EditProduct />
-        </Route>
-        <Route path='/reviews/current'>
-          <GetUsersReviews />
-        </Route>
-        <Route path='/products/:productId/new-review'>
-          <CreateReview />
-        </Route>
-        <Route path="/products/new" exact={true}>
-          <CreateProduct />
-        </Route>
-        <Route path="/accessories">
-          <Accessories />
-        </Route>
-        <Route path="/wholebeans">
-          <WholeBeans />
-        </Route>
-        <Route path="/groundcoffee">
-          <GroundCoffee />
-        </Route>
-        <Route path="/pods">
-          <Pods />
-        </Route>
-        <Route path="/drinkware">
-          <Drinkware />
-        </Route>
-        <Route path="/equipment">
-          <Equipment />
-        </Route>
-        <Route path="/products/:productId">
-          <GetOneProduct />
-        </Route>
-        <Route path='/'>
-          <GetAllProducts />
-        </Route>
-      </Switch>
+       <Navigation isLoaded={isLoaded} />
+      {isLoaded && (
+        <Switch>
+          <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
+          <Route path="/reviews/:reviewId/edit">
+            <EditReview />
+          </Route>
+          <Route path='/products/current'>
+            <GetUsersProducts />
+          </Route>
+          <Route path="/products/:productId/edit">
+            <EditProduct />
+          </Route>
+          <Route path='/reviews/current'>
+            <GetUsersReviews />
+          </Route>
+          <Route path='/products/:productId/new-review'>
+            <CreateReview />
+          </Route>
+          <Route path="/products/new" exact={true}>
+            <CreateProduct />
+          </Route>
+          <Route path="/accessories">
+            <Accessories />
+          </Route>
+          <Route path="/wholebeans">
+            <WholeBeans />
+          </Route>
+          <Route path="/groundcoffee">
+            <GroundCoffee />
+          </Route>
+          <Route path="/pods">
+            <Pods />
+          </Route>
+          <Route path="/drinkware">
+            <Drinkware />
+          </Route>
+          <Route path="/equipment">
+            <Equipment />
+          </Route>
+          <Route path="/products/:productId">
+            <GetOneProduct />
+          </Route>
+          <Route path='/'>
+            <GetAllProducts />
+          </Route>
+        </Switch>
+      )}
     </BrowserRouter>
   );
 }
