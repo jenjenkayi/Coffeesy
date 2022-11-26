@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-// import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
 import { authenticate } from './store/session';
 import CreateProduct from './components/CreateProduct/CreateProduct';
 import EditProduct from './components/EditProduct/EditProduct';
@@ -20,8 +17,8 @@ import Pods from './components/Categories/Pods';
 import Drinkware from './components/Categories/Drinkware';
 import Equipment from './components/Categories/Equipment';
 import Navigation from './components/Navigation/Navigation';
-import SignupFormPage from './components/SignupFormPage';
-import LoginForm from './components/LoginFormModal/LoginForm';
+import SignupFormPage from './components/SignupFormModal/SignupForm';
+import LoginFormPage from './components/LoginFormModal/LoginForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,11 +35,12 @@ function App() {
   
 
   return (
-    <BrowserRouter>
-      <Navigation />
+    <>
+      <Navigation loaded={loaded}/>
+        {loaded && (
         <Switch>
-          <Route path='/login' exact={true}>
-            <LoginForm />
+          <Route path='/login'>
+            <LoginFormPage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
@@ -90,7 +88,8 @@ function App() {
             <GetAllProducts />
           </Route>
         </Switch>
-    </BrowserRouter>
+      )}
+    </>
   );
 }
 

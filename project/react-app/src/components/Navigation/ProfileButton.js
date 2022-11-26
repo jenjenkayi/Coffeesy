@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
+import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <>
+    <div className="dropdown_menu">
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
@@ -53,7 +54,7 @@ function ProfileButton({ user }) {
           </button>
         </ul>
       )}
-    </>
+    </div>
   );
 }
 

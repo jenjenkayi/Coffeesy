@@ -26,28 +26,28 @@ function SignupForm() {
     }
 
     if (!username) {
-      return setErrors(['Please provide a username'])
+      return setErrors(['Please provide a username.'])
     }
 
     if (!password){
-      return setErrors(['Please provide a password'])
+      return setErrors(['Please provide a password.'])
     }
 
-    if (!confirmPassword){
-      return setErrors(['Please provide a password'])
+    if (confirmPassword !== password){
+      return setErrors(["Please provide a confirm password."])
     }
 
     if (!firstName){
-      return setErrors(['Please provide a firstName'])
+      return setErrors(['Please provide a firstName.'])
     }
 
     if (!lastName){
-      return setErrors(['Please provide a lastName'])
+      return setErrors(['Please provide a lastName.'])
     }
 
     if (password === confirmPassword) {
     setErrors([]);
-    return dispatch(sessionActions.signup({ email, username, password, firstName, lastName }))
+    return dispatch(sessionActions.signUp({ email, username, password, firstName, lastName }))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -57,64 +57,83 @@ function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="SignupForm_Container">
-      <div className="SignupForm_Header">
-        <h3 className="SignupForm_Title">Sign Up</h3>
+    <form onSubmit={handleSubmit} className="SignupForm-Container">
+      <div className="SignupForm-Header">
+        <h3 className="SignupForm-Title">Create your account</h3>
+        <h5>Registration is easy.</h5>
       </div>
       <ul>
         <div className="errors">
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </div>
       </ul>
+      <label>
+        Email address
         <input
-          className="SignupForm_Input"
+          className="SignupForm-Input"
           type="text"
           value={email}
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
           // required
         />
+      </label>
+      <label>
+        Username
         <input
-          className="SignupForm_Input"
+          className="SignupForm-Input"
           type="text"
           value={username}
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
           // required
         />
+      </label>
+      <label>
+        Password
         <input
-          className="SignupForm_Input"
+          className="SignupForm-Input"
           type="password"
           value={password}
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           // required
         />
+      </label>
+      <label>
+        Confirm password
         <input
-          className="SignupForm_Input"
+          className="SignupForm-Input"
           type="password"
           value={confirmPassword}
           placeholder="Confirm Password"
           onChange={(e) => setConfirmPassword(e.target.value)}
           // required
         />
+      </label>
+      <label>
+        First name
         <input
-          className="SignupForm_Input"
+          className="SignupForm-Input"
           type="text"
           value={firstName}
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
           // required
         />
+      </label>
+      <label>
+        Last name
         <input
-          className="SignupForm_Input"
+          className="SignupForm-Input"
           type="text"
           value={lastName}
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
           // required
         />
-      <button type="submit" className="Signup_submit_button">Sign Up</button>
+      </label>
+      <button type="submit" className="register-button">Register</button>
     </form>
   );
 }

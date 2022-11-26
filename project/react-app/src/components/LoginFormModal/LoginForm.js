@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import './LoginForm.css';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -11,6 +12,15 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    if (!email){
+      return setErrors(['Please provide an email'])
+    }
+    
+    if (!password){
+      return setErrors(['Please provide a password'])
+    }
+
     setErrors([]);
     return dispatch(sessionActions.login({ email, password })).catch(
       async (res) => {
@@ -21,8 +31,9 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
+    <form onSubmit={handleSubmit} className="LoginForm-Container">
+      <div className="LoginForm-Title">Sign In</div>
+      <ul className="errors">
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
@@ -30,24 +41,26 @@ function LoginForm() {
       <label>
         Email address
         <input
+          className="LoginForm-Input"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
+          // required
         />
       </label>
       <label>
         Password
         <input
+          className="LoginForm-Input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
+          // required
         />
       </label>
-      <button type="submit">Sign In</button>
-      <button type="submit" className="login_demouser_button" onClick={(e) => {
-        setEmail("new@user.io");
+      <button type="submit" className="login-submit-button">Sign In</button>
+      <button type="submit" className="login-demouser-button" onClick={(e) => {
+        setEmail("demo@aa.io");
         setPassword('password')
         }}
         >
