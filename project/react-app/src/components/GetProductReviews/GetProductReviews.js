@@ -23,13 +23,15 @@ const GetProductReviews = () => {
 return (
     reviewsArr && (
         <div className="reviews-container">
+          <div className="reviews-count">{reviewsArr.length} reviews</div>
             {reviewsArr.map((review) => {
                 return (
                     <>
-                    <div>{review.review}</div>
-                    <div>{review.avgRating}</div>
-                    <div>{review.reviewCount}</div>
-                    <div>{review.stars}</div>
+                    <div className="reviews-avgRating">{review.avgRating}</div>
+                    <div className="reviews-stars">{review.stars}</div>
+                    <div className="reviews-review">{review.review}</div>
+                    <duv className="reviews-user">{review.user.firstName} {review.user.firstName}</duv>
+                    <duv className="reviews-date">{review.created_at.slice(5, 17)}</duv>
                     </>
                 )
             })}

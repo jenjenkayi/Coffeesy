@@ -55,15 +55,19 @@ return (
                 <div className="product-price">${product.price}</div>
                 <div className="product-quantity">Only {product.quantity} left!</div>
                 <div className="product-info2">
-                  <i className="fa-solid fa-cart-shopping"></i>
-                    <span>Other people want this. Over 20 people have this in their carts right now.</span>
-                  <i className="fa-solid fa-gifts"></i>
-                    <span>Order soon to get by Nov 30-Dec 6.</span>
-                  <i className="fa-solid fa-star"></i>
-                    <span>Star Seller. This seller consistently earned 5-star reviews, shipped on time, and replied quickly to any messages they received.</span>
-                  <i className="fa-solid fa-truck"></i>
-                    <span>Hooray! This item ships free to the US</span>
+                  <i className="fa-solid fa-cart-shopping fa-lg"></i>
+                    Over 20 people have this in their carts.
+                    <br></br>
+                  <i className="fa-solid fa-gifts fa-lg" ></i>
+                    Order soon to get by Nov 30-Dec 6.
+                     <br></br>
+                  <i className="fa-solid fa-star fa-lg"></i>
+                    Star Seller. 
+                     <br></br>
+                  <i className="fa-solid fa-truck fa-lg"></i>
+                    Hooray! This item ships free to the US
                 </div>
+                <span className="description">Description</span>
                 <div className="product-description">{product.description}</div>
               </div>
           </div>

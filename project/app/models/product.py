@@ -17,8 +17,8 @@ class Product(db.Model):
     image = db.Column(db.String, nullable=False)
     category = db.Column(db.String, nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    updated_at = db.Column(db.DateTime, default=datetime.now())
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone=True))
+    updated_at = db.Column(db.DateTime, default=datetime.now(timezone=True))
 
     user = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="product", cascade="all, delete")

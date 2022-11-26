@@ -33,10 +33,6 @@
     padding-right: 40px;
 }
 
-.product-info {
-    /* gap: 20em; */
-}
-
 .product-name {
     font-family: 'Roboto', Georgia, serif;
     font-style: normal;
@@ -44,6 +40,8 @@
     font-size: 26px;
     line-height: 32px;
     color: #222222;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .product-price {
@@ -52,5 +50,50 @@
     font-weight: 700;
     font-size: 28px;
     line-height: 36px;
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+.product-quantity {
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    color: #222222;
+}
+
+.product-info2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    color: #222222;
+    margin-bottom: 20px;
+}
+
+i {
+    margin-right: 5px;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: #222222;
+    margin-top: 20px;
+}
+
+.product-description {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
     color: #222222;
 }
