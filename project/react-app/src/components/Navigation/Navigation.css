@@ -1,0 +1,8 @@
+.nav-logo {
+    height: 72px;
+    width: 112px;
+    display:flex;
+    cursor: pointer;
+    align-items: center;
+    background-color: white;
+}

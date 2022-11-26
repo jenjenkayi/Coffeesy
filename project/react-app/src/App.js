@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
+// import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import { authenticate } from './store/session';
@@ -21,13 +21,12 @@ import Drinkware from './components/Categories/Drinkware';
 import Equipment from './components/Categories/Equipment';
 import Navigation from './components/Navigation/Navigation';
 import SignupFormPage from './components/SignupFormPage';
+import LoginForm from './components/LoginFormModal/LoginForm';
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const [loaded, setLoaded] = useState(false);
   
-  const [isLoaded, setIsLoaded] = useState(false);
-
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
@@ -35,14 +34,12 @@ function App() {
     })();
   }, [dispatch]);
 
-  if (!loaded) {
-    return null;
-  }
+  if (!loaded) return null;
+  
 
   return (
     <BrowserRouter>
-       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      <Navigation />
         <Switch>
           <Route path='/login' exact={true}>
             <LoginForm />
@@ -93,7 +90,6 @@ function App() {
             <GetAllProducts />
           </Route>
         </Switch>
-      )}
     </BrowserRouter>
   );
 }
