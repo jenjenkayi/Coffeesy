@@ -67,70 +67,58 @@ function SignupForm() {
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </div>
       </ul>
-      <label>
+      <label className="SignuoForm-label">
         Email address
         <input
           className="SignupForm-Input"
           type="text"
           value={email}
-          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
-          // required
         />
       </label>
-      <label>
+      <label className="SignuoForm-label">
         Username
         <input
           className="SignupForm-Input"
           type="text"
           value={username}
-          placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
-          // required
         />
       </label>
-      <label>
+      <label className="SignuoForm-label">
         Password
         <input
           className="SignupForm-Input"
           type="password"
           value={password}
-          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
-          // required
         />
       </label>
-      <label>
+      <label className="SignuoForm-label">
         Confirm password
         <input
           className="SignupForm-Input"
           type="password"
           value={confirmPassword}
-          placeholder="Confirm Password"
           onChange={(e) => setConfirmPassword(e.target.value)}
-          // required
         />
       </label>
-      <label>
+      <label className="SignuoForm-label">
         First name
         <input
           className="SignupForm-Input"
           type="text"
           value={firstName}
-          placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
-          // required
         />
       </label>
-      <label>
+      <label className="SignuoForm-label">
         Last name
         <input
           className="SignupForm-Input"
           type="text"
           value={lastName}
-          placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
-          // required
         />
       </label>
       <button type="submit" className="register-button">Register</button>

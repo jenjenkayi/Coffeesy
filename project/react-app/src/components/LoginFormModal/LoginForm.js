@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css';
+import SignupForm from "../SignupFormModal/SignupForm";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -9,6 +10,8 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const [showSignup, setShowSignup] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,15 +33,24 @@ function LoginForm() {
     );
   };
 
+  const signUpHandler = (e) => {
+    setShowSignup(true)
+  }
+
   return (
+    <div>
+    {showSignup ? <SignupForm /> :
     <form onSubmit={handleSubmit} className="LoginForm-Container">
-      <div className="LoginForm-Title">Sign In</div>
+      <div className="LoginForm-Header">
+        <div className="LoginForm-Title">Sign In</div>
+        <button type="submit" className="LoginForm-register-button" onClick={() => signUpHandler()}>Register</button>
+      </div>
       <ul className="errors">
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
+      <label className="LoginForm-label">
         Email address
         <input
           className="LoginForm-Input"
@@ -48,8 +60,8 @@ function LoginForm() {
           // required
         />
       </label>
-      <label>
-        Password
+      <label className="LoginForm-label">
+        Password 
         <input
           className="LoginForm-Input"
           type="password"
@@ -67,6 +79,8 @@ function LoginForm() {
         Demo User
       </button>
     </form>
+    }
+    </div>
   );
 }
 

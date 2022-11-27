@@ -1,93 +1,141 @@
 .Nav-Login-Button {
-    padding: 5px 5px 5px 5px;
-    justify-content: space-around;
-    margin-left: 80%;
     display: flex;
     flex-direction: row;
-    border-radius: 20px;
+    border-radius: 24px;
     cursor: pointer;
     height: 35px;
-    width: 60px;
-    border: .5px solid #dddddd;
-    background-color: #ffffff;
-    background: transparent;
+    width: 80px;
+    background: none;
+    background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.12);
-    align-items: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 18px;
     font-style: normal;
-    font-weight: 500;
-    color: white;
-    background-color: #ff385c;
-    font-size: 12px;
+    font-weight: 700;
+    color: #222222;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 9px 15px;
+    position: relative;
+    vertical-align: middle;
+    z-index: 10;
+    border: 2px solid transparent;
 }
 
 .Nav-Login-Button:hover {
     box-shadow: rgba(0, 0, 0, 0.2);
 }
 
+.LoginForm-Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.LoginForm-register-button {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    font-style: normal;
+    font-weight: 700;
+    color: #222222;
+    font-size: 13px;
+    min-height: 36px;
+    min-width: 36px;
+    padding: 9px 15px 9px 15px;
+    text-decoration: none;
+    background: none;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    border-radius: 24px;
+    border: 2px solid black;
+}
+
 .LoginForm-Container {
     display: flex;
     flex-direction: column;
-    width: 550px;
-    height: 568px;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 350px;
+    background-color: #FFF;
     outline: 1px solid #dddddd;
-    text-align: center;
     cursor: pointer;
-    /* border-radius: 50px; */
+    padding: 30px;
+    position: relative;
+    justify-content: space-evenly;
 }
 
 .LoginForm-Title {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 20px;
-    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    padding: 9px 15px 9px 15px;
+}
+
+.LoginForm-label {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 18px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    color: #222222;
 }
 
 .LoginForm-Input {
     background-color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;    
+    line-height: 28px;
     font-style: normal;
-    font-weight: 500;
-    width: 520px;
-    height: 56px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    width: 300px;
+    height: 45px;
     border-radius: 5px;
-    border: 1px solid #dddddd;
+    border: .5px solid #dddddd;
+    cursor: text;
 }
 
 .login-submit-button {
     color: white;
-    background-color: #ff385c;
-    border-radius: 5px;
+    background-color: #BF9E87;
+    border-radius: 24px;
     border: none;
-    height: 56px;
-    width: 520px;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    height: 45px;
+    width: 300px;
+    margin-top: 5px;
     cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    align-self: center;
 }
 
 .login-demouser-button {
     color: white;
-    background-color: #ff385c;
-    border-radius: 5px;
+    background-color: #BF9E87;
+    border-radius: 24px;
     border: none;
-    height: 56px;
-    width: 520px;
+    height: 45px;
+    width: 300px;
     margin-top: 5px;
     cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    align-self: center;
 }
 
 .errors {
     color: #ff385c;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 20px;
     font-style: normal;
     font-weight: 600;
