@@ -28,8 +28,10 @@ const GetUsersProducts = () => {
 
 return (
     userProducts && (
+      <>
+        <div className="background"></div>
         <div className="user-product-container">
-          <div className="user-products-title">{user.firstName}'s Shop</div>
+        <div className="user-products-title">{user.firstName}'s Shop</div>
             {userProducts.map(product => {
                 return (
                     <>
@@ -51,31 +53,29 @@ return (
                       <div className="user-product-description">{product.description}</div>
                     </div>
                     </NavLink>
-                  </div>
                     <div className="user-product-buttons">
                       {user && user.id === product.user_id && (
                         <button
-                          className="edit-product-button"
-                          onClick={() =>
-                            history.push(`/story/${product.id}/edit`)
-                          }
-                        >
+                        className="edit-product-button"
+                        onClick={() => history.push(`/story/${product.id}/edit`)}>
                           Edit Listing
                         </button>
                       )}
                       {user && user.id === product.user_id && (
                         <button
-                          className="delete-product-button"
-                          onClick={() => deleteProductHandler(product.id)}
-                        >
+                        className="delete-product-button"
+                        onClick={() => deleteProductHandler(product.id)}>
                           Delete Listing
                         </button>
                       )}
+                      </div>
                     </div>
                   </>
                 )
             })}
         </div>
+      </>
+
     )
  )
 }

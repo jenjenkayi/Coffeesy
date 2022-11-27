@@ -13,6 +13,7 @@
     width: 100%;
     margin-bottom: 10px;
     align-items: center;
+    border-bottom: .5px solid #dddddd;
 }
 
 a {
