@@ -60,14 +60,14 @@ function SignupForm() {
     <form onSubmit={handleSubmit} className="SignupForm-Container">
       <div className="SignupForm-Header">
         <h3 className="SignupForm-Title">Create your account</h3>
-        <h5>Registration is easy.</h5>
+        <h5 className="SignupForm-Title2">Registration is easy.</h5>
       </div>
       <ul>
         <div className="errors">
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </div>
       </ul>
-      <label className="SignuoForm-label">
+      <label className="SignpForm-label">
         Email address
         <input
           className="SignupForm-Input"
@@ -76,7 +76,7 @@ function SignupForm() {
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
-      <label className="SignuoForm-label">
+      <label className="SignupForm-label">
         Username
         <input
           className="SignupForm-Input"
@@ -85,7 +85,7 @@ function SignupForm() {
           onChange={(e) => setUsername(e.target.value)}
         />
       </label>
-      <label className="SignuoForm-label">
+      <label className="SignupForm-label">
         Password
         <input
           className="SignupForm-Input"
@@ -94,7 +94,7 @@ function SignupForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      <label className="SignuoForm-label">
+      <label className="SignupForm-label">
         Confirm password
         <input
           className="SignupForm-Input"
@@ -103,7 +103,7 @@ function SignupForm() {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
       </label>
-      <label className="SignuoForm-label">
+      <label className="SignupForm-label">
         First name
         <input
           className="SignupForm-Input"
@@ -112,7 +112,7 @@ function SignupForm() {
           onChange={(e) => setFirstName(e.target.value)}
         />
       </label>
-      <label className="SignuoForm-label">
+      <label className="SignupForm-label">
         Last name
         <input
           className="SignupForm-Input"
