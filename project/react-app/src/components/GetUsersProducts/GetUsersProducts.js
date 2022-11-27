@@ -28,21 +28,31 @@ const GetUsersProducts = () => {
 
 return (
     userProducts && (
-        <div className="products-container">
+        <div className="user-product-container">
+          <div className="user-products-title">{user.firstName}'s Shop</div>
             {userProducts.map(product => {
                 return (
                     <>
-                    {/* <div>{product.image} */}
-                    <NavLink key={product.id} to={`/products/${product.id}`}>
-                    <div>
-                    <img className="products-image" src="https://cdn.pixabay.com/photo/2017/06/02/11/49/still-life-2366084__340.jpg" alt="default"/>
+                  <div className="user-product-wrapper">
+                  <NavLink key={product.id} to={`/products/${product.id}`}>
+                    <div className="user-product-image">
+                      <img
+                        id="user-product-image"
+                        src={product.image}
+                        alt=""
+                      />
                     </div>
-                    <div>{product.name}</div>
-                    <div>{product.avgRating}</div>
-                    <div>{product.reviewCount}</div>
-                    <div>${product.price}</div>
+                    <div className="user-product-info">
+                      <div className="user-product-name">{product.name}</div>
+                      <div className="user-product-rating-info">
+                        <span className="user-product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
+                      </div>
+                      <div className="user-product-price">${product.price}</div>
+                      <div className="user-product-description">{product.description}</div>
+                    </div>
                     </NavLink>
-                     <div className="product-buttons">
+                  </div>
+                    <div className="user-product-buttons">
                       {user && user.id === product.user_id && (
                         <button
                           className="edit-product-button"
@@ -61,8 +71,8 @@ return (
                           Delete Listing
                         </button>
                       )}
-                  </div>
-                    </>
+                    </div>
+                  </>
                 )
             })}
         </div>

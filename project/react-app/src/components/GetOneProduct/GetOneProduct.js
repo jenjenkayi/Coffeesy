@@ -47,7 +47,7 @@ return (
                     />
               </div>
               <div className="product-info">
-                <div className="shop-name">Coffeezy Store</div>
+                <div className="shop-name">{user.firstName}'s Shop</div>
                 <div className="product-rating-info">
                     <span className="product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
                 </div>

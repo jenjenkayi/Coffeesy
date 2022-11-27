@@ -9,7 +9,7 @@ const GetUsersReviews = () => {
   const history = useHistory();
 
   const user = useSelector((state) => state.session.user);
-  const userId = user.id
+  const userId = user?.id
   const reviews = useSelector(state => state.review.allReviews);
   const reviewsArr = Object.values(reviews);
 
