@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css';
 import SignupForm from "../SignupFormModal/SignupForm";
+import { login } from "../../store/session";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -31,7 +32,21 @@ function LoginForm() {
         if (data && data.errors) setErrors(data.errors);
       }
     );
+
   };
+
+  const demoLogin = (e) => {
+      e.preventDefault();
+      setErrors([]);
+      const email = setEmail("demo@aa.io");
+      const password = setPassword('password')
+  return dispatch(login(email, password)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
+  }
 
   const signUpHandler = (e) => {
     setShowSignup(true)
@@ -57,7 +72,6 @@ function LoginForm() {
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          // required
         />
       </label>
       <label className="LoginForm-label">
@@ -67,14 +81,10 @@ function LoginForm() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          // required
         />
       </label>
       <button type="submit" className="login-submit-button">Sign In</button>
-      <button type="submit" className="login-demouser-button" onClick={(e) => {
-        setEmail("demo@aa.io");
-        setPassword('password')
-        }}
+      <button type="submit" className="login-demouser-button" onClick={demoLogin}
         >
         Demo User
       </button>
