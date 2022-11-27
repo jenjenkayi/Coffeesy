@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import "./GetOneProduct.css";
@@ -16,7 +16,7 @@ const GetOneProduct = () => {
   const productArr = Object.values(product);
 
   const reviews = useSelector(state => state.review.allReviews);
-  const userReviews = Object.values(reviews).filter(review => review.user_id === user.id)
+  const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
   useEffect(() => {
     dispatch(getOneProductThunk(productId))

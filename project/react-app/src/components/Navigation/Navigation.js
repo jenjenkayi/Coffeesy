@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -35,11 +35,10 @@ function Navigation({ loaded }){
           onClick={() => history.push('/')}
           >
           </img>
-          
-        {/* {sessionUser && <button type="button" className='nav_host_button' 
-            onClick={() => history.push("/createSpot")}>
-            Become a Host
-          </button>} */}
+         <button type="button" className='nav-create-product-button' 
+            onClick={() => history.push("/products/new")}>
+            <i className="fa-solid fa-store fa-xl"></i>
+          </button>
           {loaded && sessionLinks}
       </div>
   );

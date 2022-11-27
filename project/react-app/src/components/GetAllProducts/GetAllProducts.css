@@ -31,6 +31,7 @@ h1 {
     height: 140px;
     background-color: #BF9E87;
     position: relative;
+    border-top: 1px solid #dddddd;
 }
 
 .category-container {

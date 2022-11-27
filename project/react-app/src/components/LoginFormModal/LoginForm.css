@@ -7,18 +7,16 @@
     width: 80px;
     background: none;
     background-color: transparent;
-    box-shadow: rgba(0, 0, 0, 0.12);
+    box-shadow: rgba(0, 0, 0, 1);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 18px;
     font-style: normal;
     font-weight: 700;
     color: #222222;
-    font-size: 13px;
+    font-size: 15px;
     text-decoration: none;
-    padding: 9px 15px;
     position: relative;
     vertical-align: middle;
-    z-index: 10;
     border: 2px solid transparent;
 }
 

@@ -45,6 +45,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/products/new">
+            <CreateProduct />
+          </Route>
           <Route path="/reviews/:reviewId/edit">
             <EditReview />
           </Route>
@@ -59,9 +62,6 @@ function App() {
           </Route>
           <Route path='/products/:productId/new-review'>
             <CreateReview />
-          </Route>
-          <Route path="/products/new" exact={true}>
-            <CreateProduct />
           </Route>
           <Route path="/accessories">
             <Accessories />
