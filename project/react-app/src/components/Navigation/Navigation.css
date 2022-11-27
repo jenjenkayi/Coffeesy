@@ -31,7 +31,7 @@ a {
 
 .profile-button {
     text-align: left;
-    padding: 5px 0px 5px 5px;
+    padding: 5px 5px 5px 5px;
     justify-content: space-around;
     display: flex;
     flex-direction: row;
@@ -48,16 +48,12 @@ a {
     align-items: center;
 }
 
-.fa-bars {
-    padding: 5px 0px 5px 10px;
-}
-
 .fa-user-circle {
-    padding: 25px 5px 5px 15px;
+    padding: 25px 10px 10px 15px;
 }
 
 .profile-button {
-    padding: 12px;
+    /* padding: 12px; */
     justify-content: space-around;
     display: flex;
     flex-direction: row;
@@ -74,7 +70,7 @@ a {
 }
 
 .profile-button:hover {
-    box-shadow: 0 4px 4px rgb(221, 221, 221, 0.5);
+    box-shadow: 0px 1px 2px rgb(221, 221, 221, 0.5);
     background-color: rgb(239, 235, 235);
 }
 
