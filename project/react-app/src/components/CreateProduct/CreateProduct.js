@@ -108,10 +108,12 @@ const CreateProduct = () => {
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                 />
-                <button className="product-form-submit-button" type="submit">Submit</button>
-                <button type="button" className="product-form-cancel-button" onClick={cancelHandler}>
-                Cancel
-                </button>
+                <div className="product-form-buttons">
+                    <button className="product-form-submit-button" type="submit">Submit</button>
+                    <button type="button" className="product-form-cancel-button" onClick={cancelHandler}>
+                    Cancel
+                    </button>
+                </div>
             </form>
         </div> 
     </>
