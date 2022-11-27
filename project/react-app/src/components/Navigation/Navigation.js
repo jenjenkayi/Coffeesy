@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
 import Coffeesy from '../../assets/Coffeesy.png';
+import logo from '../../assets/logo.png';
 
 function Navigation({ loaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -30,7 +31,7 @@ function Navigation({ loaded }){
      <div className='nav-wrapper'>
         <img
           className='nav-logo'
-          src={Coffeesy}
+          src={logo}
           alt=""
           onClick={() => history.push('/')}
           >

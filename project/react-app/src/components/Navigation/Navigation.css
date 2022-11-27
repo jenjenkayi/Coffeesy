@@ -1,10 +1,9 @@
 .nav-logo {
-    height: 72px;
-    width: 112px;
+    height: 60px;
     display:flex;
     cursor: pointer;
     align-items: center;
-    background-color: white;
+    object-fit: cover;
 }
 
 .nav-wrapper {
@@ -20,8 +19,12 @@ a {
     text-decoration: none;
 }
 
+br {
+    align-items: flex-end;
+}
+
 .fa-store {
-    margin-left: 270vh;
+    align-content: flex-end;
 }
 
 .nav-create-product-button {

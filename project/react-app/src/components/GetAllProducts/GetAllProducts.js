@@ -24,8 +24,11 @@ const GetAllProducts = () => {
 return (
   <>
   <div className="background"></div>
-  {user && 
-    <h1>Welcome back, {user.firstName}!</h1>}
+  {user ?  
+    <h1>Welcome back, {user.firstName}!</h1>
+    : 
+    <h1>Up to 60% off: shop the Cyber Week Sales Event!</h1>
+  }
       <div className="category-container">
         <NavLink to='/accessories'>
           <img
