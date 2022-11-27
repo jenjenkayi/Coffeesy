@@ -47,20 +47,20 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown">
           <li>        
-            <i className="fas fa-user-circle" />
+            <i className="fa-solid fa-circle-user fa-xl"></i>
             {user.username}
           </li>
-          <button className="my-listings-button"
+          <button className="dropdown-button"
             onClick={() => history.push('/products/current')}>
             <i className="fa-regular fa-rectangle-list fa-xl"></i>
             Manage Listings
           </button>
-          <button className="my-reviews-button"
+          <button className="dropdown-button"
             onClick={() => history.push('/reviews/current')}>
             <i className="fa-regular fa-pen-to-square fa-xl"></i>
             Manage Reviews
           </button>
-          <button className="signout-button" onClick={logout}
+          <button className="dropdown-button" onClick={logout}
           >
             <i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>
             Sign Out

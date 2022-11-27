@@ -52,117 +52,82 @@ a {
 }
 
 .fa-user-circle {
-    padding: 5px 10px 5px 0px;
+    padding: 25px 5px 5px 15px;
+}
+
+.profile-button {
+    padding: 12px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    border-radius: 24px;
+    cursor: pointer;
+    height: 43px;
+    width: 60px;
+    border: none;
+    background: transparent;
+    box-shadow: rgba(0, 0, 0, 0.2);
+    align-items: center;
+    position: relative;
+    right: 50%;
 }
 
 .profile-button:hover {
-    box-shadow: 0px 0px .5px .5px rgb(176, 176, 176);
+    box-shadow: 0 4px 4px rgb(221, 221, 221, 0.5);
+    background-color: rgb(239, 235, 235);
 }
 
 .profile-dropdown {
-    font-family: sans-serif;
-    line-height: 20px;
-    font-style: normal;
-    font-weight: 500;
-    justify-content: space-evenly;
     flex-direction: column;
     display: flex;
-    border-radius: 5px;
-    border: #dddddd;
-    text-align: left;
-    outline: 1px solid #dddddd;
-    background-color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 16px;
-    padding: 5px 5px 5px 12px;
+    border: 1px rgba(34, 34, 34, 0.15) solid;;
+    background-color: #FFF;
+    box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
+    padding: 12px 5px 12px 12px;
     border-radius: 21px;
     height: 150px;
-    width: 200px;
+    min-width: 160px;
+    max-width: 300px;
+    max-height: 480px;
     position: absolute;
     right: 1%;
     z-index: 1;
 }
 
-ul {
-    gap: 5px;
-    font-size: 16px;
-    display: flex;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
-    font-style: normal;
-    font-weight: 500;
-}
-
-.my-listings-button {
+.dropdown-button {
     cursor: pointer;
-    text-align: left;
-    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #222222;
     display: flex;
     border: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
-    font-style: normal;
-    font-weight: 500;
     height: 100px;
     width: 200px;
-    align-items: center;
-    padding-left: 0px;
-    margin-left: 0px;
-    background: transparent;
-}
-
-.my-listings-button:hover {
-    background-color: rgb(248, 246, 246);
-}
-
-.my-reviews-button {
-    gap: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    display: flex;
-    border: #dddddd;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
-    font-style: normal;
-    font-weight: 500;
-    height: 100px;
-    width: 200px;
-    align-items: center;
-    padding-left: 0px;
-    margin-left: 0px;
-    background: transparent;
-}
-
-.my-reviews-button:hover {
-    background-color: rgb(248, 246, 246);
-}
-
-.signout-button {
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    display: flex;
-    border: #dddddd;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
-    font-style: normal;
-    font-weight: 500;
-    height: 100px;
-    width: 200px;
-    align-items: center;
     padding-left: 0px;
     background: transparent;
+    align-items: baseline;
 }
 
-.signout_button:hover {
+.dropdown-button:hover {
     background-color: rgb(248, 246, 246);
 }
 
 li {
-    list-style: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
-    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 16px;
     font-style: normal;
-    font-weight: 500;
-    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #222222;
+    display: flex;
+    border: none;
+    height: 100px;
+    width: 200px;
+    padding-left: 0px;
+    padding-top: 15px;
+    background: transparent;
+    align-items: baseline;
 }
