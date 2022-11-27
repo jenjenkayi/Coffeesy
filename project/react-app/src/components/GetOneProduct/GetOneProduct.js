@@ -70,7 +70,6 @@ return (
                 <span className="description">Description</span>
                 <div className="product-description">{product.description}</div>
               </div>
-          </div>
         
           <div className="product-buttons">
                       {user && user.id === product.user_id && (
@@ -87,11 +86,12 @@ return (
                         <button
                           className="delete-product-button"
                           onClick={() => deleteProductHandler(product.id)}
-                        >
+                          >
                           Delete Listing
                         </button>
                       )}
                   </div>
+          </div>
                 <div className="review-header">
                   <div>{product.reviewCount} reviews {product.avgRating}</div>
                 </div>
