@@ -39,11 +39,11 @@ function App() {
       <Navigation loaded={loaded}/>
         {loaded && (
         <Switch>
-          <Route path='/login'>
-            <LoginFormPage />
-          </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path='/login'>
+            <LoginFormPage />
           </Route>
           <Route path="/products/new">
             <CreateProduct />

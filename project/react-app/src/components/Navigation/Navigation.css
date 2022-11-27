@@ -19,10 +19,6 @@ a {
     text-decoration: none;
 }
 
-br {
-    align-items: flex-end;
-}
-
 .fa-store {
     align-content: flex-end;
 }
@@ -32,7 +28,7 @@ br {
     background: transparent;
 }
 
-.profile_button {
+.profile-button {
     text-align: left;
     padding: 5px 0px 5px 5px;
     justify-content: space-around;
@@ -59,11 +55,11 @@ br {
     padding: 5px 10px 5px 0px;
 }
 
-.profile_button:hover {
+.profile-button:hover {
     box-shadow: 0px 0px .5px .5px rgb(176, 176, 176);
 }
 
-.profile_dropdown {
+.profile-dropdown {
     font-family: sans-serif;
     line-height: 20px;
     font-style: normal;
@@ -83,6 +79,7 @@ br {
     width: 200px;
     position: absolute;
     right: 1%;
+    z-index: 1;
 }
 
 ul {
@@ -95,7 +92,7 @@ ul {
     font-weight: 500;
 }
 
-.my_spots_button {
+.my-listings-button {
     cursor: pointer;
     text-align: left;
     font-size: 14px;
@@ -113,11 +110,11 @@ ul {
     background: transparent;
 }
 
-.my_spots_button:hover {
+.my-listings-button:hover {
     background-color: rgb(248, 246, 246);
 }
 
-.my_reviews_button {
+.my-reviews-button {
     gap: 5px;
     cursor: pointer;
     font-size: 14px;
@@ -135,11 +132,11 @@ ul {
     background: transparent;
 }
 
-.my_reviews_button:hover {
+.my-reviews-button:hover {
     background-color: rgb(248, 246, 246);
 }
 
-.log_out_button {
+.signout-button {
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
@@ -156,7 +153,7 @@ ul {
     background: transparent;
 }
 
-.log_out_button:hover {
+.signout_button:hover {
     background-color: rgb(248, 246, 246);
 }
 

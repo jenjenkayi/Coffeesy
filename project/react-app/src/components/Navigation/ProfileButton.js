@@ -33,13 +33,16 @@ function ProfileButton({ user }) {
   };
 
   return (
-    //  <button type="button" className='nav-create-product-button' 
-    //         onClick={() => history.push("/products/new")}>
-    //         <i className="fa-solid fa-store fa-xl"></i>
-    //   </button>
-    <div className="dropdown_menu">
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+    <>
+     {user && 
+     <button type="button" className='nav-create-product-button' 
+        onClick={() => history.push("/products/new")}>
+        <i className="fa-solid fa-store fa-xl"></i>
+      </button>}
+    {user && 
+    <div className="dropdown-menu">
+      <button className="profile-button" onClick={openMenu}>
+        <i className="fas fa-user-circle fa-2xl" />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
@@ -65,6 +68,8 @@ function ProfileButton({ user }) {
         </ul>
       )}
     </div>
+  }
+  </>
   );
 }
 

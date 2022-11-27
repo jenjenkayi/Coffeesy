@@ -26,31 +26,18 @@ function LoginForm() {
     }
 
     setErrors([]);
-    return dispatch(sessionActions.login({ email, password })).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
-
-  };
-
-  const demoLogin = (e) => {
-      e.preventDefault();
-      setErrors([]);
-      const email = setEmail("demo@aa.io");
-      const password = setPassword('password')
-  return dispatch(login(email, password)).catch(
+    return dispatch(sessionActions.login(email, password)).catch(
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       }
     );
   }
-
+  
   const signUpHandler = (e) => {
     setShowSignup(true)
   }
+
 
   return (
     <div>
@@ -84,7 +71,10 @@ function LoginForm() {
         />
       </label>
       <button type="submit" className="login-submit-button">Sign In</button>
-      <button type="submit" className="login-demouser-button" onClick={demoLogin}
+      <button type="submit" className="login-demouser-button" onClick={(e) => {
+        setEmail("demo@aa.io");
+        setPassword('password')
+      }}
         >
         Demo User
       </button>

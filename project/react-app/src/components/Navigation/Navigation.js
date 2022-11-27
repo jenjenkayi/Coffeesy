@@ -36,10 +36,6 @@ function Navigation({ loaded }){
           onClick={() => history.push('/')}
           >
           </img>
-         <button type="button" className='nav-create-product-button' 
-            onClick={() => history.push("/products/new")}>
-            <i className="fa-solid fa-store fa-xl"></i>
-          </button>
           {loaded && sessionLinks}
       </div>
   );
