@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import Review, db
+from app.models import Review, db, Product
 from app.forms.review_form import ReviewForm
 from datetime import datetime
 
@@ -11,6 +11,7 @@ review_routes = Blueprint('reviews', __name__)
 @login_required
 def get_curr_reviews():
     reviews = Review.query.filter(Review.user_id == current_user.id)
+
     if reviews:
         return {'Reviews': [review.to_dict() for review in reviews]}
 

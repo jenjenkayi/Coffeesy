@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import "./GetUsersReviews.css";
-import { deleteReviewThunk, getUsersReviewsThunk } from '../../store/review';
+import { deleteReviewThunk, getUsersReviewsThunk,  } from '../../store/review';
+import { getAllProductsThunk } from '../../store/product';
 
 const GetUsersReviews = () => {
   const dispatch = useDispatch();
@@ -12,10 +13,20 @@ const GetUsersReviews = () => {
   const userId = user?.id
   const reviews = useSelector(state => state.review.allReviews);
   const reviewsArr = Object.values(reviews);
+  
+  const products = useSelector(state => state.product.allProducts);
+  const productsArr = Object.values(products);
+  const prodcutInReviews = reviewsArr.filter(ele => ele.product_id === productsArr.id)
 
- useEffect(() => {
+  console.log("reviewsArr", prodcutInReviews)
+
+useEffect(() => {
     dispatch(getUsersReviewsThunk(userId))
   }, [dispatch, userId]);
+
+useEffect(() => {
+    dispatch(getAllProductsThunk())
+  }, [dispatch]);
 
   if (Object.keys(reviewsArr).length === 0) {
     return null;
@@ -27,7 +38,10 @@ const GetUsersReviews = () => {
   };
 
   return (
-    reviewsArr && (
+    <>
+      <div className="background"></div>
+      <div className="reviews-title">{user.firstName}'s Reviews</div>
+    {reviewsArr && (
         <div className="reviews-container">
             {reviewsArr.map(review => {
                 return (
@@ -59,8 +73,10 @@ const GetUsersReviews = () => {
                 )
             })}
         </div>
-    )
-  )
+      )
+    }
+  </>
+)
 }
 
 export default GetUsersReviews;

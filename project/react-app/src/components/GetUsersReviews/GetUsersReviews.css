@@ -1,0 +1,164 @@
+a:link {
+    text-decoration: none;
+};
+
+a:visited {
+    text-decoration: none;
+};
+
+a:hover {
+    text-decoration: none;
+};
+
+a:active {
+    text-decoration: none;
+}
+
+.background {
+    width: 100%;
+    height: 140px;
+    background-color: #BF9E87;
+    position: relative;
+    margin-top: 3%;
+}
+
+.reviews-title {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-style: normal;
+    color: #222222;
+    font-size: 34px;
+    text-align: left;
+    margin-top: -50px;
+    position: relative;
+    top: -50px;
+    padding-left: 10%;
+}
+
+.user-product-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 3em;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 20px;
+}
+
+
+.user-product-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: .5px solid #BF9E87;
+    border-radius: 20px;
+    cursor: pointer;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 15px;
+}
+
+.user-product-wrapper2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 20px;
+}
+
+.user-product-image {
+    width: 325px;
+    height: 356px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: .5px solid #BF9E87;
+}
+
+.user-product-info {
+    display: flex;
+    flex-direction: column;
+    white-space: wrap;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-style: normal;
+    color: #222222;
+    border: .5px solid #BF9E87;
+    border-radius: 20px;
+    margin-left: 30px;
+    padding: 20px;
+}
+
+.user-product-name {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.user-product-rating-info {
+    vertical-align: bottom;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.user-product-reviewCount {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #595959;
+}
+
+.user-product-price {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+
+.user-product-description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.user-product-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 325px;
+}
+
+.edit-product-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    margin-top: 5px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    align-self: center;
+    margin-left: 20px;
+}
+
+.delete-product-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    margin-top: 5px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+}
