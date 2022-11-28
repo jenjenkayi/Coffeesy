@@ -45,7 +45,7 @@ def get_user_products(userId):
 @login_required
 def get_user_reviews(userId):
     reviews = Review.query.filter(Review.user_id == userId)
-    return {'Reviews': [review.to_dict() for review in reviews]}
+    return {'Reviews': [review.to_dict_with_user() for review in reviews]}
  
 
 
