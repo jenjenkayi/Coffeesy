@@ -1,0 +1,130 @@
+.nav-logo {
+    height: 60px;
+    display:flex;
+    cursor: pointer;
+    align-items: center;
+    object-fit: cover;
+}
+
+.nav-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    align-items: center;
+    border-bottom: .5px solid #dddddd;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fa-store {
+    align-content: flex-end;
+}
+
+.nav-create-product-button {
+    border: none;
+    background: transparent;
+}
+
+.profile-button {
+    text-align: left;
+    padding: 5px 5px 5px 5px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    border-radius: 21px;
+    cursor: pointer;
+    height: 43px;
+    width: 80px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    background: transparent;
+    box-shadow: rgba(0, 0, 0, 0.2);
+    align-items: center;
+    position: relative;
+    align-items: center;
+}
+
+.fa-user-circle {
+    padding: 25px 10px 10px 15px;
+}
+
+.profile-button {
+    /* padding: 12px; */
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    border-radius: 24px;
+    cursor: pointer;
+    height: 43px;
+    width: 60px;
+    border: none;
+    background: transparent;
+    box-shadow: rgba(0, 0, 0, 0.2);
+    align-items: center;
+    position: relative;
+    right: 50%;
+}
+
+.profile-button:hover {
+    box-shadow: 0px 1px 2px rgb(221, 221, 221, 0.5);
+    background-color: rgb(239, 235, 235);
+}
+
+.profile-dropdown {
+    flex-direction: column;
+    display: flex;
+    border: 1px rgba(34, 34, 34, 0.15) solid;;
+    background-color: #FFF;
+    box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
+    padding: 12px 5px 12px 12px;
+    border-radius: 21px;
+    height: 150px;
+    min-width: 160px;
+    max-width: 300px;
+    max-height: 480px;
+    position: absolute;
+    right: 1%;
+    z-index: 1;
+}
+
+.dropdown-button {
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #222222;
+    display: flex;
+    border: none;
+    height: 100px;
+    width: 200px;
+    padding-left: 0px;
+    background: transparent;
+    align-items: baseline;
+}
+
+.dropdown-button:hover {
+    background-color: rgb(248, 246, 246);
+}
+
+li {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #222222;
+    display: flex;
+    border: none;
+    height: 100px;
+    width: 200px;
+    padding-left: 0px;
+    padding-top: 15px;
+    background: transparent;
+    align-items: baseline;
+}

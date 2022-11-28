@@ -1,1 +1,11 @@
 /* TODO Add site wide styles */
+
+html,
+body {
+    width:100%;
+    min-width: 970px;
+}
+
+a {
+    text-decoration: none;
+}

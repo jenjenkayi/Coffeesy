@@ -16,7 +16,6 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     first_name = db.Column(db.String(200), nullable=False)
     last_name = db.Column(db.String(200), nullable=False)
-    profile_picture = db.Column(db.String)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     products = db.relationship("Product", back_populates="user")
@@ -40,5 +39,4 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'firstName': self.first_name,
             'lastName': self.last_name,
-            'profile_picture': self.profile_picture,
         }

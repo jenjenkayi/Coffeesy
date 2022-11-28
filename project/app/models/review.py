@@ -30,7 +30,7 @@ class Review(db.Model):
             'review': self.review,
             "stars": self.stars,
             "created_at": self.created_at,
-            "updatedAt": self.updated_at
+            "updatedAt": self.updated_at,
         }
 
     def to_dict_with_user(self):
@@ -41,5 +41,7 @@ class Review(db.Model):
             'review': self.review,
             "stars": self.stars,
             "created_at": self.created_at,
-            "user": self.user.to_dict()
+            "user": self.user.to_dict(),
+            "product": self.product.to_dict()
         }
+

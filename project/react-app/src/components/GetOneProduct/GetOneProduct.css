@@ -1,0 +1,202 @@
+.product-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+.product-info-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-info{
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    color: #222222;
+    border: .5px solid #BF9E87;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+.shop-name {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.product-rating-info {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.product-image {
+    width: 600px;
+    height: 500px;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.product-name {
+    font-family: 'Roboto', Georgia, serif;
+    font-weight: 1000;
+    font-size: 26px;
+    line-height: 32px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 10px;
+}
+
+.product-quantity {
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.product-info2 {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
+
+i {
+    margin-right: 5px;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.product-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 542px;
+    margin-bottom: 20px;
+}
+
+.edit-product-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.delete-product-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.review-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 42px;
+    color: #222222;
+}
+
+.create-review-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 120px;
+    margin-top: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-left: 10%;
+}
+
+.create-review-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.edit-review-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 110px;
+    margin-top: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-left: 10%;
+}
+
+.edit-review-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.delete-review-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 110px;
+    margin-top: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-left: 20px;
+}
+
+.delete-review-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2);
+}
