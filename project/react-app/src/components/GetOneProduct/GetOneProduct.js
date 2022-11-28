@@ -47,7 +47,7 @@ return (
                 alt=""
               />
               <div className="product-info">
-                <div className="shop-name">{user.firstName}'s Shop</div>
+                <div className="shop-name">{user?.firstName}'s Shop</div>
                 <div className="product-rating-info">
                   <span className="product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
                 </div>
@@ -107,7 +107,7 @@ return (
             //   >Create a Review
             // </button>
             // </NavLink>}
-            <CreateReviewModal />}
+            <CreateReviewModal reviews={reviews}/>}
             {userReviews.map(review => {
                 return (
                   <>

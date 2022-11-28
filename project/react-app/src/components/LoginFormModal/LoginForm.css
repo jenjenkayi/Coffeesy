@@ -44,7 +44,6 @@
     background: none;
     background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.12);
-    cursor: pointer;
     border-radius: 24px;
     border: 2px solid black;
 }
@@ -54,10 +53,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 300px;
-    height: 350px;
+    min-height: 350px;
     background-color: #FFF;
     outline: 1px solid #dddddd;
-    cursor: pointer;
     padding: 30px;
     position: relative;
     justify-content: space-evenly;
@@ -70,7 +68,7 @@
     font-size: 20px;
     font-weight: 700;
     line-height: 28px;
-    padding: 9px 15px 9px 15px;
+    padding: 9px 15px 9px 0px;
 }
 
 .LoginForm-label {
@@ -106,12 +104,8 @@
     width: 300px;
     margin-top: 5px;
     cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
     font-size: 16px;
     line-height: 1.5;
-    font-family: Arial, Helvetica, sans-serif;
-    align-self: center;
 }
 
 .login-demouser-button {
@@ -123,12 +117,8 @@
     width: 300px;
     margin-top: 5px;
     cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
     font-size: 16px;
     line-height: 1.5;
-    font-family: Arial, Helvetica, sans-serif;
-    align-self: center;
 }
 
 .errors {

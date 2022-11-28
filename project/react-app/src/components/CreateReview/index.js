@@ -3,15 +3,15 @@ import { Modal } from '../../context/Modal';
 import CreateReview from './CreateReview';
 import './CreateReview.css';
 
-function CreateReviewModal() {
-  const [showCreateReviewModal, setShowCreateReviewModal] = useState(false);
+function CreateReviewModal({reviews}) {
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button className="create-review-button" onClick={() => setShowCreateReviewModal(true)}>Write a Review</button>
-      {showCreateReviewModal && (
-        <Modal onClose={() => setShowCreateReviewModal(false)}>
-          <CreateReview />
+      <button className="create-review-button" onClick={() => setShowModal(true)}>Write a Review</button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <CreateReview setShowModal={setShowModal} reviews={reviews}/>
         </Modal>
       )}
     </>

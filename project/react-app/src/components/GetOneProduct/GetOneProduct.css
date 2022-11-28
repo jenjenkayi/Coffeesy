@@ -159,6 +159,10 @@ i {
     margin-left: 10%;
 }
 
+.create-review-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2);
+}
+
 .edit-review-button {
     color: white;
     background-color: #BF9E87;
@@ -174,6 +178,10 @@ i {
     margin-left: 10%;
 }
 
+.edit-review-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2);
+}
+
 .delete-review-button {
     color: white;
     background-color: #BF9E87;
@@ -187,4 +195,8 @@ i {
     font-size: 14px;
     line-height: 1.5;
     margin-left: 20px;
+}
+
+.delete-review-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2);
 }
