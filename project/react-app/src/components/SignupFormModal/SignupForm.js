@@ -38,11 +38,11 @@ function SignupForm() {
     }
 
     if (!firstName){
-      return setErrors(['Please provide a firstName.'])
+      return setErrors(['Please provide a first name.'])
     }
 
     if (!lastName){
-      return setErrors(['Please provide a lastName.'])
+      return setErrors(['Please provide a last name.'])
     }
 
     if (password === confirmPassword) {

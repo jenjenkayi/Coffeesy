@@ -56,8 +56,6 @@
     flex-wrap: wrap;
     padding-left: 40px;
     padding-right: 40px;
-    min-width: 800px;
-    min-height: 700px;
 }
 
 .product-form-label {
@@ -110,12 +108,8 @@ select {
     width: 300px;
     margin-top: 30px;
     cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
     font-size: 16px;
     line-height: 1.5;
-    font-family: Arial, Helvetica, sans-serif;
-    align-self: center;
 }
 
 .product-form-cancel-button {
@@ -127,10 +121,7 @@ select {
     width: 300px;
     margin-top: 30px;
     cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
     font-size: 16px;
     line-height: 1.5;
-    font-family: Arial, Helvetica, sans-serif;
-    align-self: center;
 }
+
