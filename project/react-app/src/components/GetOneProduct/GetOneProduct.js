@@ -101,7 +101,7 @@ return (
             {!userReviews.length && user && <NavLink to={`/products/${productId}/new-review`}>
             <button 
               type="submit"
-              className="one_spot_create_review_button"
+              className="create-review-button"
               >Create a Review
             </button>
             </NavLink>}
