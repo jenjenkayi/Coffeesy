@@ -39,17 +39,16 @@ const GetOneProduct = () => {
 return ( 
         <>
           <div className="product-container">
-              <div>
-                 <img
-                    className="product-image"
-                    src={product.image}
-                    alt=""
-                    />
-              </div>
+            <div className="product-info-container">
+              <img
+                className="product-image"
+                  src={product.image}
+                alt=""
+              />
               <div className="product-info">
                 <div className="shop-name">{user.firstName}'s Shop</div>
                 <div className="product-rating-info">
-                    <span className="product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
+                  <span className="product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
                 </div>
                 <div className="product-name">{product.name}</div>
                 <div className="product-price">${product.price}</div>
@@ -60,16 +59,17 @@ return (
                     <br></br>
                   <i className="fa-solid fa-gifts fa-lg" ></i>
                     Order soon to get by Nov 30-Dec 6.
-                     <br></br>
+                    <br></br>
                   <i className="fa-solid fa-star fa-lg"></i>
                     Star Seller. 
-                     <br></br>
+                    <br></br>
                   <i className="fa-solid fa-truck fa-lg"></i>
                     Hooray! This item ships free to the US
                 </div>
                 <span className="description">Description</span>
-                <div className="product-description">{product.description}</div>
+                <div className="product-description">{product.description}</div>      
               </div>
+            </div>
         
           <div className="product-buttons">
                       {user && user.id === product.user_id && (

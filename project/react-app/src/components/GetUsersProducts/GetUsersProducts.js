@@ -57,14 +57,14 @@ return (
                     <div className="user-product-buttons">
                       {user && user.id === product.user_id && (
                         <button
-                        className="edit-product-button"
+                        className="edit-user-product-button"
                         onClick={() => history.push(`/story/${product.id}/edit`)}>
                           Edit Listing
                         </button>
                       )}
                       {user && user.id === product.user_id && (
                         <button
-                        className="delete-product-button"
+                        className="delete-user-product-button"
                         onClick={() => deleteProductHandler(product.id)}>
                           Delete Listing
                         </button>

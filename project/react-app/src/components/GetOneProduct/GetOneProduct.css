@@ -1,76 +1,77 @@
 .product-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     border: 1px solid black;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 2%;
 }
 
-.shop-name {
+.product-info-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-info{
+    display: flex;
+    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
+    color: #222222;
+    border: .5px solid #BF9E87;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+.shop-name {
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
-    color: #222222;
 }
 
-.products-rating-info {
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
+.product-rating-info {
     font-weight: 400;
     font-size: 13px;
     line-height: 18px;
-    color: #222222;
 }
 
 .product-image {
     width: 793px;
-    height: 634px;
+    height: 600px;
     border-radius: 6px;
-    overflow: hidden;
-    padding-right: 40px;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .product-name {
     font-family: 'Roboto', Georgia, serif;
-    font-style: normal;
     font-weight: 300;
     font-size: 26px;
     line-height: 32px;
-    color: #222222;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
 .product-price {
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
     font-weight: 700;
     font-size: 28px;
     line-height: 36px;
-    color: #222222;
     margin-bottom: 10px;
 }
 
 .product-quantity {
     margin-bottom: 20px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
-    font-style: normal;
     font-weight: 400;
     line-height: 18px;
-    color: #222222;
 }
 
 .product-info2 {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
-    font-style: normal;
     font-weight: 400;
     line-height: 18px;
-    color: #222222;
     margin-bottom: 20px;
 }
 
@@ -80,23 +81,53 @@ i {
 }
 
 .description {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 24px;
-    color: #222222;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
 .product-description {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
     line-height: 28px;
-    color: #222222;
+}
+
+.product-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 542px;
+    margin-bottom: 20px;
+}
+
+.edit-product-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.delete-product-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .review-header {

@@ -79,13 +79,14 @@ a:active {
     display: flex;
     flex-direction: column;
     white-space: wrap;
-    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Roboto', Georgia, serif;    
     font-style: normal;
     color: #222222;
     border: .5px solid #BF9E87;
     border-radius: 20px;
     margin-left: 30px;
     padding: 20px;
+    min-width: 800px;
 }
 
 .user-product-name {
@@ -128,7 +129,7 @@ a:active {
     width: 325px;
 }
 
-.edit-product-button {
+.edit-user-product-button {
     color: white;
     background-color: #BF9E87;
     border-radius: 24px;
@@ -146,7 +147,7 @@ a:active {
     margin-left: 20px;
 }
 
-.delete-product-button {
+.delete-user-product-button {
     color: white;
     background-color: #BF9E87;
     border-radius: 24px;
