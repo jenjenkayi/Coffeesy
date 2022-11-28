@@ -112,7 +112,7 @@ a {
     background-color: rgb(248, 246, 246);
 }
 
-li {
+.dropdown-user {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 16px;
     font-style: normal;
