@@ -34,12 +34,14 @@ const CreateReview = () => {
     
     dispatch(createReviewThunk(data)).then(() => {
         history.push(`/products/${productId}`);
+        // setShowCreateReviewModal(false)
     })
     }
 
   const cancelHandler = (e) => {
     e.preventDefault();
     history.push(`/products/${productId}`);
+    // setShowCreateReviewModal(false)
   };
 
   return (
