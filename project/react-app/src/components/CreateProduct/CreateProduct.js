@@ -28,7 +28,7 @@ const CreateProduct = () => {
     if (!data.category.length) return setErrors(['Category can not be empty.'])
     if (!data.name.length) return setErrors(['Name can not be empty.'])
     if (!data.description.length) return setErrors(['Description can not be empty.'])
-    if (!data.price.length) return setErrors(['Price can not be empty.'])
+    if (!data.price.length && data.price > 0) return setErrors(['Price can not be empty and it must be greater than $1.'])
     if (!data.quantity.length || data.quantity < 0) return setErrors(['Quantity can not be empty and it must be greater than 1.'])
     if (!data.image.length) return setErrors(['Image can not be empty.'])
     if (!data.image.endsWith('.jpg') && !data.image.includes('.jpeg') && !data.image.includes('.png')) return setErrors(['Image must be in .jpg, .jpeg, or .png format']);

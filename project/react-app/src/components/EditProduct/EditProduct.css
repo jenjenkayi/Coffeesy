@@ -3,8 +3,8 @@
     margin-right: 30%;
     background-color: #FFF;
     border: 1px solid #dddddd;
-    padding-top: 20px;
     margin-top: 40px;
+    padding-top: 20px;
 }
 
 .product-form-title {
@@ -55,8 +55,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     padding-left: 40px;
-    padding-right: 40px;
-}
+    padding-right: 40px;}
 
 .product-form-label {
     font-family: Arial, Helvetica, sans-serif;
@@ -76,7 +75,6 @@
     font-weight: 400;
     font-size: 16px;
     color: #000000;
-    height: 40px;
     border-radius: 5px;
     border: .5px solid #dddddd;
     cursor: text;
@@ -108,12 +106,8 @@ select {
     width: 300px;
     margin-top: 30px;
     cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
     font-size: 16px;
     line-height: 1.5;
-    font-family: Arial, Helvetica, sans-serif;
-    align-self: center;
 }
 
 .product-form-cancel-button {
@@ -125,10 +119,6 @@ select {
     width: 300px;
     margin-top: 30px;
     cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
     font-size: 16px;
     line-height: 1.5;
-    font-family: Arial, Helvetica, sans-serif;
-    align-self: center;
 }

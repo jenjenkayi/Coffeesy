@@ -46,10 +46,10 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>        
+          <div className="dropdown-user">        
             <i className="fa-solid fa-circle-user fa-xl"></i>
             {user.username}
-          </li>
+          </div>
           <button className="dropdown-button"
             onClick={() => history.push('/products/current')}>
             <i className="fa-regular fa-rectangle-list fa-xl"></i>

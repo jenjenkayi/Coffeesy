@@ -5,8 +5,10 @@
     left: 0;
     bottom: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 99;
 }
 
 #modal-background {
@@ -16,6 +18,9 @@
     left: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
 
 #modal-content {

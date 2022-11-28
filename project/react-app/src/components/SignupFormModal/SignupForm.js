@@ -34,15 +34,15 @@ function SignupForm() {
     }
 
     if (confirmPassword !== password){
-      return setErrors(["Please provide a confirm password."])
+      return setErrors(["Please provide a confirm password and it must be the same as the password field."])
     }
 
     if (!firstName){
-      return setErrors(['Please provide a firstName.'])
+      return setErrors(['Please provide a first name.'])
     }
 
     if (!lastName){
-      return setErrors(['Please provide a lastName.'])
+      return setErrors(['Please provide a last name.'])
     }
 
     if (password === confirmPassword) {
@@ -59,15 +59,15 @@ function SignupForm() {
   return (
     <form onSubmit={handleSubmit} className="SignupForm-Container">
       <div className="SignupForm-Header">
-        <h3 className="SignupForm-Title">Create your account</h3>
-        <h5 className="SignupForm-Title2">Registration is easy.</h5>
+        <div className="SignupForm-Title">Create your account</div>
+        <div className="SignupForm-Title2">Registration is easy.</div>
       </div>
       <ul>
         <div className="errors">
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </div>
       </ul>
-      <label className="SignpForm-label">
+      <label className="SignupForm-label">
         Email address
         <input
           className="SignupForm-Input"
