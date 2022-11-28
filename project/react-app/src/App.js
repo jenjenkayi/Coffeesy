@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { authenticate } from './store/session';
+import { Modal } from './context/Modal';
 import CreateProduct from './components/CreateProduct/CreateProduct';
 import EditProduct from './components/EditProduct/EditProduct';
 import GetOneProduct from './components/GetOneProduct/GetOneProduct';

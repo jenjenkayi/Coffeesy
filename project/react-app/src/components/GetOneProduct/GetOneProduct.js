@@ -5,6 +5,7 @@ import "./GetOneProduct.css";
 import {deleteProductThunk, getOneProductThunk} from '../../store/product';
 import { deleteReviewThunk } from '../../store/review';
 import GetProductReviews from '../GetProductReviews/GetProductReviews'
+import CreateReviewModal from "../CreateReview";
 
 const GetOneProduct = () => {
   const dispatch = useDispatch();
@@ -98,13 +99,15 @@ return (
             <div>
                 <GetProductReviews />
             </div>
-            {!userReviews.length && user && <NavLink to={`/products/${productId}/new-review`}>
-            <button 
-              type="submit"
-              className="create-review-button"
-              >Create a Review
-            </button>
-            </NavLink>}
+            {/* {!userReviews.length && user && <NavLink to={`/products/${productId}/new-review`}> */}
+            {!userReviews.length && user && 
+            // <button 
+            //   type="submit"
+            //   className="create-review-button"
+            //   >Create a Review
+            // </button>
+            // </NavLink>}
+            <CreateReviewModal />}
             {userReviews.map(review => {
                 return (
                   <>

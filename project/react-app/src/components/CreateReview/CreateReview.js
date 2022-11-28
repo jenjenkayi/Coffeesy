@@ -21,9 +21,9 @@ const CreateReview = () => {
 
     let Review = {review, stars}
 
-    if (!Review.review.length) return setErrors(["Review can not be empty"]);
-    if (!Review.stars.length) return setErrors(["Star can not be empty"]);
-    if (Review.stars > 5 || Review.stars < 1) return setErrors(["Stars must be between 1 to 5"]);
+    if (!Review.review.length) return setErrors(["Review field can not be empty"]);
+    if (!Review.stars.length) return setErrors(["Star rating field can not be empty"]);
+    if (Review.stars > 5 || Review.stars < 1) return setErrors(["Star rating must be between 1 to 5"]);
 
     const data = { 
         user_id: user.id,
