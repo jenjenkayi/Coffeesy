@@ -10,8 +10,6 @@ const CreateReview = () => {
     const { productId } = useParams();
 
     const user = useSelector(state => state.session.user);
-    const product = useSelector(state => state.product.singleProduct);
-    const userId = user.id
 
     const [review, setReview] = useState('');
     const [stars, setStars] = useState('');
@@ -52,22 +50,24 @@ const CreateReview = () => {
           {errors.length > 0 &&
           errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
-        <input
-            className='CreateReviewForm_Input'
+        <label className='CreateReviewForm-Label'>
+          Write Your Review
+          <input
+            className='CreateReviewForm-Input'
             type="text"
-            placeholder='Write your review'
             value={review}
             onChange={(e) => setReview(e.target.value)} 
-        />
+            />
+        </label>
+        <label className='CreateReviewForm-Label'>
+          Rating
         <input
             className='CreateReviewForm-Input'
             type="number"
-            placeholder="Stars"
             value={stars}
-            // min="1"
-            // max="5"
             onChange={(e) => setStars(e.target.value)} 
         />
+        </label>
         <button type="submit" className='CreateReview-Submit-Button'>Submit</button>
         <button type="button" 
         onClick={cancelHandler}
