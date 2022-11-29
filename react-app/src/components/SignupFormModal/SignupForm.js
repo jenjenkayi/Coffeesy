@@ -21,30 +21,18 @@ function SignupForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(!email && !email.includes('@')) {
-      return setErrors(['Please provide a valid email'])
-    }
-
-    if (!username) {
-      return setErrors(['Please provide a username.'])
-    }
-
-    if (!password){
-      return setErrors(['Please provide a password.'])
-    }
-
-    if (confirmPassword !== password){
-      return setErrors(["Please provide a confirm password and it must be the same as the password field."])
-    }
-
-    if (!firstName){
-      return setErrors(['Please provide a first name.'])
-    }
-
-    if (!lastName){
-      return setErrors(['Please provide a last name.'])
-    }
-
+    if(!email && !email.includes('@')) return setErrors(['Please provide a valid email'])
+    
+    if (!username) return setErrors(['Please provide a username.'])
+  
+    if (!password)return setErrors(['Please provide a password.'])
+    
+    if (confirmPassword !== password)return setErrors(["Please provide a confirm password and it must be the same as the password field."])
+  
+    if (!firstName)return setErrors(['Please provide a first name.'])
+    
+    if (!lastName)return setErrors(['Please provide a last name.'])
+    
     if (password === confirmPassword) {
     setErrors([]);
     return dispatch(sessionActions.signUp({ email, username, password, firstName, lastName }))

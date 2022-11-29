@@ -1,10 +1,8 @@
 .product-form-wrapper {
-    margin-left: 30%;
-    margin-right: 30%;
     background-color: #FFF;
-    border: 1px solid black;
-    margin-top: 40px;
-    padding-top: 20px;
+    padding-top: 5%;
+    padding-right: 20%;
+    padding-left: 20%;
 }
 
 .product-form-title {
@@ -23,7 +21,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
-    color: #222222;
+    color: #212121;
     text-align: center;
     padding-top: 20px;
 }
