@@ -16,29 +16,22 @@ function SignupForm() {
   const [lastName, setLastName] = useState("");
   const [errors, setErrors] = useState([]);
   
-  const [showLogIn, setShowLogIn] = useState(false);
-
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if(!email) return setErrors(['Please provide an email'])
     if(!email.includes('@')) return setErrors(['Please provide a valid email'])
-    
     if (!username) return setErrors(['Please provide a username.'])
-  
     if (!password)return setErrors(['Please provide a password.'])
-    
     if (confirmPassword !== password)return setErrors(["Please provide a confirm password and it must be the same as the password field."])
-  
     if (!firstName)return setErrors(['Please provide a first name.'])
-    
     if (!lastName)return setErrors(['Please provide a last name.'])
-    
+
     if (password === confirmPassword) {
     setErrors([]);
-    return dispatch(sessionActions.signUp({ email, username, password, firstName, lastName }))
+    return await dispatch(sessionActions.signUp(username, email, password, firstName, lastName))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -47,9 +40,7 @@ function SignupForm() {
       return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
-  const logInHandler = (e) => {
-    setShowLogIn(true);
-  }
+ 
   return (
     <form onSubmit={handleSubmit} className="SignupForm-Container">
       <div className="SignupForm-Header">

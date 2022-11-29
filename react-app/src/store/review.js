@@ -1,4 +1,4 @@
-import { csrfFetch } from './csrf';
+// import { fetch } from './csrf';
 
 // TYPES
 const CREATE_REVIEW = 'reviews/CREATE_REVIEW'
@@ -41,7 +41,7 @@ export const deleteReview = (reviewId) => ({
 
 // THUNKS
 export const createReviewThunk = (data) => async (dispatch) => {
-  const response = await csrfFetch(`/api/products/${data.productId}/review`, {
+  const response = await fetch(`/api/products/${data.productId}/review`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(data)
@@ -55,7 +55,7 @@ export const createReviewThunk = (data) => async (dispatch) => {
 }
 
 export const getAllReviewsThunk = (productId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/products/${productId}/reviews`)
+  const response = await fetch(`/api/products/${productId}/reviews`)
   
   if (response.ok) {
     const reviews = await response.json()
@@ -65,7 +65,7 @@ export const getAllReviewsThunk = (productId) => async (dispatch) => {
 }
 
 export const getOneReviewThunk = (reviewId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/reviews/${reviewId}`)
+  const response = await fetch(`/api/reviews/${reviewId}`)
   
   if (response.ok) {
     const review = await response.json()
@@ -75,7 +75,7 @@ export const getOneReviewThunk = (reviewId) => async (dispatch) => {
 }
 
 export const getUsersReviewsThunk = (userId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/users/${userId}/reviews`)
+  const response = await fetch(`/api/users/${userId}/reviews`)
   
   if (response.ok) {
     const reviews = await response.json()
@@ -85,7 +85,7 @@ export const getUsersReviewsThunk = (userId) => async (dispatch) => {
 }
 
 export const editReviewThunk = (data) => async (dispatch) => {
-   const response = await csrfFetch(`/api/reviews/${data.reviewId}`, {
+   const response = await fetch(`/api/reviews/${data.reviewId}`, {
      method: 'PUT',
      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)
@@ -99,7 +99,7 @@ export const editReviewThunk = (data) => async (dispatch) => {
 }
 
 export const deleteReviewThunk = (reviewId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+  const response = await fetch(`/api/reviews/${reviewId}`, {
     method: 'DELETE',
   });
 

@@ -1,4 +1,4 @@
-import { csrfFetch } from "./csrf";
+// import { fetch } from "./csrf";
 
 // constants
 const SET_USER = 'session/SET_USER';
@@ -14,7 +14,7 @@ const removeUser = () => ({
 })
 
 export const authenticate = () => async (dispatch) => {
-  const response = await csrfFetch('/api/auth/', {
+  const response = await fetch('/api/auth/', {
     headers: {'Content-Type': 'application/json'}
   });
   if (response.ok) {
@@ -28,7 +28,7 @@ export const authenticate = () => async (dispatch) => {
 }
 
 export const login = (email, password) => async (dispatch) => {
-  const response = await csrfFetch('/api/auth/login', {
+  const response = await fetch('/api/auth/login', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
@@ -52,7 +52,7 @@ export const login = (email, password) => async (dispatch) => {
 }
 
 export const logout = () => async (dispatch) => {
-  const response = await csrfFetch('/api/auth/logout', {
+  const response = await fetch('/api/auth/logout', {
     headers: {'Content-Type': 'application/json'}
   });
 
@@ -63,7 +63,7 @@ export const logout = () => async (dispatch) => {
 
 
 export const signUp = (username, email, password, first_name, last_name) => async (dispatch) => {
-  const response = await csrfFetch('/api/auth/signup', {
+  const response = await fetch('/api/auth/signup', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({

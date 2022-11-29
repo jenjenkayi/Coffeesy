@@ -1,4 +1,4 @@
-import { csrfFetch } from './csrf';
+// import { fetch } from './csrf';
 
 // TYPES
 const CREATE_PRODUCT = 'products/CREATE_PRODUCT'
@@ -42,7 +42,7 @@ export const deleteProduct = (productId) => ({
 
 // THUNKS
 export const createProductThunk = (data) => async (dispatch) => {
-  const response = await csrfFetch('/api/products/', {
+  const response = await fetch('/api/products/', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(data)
@@ -56,7 +56,7 @@ export const createProductThunk = (data) => async (dispatch) => {
 }
 
 export const getAllProductsThunk = () => async (dispatch) => {
-  const response = await csrfFetch('/api/products/')
+  const response = await fetch('/api/products/')
 
   if (response.ok) {
     const products = await response.json()
@@ -66,7 +66,7 @@ export const getAllProductsThunk = () => async (dispatch) => {
 }
 
 export const getOneProductThunk = (productId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/products/${productId}`)
+  const response = await fetch(`/api/products/${productId}`)
 
   if(response.ok){
     const product = await response.json()
@@ -76,7 +76,7 @@ export const getOneProductThunk = (productId) => async (dispatch) => {
 }
 
 export const getUsersProductsThunk = (userId) => async (dispatch) => {
-  const response = await csrfFetch(`api/users/${userId}/products`);
+  const response = await fetch(`api/users/${userId}/products`);
 
   if(response.ok){
     const products = await response.json()
@@ -86,7 +86,7 @@ export const getUsersProductsThunk = (userId) => async (dispatch) => {
 }
 
 export const editProductThunk = (productId, data) => async (dispatch) => {
-  const response = await csrfFetch(`/api/products/${productId}`, {
+  const response = await fetch(`/api/products/${productId}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(data)
@@ -100,7 +100,7 @@ export const editProductThunk = (productId, data) => async (dispatch) => {
 }
 
 export const deleteProductThunk = (productId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/products/${productId}`, {
+  const response = await fetch(`/api/products/${productId}`, {
     method: 'DELETE'
   });
 

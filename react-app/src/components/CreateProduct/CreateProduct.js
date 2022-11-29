@@ -108,12 +108,12 @@ const CreateProduct = () => {
                     type="text"
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
+                    onError={e => {e.currentTarget.src = "https://cdn.pixabay.com/photo/2021/01/18/12/45/coffee-beans-5928034__340.jpg"}}
                 />
-                    {!image && <img 
+                    {/* {!image && <img 
                         src={image} 
                         alt="coffee beans default"
-                        onError={e => { e.currentTarget.src = "https://cdn.pixabay.com/photo/2021/01/18/12/45/coffee-beans-5928034__340.jpg"; }}
-                    />}
+                    />} */}
                 <div className="product-form-buttons">
                     <button className="product-form-submit-button" type="submit">Submit</button>
                     <button type="button" className="product-form-cancel-button" onClick={cancelHandler}>
