@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
+import {login} from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css';
 import SignupForm from "../SignupFormModal/SignupForm";
@@ -13,30 +13,18 @@ function LoginForm() {
 
   const [showSignup, setShowSignup] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!email){
-      return setErrors(['Please provide an email'])
+  
+    const data = await dispatch(login(email, password))
+    if (data) {
+      setErrors(data)
     }
-    
-    if (!password){
-      return setErrors(['Please provide a password'])
-    }
-
-    setErrors([]);
-    return dispatch(sessionActions.login(email, password)).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
   }
   
   const signUpHandler = (e) => {
     setShowSignup(true)
   }
-
 
   return (
     <div>
@@ -52,7 +40,7 @@ function LoginForm() {
         ))}
       </ul>
       <label className="LoginForm-label">
-        Email address
+        Email
         <input
           className="LoginForm-Input"
           type="text"

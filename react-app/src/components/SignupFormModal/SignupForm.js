@@ -21,23 +21,14 @@ function SignupForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!email) return setErrors(['Please provide an email'])
-    if(!email.includes('@')) return setErrors(['Please provide a valid email'])
-    if (!username) return setErrors(['Please provide a username.'])
-    if (!password)return setErrors(['Please provide a password.'])
-    if (confirmPassword !== password)return setErrors(["Please provide a confirm password and it must be the same as the password field."])
-    if (!firstName)return setErrors(['Please provide a first name.'])
-    if (!lastName)return setErrors(['Please provide a last name.'])
-
     if (password === confirmPassword) {
-    setErrors([]);
-    return await dispatch(sessionActions.signUp(username, email, password, firstName, lastName))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      });
-    }
+    const data = await dispatch(sessionActions.signUp(username, email, password, firstName, lastName))
+        if (data) {
+          setErrors(data);
+      }
+    } else {
       return setErrors(['Confirm Password field must be the same as the Password field']);
+    }
   };
 
  
@@ -86,6 +77,7 @@ function SignupForm() {
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          required
         />
       </label>
       <label className="SignupForm-label">
