@@ -37,7 +37,7 @@
 }
 
 .product-image {
-    /* max-width: 600px; */
+    min-width: 600px;
     height: 500px;
     width: 100%;
     object-fit: cover;

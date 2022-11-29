@@ -4,8 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { createReviewThunk } from '../../store/review';
 import './CreateReview.css';
 
-const CreateReview = () => {
-  // {setShowModal}
+const CreateReview = ({setShowModal}) => {
+  
     const dispatch = useDispatch();
     const history = useHistory();
     const { productId } = useParams();

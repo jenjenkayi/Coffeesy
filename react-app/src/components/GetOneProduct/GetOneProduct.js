@@ -7,6 +7,7 @@ import { deleteReviewThunk } from '../../store/review';
 import GetProductReviews from '../GetProductReviews/GetProductReviews'
 import CreateReviewModal from "../CreateReview";
 import EditReviewModal from "../EditReview";
+import {getAllReviewsThunk} from '../../store/review'
 
 const GetOneProduct = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,14 @@ const GetOneProduct = () => {
   const productArr = Object.values(product);
 
   const reviews = useSelector(state => state.review.allReviews);
+  const reviewsArr = Object.values(reviews);
   const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
   const [isLoaded, setIsLoaded] = useState(false)
   
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
+    dispatch(getAllReviewsThunk(productId))
     .then(() => setIsLoaded(true))
   }, [dispatch, productId]);
 
@@ -99,7 +102,8 @@ return (
                   </div>
           </div>)}
                 <div className="review-header">
-                  <div>{product.reviewCount} reviews {product.avgRating}</div>
+                  {reviewsArr && <div>{reviewsArr.length} reviews {product.avgRating}</div>}
+                   <i className="fa-solid fa-star"></i>
                 </div>
             <div>
                 <GetProductReviews />

@@ -18,8 +18,8 @@ import Pods from './components/Categories/Pods';
 import Drinkware from './components/Categories/Drinkware';
 import Equipment from './components/Categories/Equipment';
 import Navigation from './components/Navigation/Navigation';
-import SignupFormPage from './components/SignupFormModal/SignupForm';
-import LoginFormPage from './components/LoginFormModal/LoginForm';
+import SignupForm from './components/SignupFormModal';
+import LoginForm from './components/LoginFormModal';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,10 +41,10 @@ function App() {
         {loaded && (
         <Switch>
           <Route path="/signup">
-            <SignupFormPage />
+            <SignupForm />
           </Route>
           <Route path='/login'>
-            <LoginFormPage />
+            <LoginForm />
           </Route>
           <Route path="/products/new">
             <CreateProduct />
