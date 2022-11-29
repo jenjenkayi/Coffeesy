@@ -28,7 +28,7 @@ return (
                     <>
                     <div className="reviews-stars">{review.stars}</div>
                     <div className="reviews-review">{review.review}</div>
-                    <duv className="reviews-user">Review by: {review.user?.firstName} {review.user?.firstName}  {review.created_at.slice(8, 11)} {review.created_at.slice(5, 7)}, {review.created_at.slice(12, 16)}</duv>
+                    <div className="reviews-user">Review by: {review.user?.firstName} {review.user?.firstName}  {review.created_at.slice(8, 11)} {review.created_at.slice(5, 7)}, {review.created_at.slice(12, 16)}</div>
                     </>
                 )
             })}
