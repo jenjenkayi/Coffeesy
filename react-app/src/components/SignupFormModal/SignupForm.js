@@ -20,7 +20,7 @@ function SignupForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     if (password === confirmPassword) {
     const data = await dispatch(sessionActions.signUp(username, email, password, firstName, lastName))
         if (data) {
@@ -77,7 +77,7 @@ function SignupForm() {
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          required
+          // required
         />
       </label>
       <label className="SignupForm-label">

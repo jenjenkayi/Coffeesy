@@ -34,12 +34,28 @@ class Product(db.Model):
         return {"id": self.id, "user_id": self. user_id,
                 "name": self.name, "description": self.description, "price": self.price, "image": self.image, 
                 "category": self.category, "quantity": self.quantity, "createdAt": self.created_at, "updatedAt": self.updated_at,
-                'reviewCount': len(self.reviews), "avgRating": self.avgRating()}
+                'reviewCount': len(self.reviews), "avgRating": self.avgRating(),             "user": self.user.to_dict(),
+}
 
     def to_dict_no_relations(self):
         return {
             "id": self.id, "user_id": self. user_id,
             "name": self.name, "description": self.description, "price": self.price, 
             "image": self.image, "category": self.category, "quantity": self.quantity,
-            "createdAt": self.created_at, "updatedAt": self.updated_at
+            "createdAt": self.created_at, "updatedAt": self.updated_at,
+        }
+
+    def to_dict_with_user(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'name': self.name,
+            "description": self.description,
+            "price": self.price,
+            "image": self.image,
+            "category": self.category,
+            "quantity": self.quantity,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+            "user": self.user.to_dict(),
         }
