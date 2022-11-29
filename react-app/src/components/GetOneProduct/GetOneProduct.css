@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
     margin-top: 2%;
 }
 
@@ -20,9 +20,8 @@
     color: #222222;
     border: .5px solid #BF9E87;
     border-radius: 20px;
-    padding: 20px;
+    padding: 30px;
     margin: 10px 10px 10px 10px;
-    min-width: 500px;
 }
 
 .shop-name {
@@ -38,8 +37,9 @@
 }
 
 .product-image {
-    width: 600px;
+    /* max-width: 600px; */
     height: 500px;
+    width: 100%;
     object-fit: cover;
     padding: 10px;
     border-radius: 20px;

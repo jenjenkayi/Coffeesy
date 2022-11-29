@@ -85,7 +85,6 @@ a:active {
     border-radius: 20px;
     margin-left: 30px;
     padding: 20px;
-    min-width: 800px;
 }
 
 .user-product-name {
@@ -93,6 +92,8 @@ a:active {
     line-height: 22px;
     font-weight: 400;
     margin-bottom: 10px;
+    color: #222222;
+    font-family: "Helvetica Neue", Arial, sans-serif;;
 }
 
 .user-product-rating-info {
