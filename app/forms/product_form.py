@@ -7,8 +7,7 @@ categories = ["Whole Beans", "Ground Coffee", "Pods", "Drinkware", "Equipment", 
 class ProductForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(
         max=200, message="Name must be less than 200 characters!")])
-    description = StringField('Description', validators=[DataRequired(), Length(
-        max=500, message="Name must be less than 500 characters!")])
+    description = StringField('Description', validators=[DataRequired()])
     price = DecimalField('Price', validators=[DataRequired(), NumberRange(min=0, message="Pirce must be greater than $0")])
     image = StringField('Image', validators=[DataRequired()])
     category = SelectField('Category', choices=categories, validators=[DataRequired()])

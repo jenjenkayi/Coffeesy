@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createProductThunk } from '../../store/product'
@@ -27,6 +27,7 @@ const CreateProduct = () => {
 
     if (!data.category.length) return setErrors(['Category can not be empty.'])
     if (!data.name.length) return setErrors(['Name can not be empty.'])
+    if (data.name.length > 200) return setErrors(['Name can not be greater than 200 characters.'])
     if (!data.description.length) return setErrors(['Description can not be empty.'])
     if (!data.price.length && data.price > 0) return setErrors(['Price can not be empty and it must be greater than $1.'])
     if (!data.quantity.length || data.quantity < 0) return setErrors(['Quantity can not be empty and it must be greater than 1.'])
@@ -108,6 +109,11 @@ const CreateProduct = () => {
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                 />
+                    {!image && <img 
+                        src={image} 
+                        alt="coffee beans default"
+                        onError={e => { e.currentTarget.src = "https://cdn.pixabay.com/photo/2021/01/18/12/45/coffee-beans-5928034__340.jpg"; }}
+                    />}
                 <div className="product-form-buttons">
                     <button className="product-form-submit-button" type="submit">Submit</button>
                     <button type="button" className="product-form-cancel-button" onClick={cancelHandler}>
