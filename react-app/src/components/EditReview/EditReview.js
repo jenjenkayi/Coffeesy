@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams} from 'react-router-dom';
-import { editReviewThunk, getAllReviewsThunk, getOneReviewThunk } from '../../store/review';
+import { editReviewThunk, getOneReviewThunk } from '../../store/review';
 import './EditReview.css';
 
 const EditReview = () => {
+  // {setShowModal}
     const dispatch = useDispatch();
     const history = useHistory();
     const { reviewId } = useParams();
 
-    const user = useSelector((state) => state.session.user);
     const currReview = useSelector(state => state.review.singleReview);
     const productId = currReview.product_id
-
+    console.log("currReview", currReview)
     const [review, setReview] = useState(currReview.review);
     const [stars, setStars] = useState(currReview.stars);
     const [errors, setErrors] = useState([]);
@@ -32,9 +32,9 @@ const EditReview = () => {
         stars
     };
 
-    if (!data.stars) return setErrors(["Please provide a star"]);
-    if (!data.review.length) return setErrors(["Please provide a review"]);
-    if (data.stars > 5 || data.stars < 1) return setErrors(["Stars must be between 1 to 5"]);
+    if (!data.stars) return setErrors(["Review field can not be empty"]);
+    if (!data.review.length) return setErrors(["Star rating field can not be empty"]);
+    if (data.stars > 5 || data.stars < 1) return setErrors(["Star rating must be between 1 to 5"]);
   
     dispatch(editReviewThunk(data)).then(() => {
         history.push(`/products/${productId}`);
@@ -42,32 +42,38 @@ const EditReview = () => {
     }
 
     const cancelHandler = (e) => {
-        e.preventDefault();
-        history.push(`/products/${productId}`);
+      e.preventDefault();
+      history.push(`/products/${productId}`);
+      // setShowModal(false)
     }
 
 return (
-    <>
+  <section>
     <div className="EditReview-Container">
       <form  onSubmit={submitHandler}>
-        <h3 className="EditReview-Title">Edit A Review</h3>
+        <h3 className="EditReview-Title">Edit Your Review</h3>
         <ul className="errors">
           {errors.length > 0 &&
           errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
-        <input
+        <label className='EditReviewForm-Label'>
+          Write Your Review
+          <textarea
             className='EditReview-Input'
             type="text"
             value={review}
-            onChange={(e) => setReview(e.target.value)} />
-        <input
+            onChange={(e) => setReview(e.target.value)} 
+          />
+        </label>
+        <label className='EditReviewForm-Label'>
+          Rating
+          <input
             className='EditReview-Input'
             type="number"
             value={stars}
-            min="1"
-            max="5"
-            onChange={(e) => setStars(e.target.value)}
-        />
+            onChange={(e) => setStars(e.target.value)} 
+          />
+        </label>
         <button type="submit" className='EditReview-Submit-Button'>Submit</button>
         <button type="button" onClick={cancelHandler}
          className='EditReview-Cancel-Button'
@@ -76,8 +82,8 @@ return (
         </button>
       </form>
     </div>
-    </>
-  );
+  </section>
+ );
 }
 
 export default EditReview;

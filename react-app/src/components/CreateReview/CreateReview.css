@@ -5,9 +5,13 @@
     width: 300px;
     min-height: 350px;
     background-color: #FFF;
-    outline: 1px solid #dddddd;
+    border: 1px solid #dddddd;
+    border-radius: 20px;
     padding: 30px;
-    position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    /* position: relative; */
 }
 
 .CreateReviewForm-Title {

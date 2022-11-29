@@ -4,7 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { createReviewThunk } from '../../store/review';
 import './CreateReview.css';
 
-const CreateReview = ({setShowModal}) => {
+const CreateReview = () => {
+  // {setShowModal}
     const dispatch = useDispatch();
     const history = useHistory();
     const { productId } = useParams();
@@ -34,16 +35,14 @@ const CreateReview = ({setShowModal}) => {
     setErrors([]);  
     dispatch(createReviewThunk(data)).then(() => {
         history.push(`/products/${productId}`);
-        setShowModal(false)
+        // setShowModal(false)
     })
-
-    
     }
 
   const cancelHandler = (e) => {
     e.preventDefault();
     history.push(`/products/${productId}`);
-    setShowModal(false)
+    // setShowModal(false)
   };
 
   return (
@@ -56,7 +55,7 @@ const CreateReview = ({setShowModal}) => {
         </ul>
         <label className='CreateReviewForm-Label'>
           Write Your Review
-          <input
+          <textarea
             className='CreateReviewForm-Input'
             type="text"
             value={review}
