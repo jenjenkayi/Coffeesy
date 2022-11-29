@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 300px;
-    min-height: 650px;
+    min-height: 500px;
     background-color: #FFF;
     outline: 1px solid #dddddd;
     padding: 30px;
@@ -49,7 +49,7 @@
     border-radius: 5px;
     border: .5px solid #dddddd;
     cursor: text;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .register-button {

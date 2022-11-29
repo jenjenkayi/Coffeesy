@@ -62,7 +62,7 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (username, email, password, firstName, lastName) => async (dispatch) => {
+export const signUp = (username, email, password, first_name, last_name) => async (dispatch) => {
   const response = await csrfFetch('/api/auth/signup', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -70,8 +70,8 @@ export const signUp = (username, email, password, firstName, lastName) => async 
       username,
       email,
       password,
-      firstName,
-      lastName,
+      first_name,
+      last_name,
     }),
   });
   

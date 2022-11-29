@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import './SignupFormModal.css';
+import './SignupForm.css';
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -15,13 +15,16 @@ function SignupForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [errors, setErrors] = useState([]);
+  
+  const [showLogIn, setShowLogIn] = useState(false);
 
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(!email && !email.includes('@')) return setErrors(['Please provide a valid email'])
+    if(!email) return setErrors(['Please provide an email'])
+    if(!email.includes('@')) return setErrors(['Please provide a valid email'])
     
     if (!username) return setErrors(['Please provide a username.'])
   
@@ -44,6 +47,9 @@ function SignupForm() {
       return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const logInHandler = (e) => {
+    setShowLogIn(true);
+  }
   return (
     <form onSubmit={handleSubmit} className="SignupForm-Container">
       <div className="SignupForm-Header">
