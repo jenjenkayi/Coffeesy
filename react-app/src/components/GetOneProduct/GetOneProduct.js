@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import "./GetOneProduct.css";
@@ -19,8 +19,11 @@ const GetOneProduct = () => {
   const reviews = useSelector(state => state.review.allReviews);
   const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
+  const [isLoaded, setIsLoaded] = useState(false)
+  
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
+    .then(() => setIsLoaded(true))
   }, [dispatch, productId]);
 
   if (Object.keys(productArr).length === 0) {
@@ -28,7 +31,7 @@ const GetOneProduct = () => {
   }
 
   const deleteProductHandler = (productId) => {
-    dispatch(deleteProductThunk(productId));
+    dispatch(deleteProductThunk(productId))
     history.push("/");
   };
 
@@ -38,7 +41,8 @@ const GetOneProduct = () => {
   };
 
 return ( 
-        <>
+      <>
+        {isLoaded && (
           <div className="product-container">
             <div className="product-info-container">
               <img
@@ -92,46 +96,40 @@ return (
                         </button>
                       )}
                   </div>
-          </div>
+          </div>)}
                 <div className="review-header">
                   <div>{product.reviewCount} reviews {product.avgRating}</div>
                 </div>
             <div>
                 <GetProductReviews />
-            </div>
-            {/* {!userReviews.length && user && <NavLink to={`/products/${productId}/new-review`}> */}
-            {!userReviews.length && user && 
-            // <button 
-            //   type="submit"
-            //   className="create-review-button"
-            //   >Create a Review
-            // </button>
-            // </NavLink>}
-            <CreateReviewModal reviews={reviews}/>}
-            {userReviews.map(review => {
-                return (
-                  <>
-                    {user && user.id === review.user_id && <NavLink to={`/reviews/${review.id}/edit`}>
-                      <button
-                        className="edit-review-button"
-                      >
-                        Edit Review
-                      </button>
-                    </NavLink>}
-              
-                    {user && user.id === review.user_id && (
-                      <button
-                        className="delete-review-button"
-                        onClick={() => deleteReviewHandler(review.id)}
-                      >
-                        Delete Review
-                      </button>
-                    )}
-                  </>
-                )
-            })}
-      </>
-    )
+            </div> 
+
+                {!userReviews.length && user && product.user_id !== user.id &&
+                  <CreateReviewModal />}
+                {userReviews.map(review => {
+                    return (
+                      <>
+                        {user && user.id === review.user_id && <NavLink to={`/reviews/${review.id}/edit`}>
+                          <button
+                            className="edit-review-button"
+                          >
+                            Edit Review
+                          </button>
+                        </NavLink>}
+                  
+                        {user && user.id === review.user_id && (
+                          <button
+                            className="delete-review-button"
+                            onClick={() => deleteReviewHandler(review.id)}
+                          >
+                            Delete Review
+                          </button>
+                        )}
+                      </>
+                    )
+                })}
+    </>
+  )
 }
 
 

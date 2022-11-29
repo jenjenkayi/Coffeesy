@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { createReviewThunk } from '../../store/review';
 import './CreateReview.css';
 
-const CreateReview = ({setShowModal, reviews}) => {
+const CreateReview = ({setShowModal}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { productId } = useParams();
@@ -36,6 +36,8 @@ const CreateReview = ({setShowModal, reviews}) => {
         history.push(`/products/${productId}`);
         setShowModal(false)
     })
+
+    
     }
 
   const cancelHandler = (e) => {
@@ -47,7 +49,7 @@ const CreateReview = ({setShowModal, reviews}) => {
   return (
     <section>
       <form className="CreateReviewForm-Container" onSubmit={submitHandler}>
-        <h3 className="CreateReviewForm-Title">Create A Review</h3>
+        <div className="CreateReviewForm-Title">Create A Review</div>
         <ul className="errors">
           {errors.length > 0 &&
           errors.map((error) => <li key={error}>{error}</li>)}
