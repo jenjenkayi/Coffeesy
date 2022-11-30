@@ -102,7 +102,7 @@ return (
                   </div>
           </div>)}
                 <div className="review-header">
-                  {reviewsArr && <div>{reviewsArr.length} reviews</div>}
+                  {reviewsArr && <div className="product-numReviews">{reviewsArr.length} reviews</div>}
                   {product.avgRating % 1 ? 
                     <div>{[...Array(Math.floor(product.avgRating))].map(star => <i className="fa-solid fa-star"></i>)}
                       <i className="fa-solid fa-star-half"></i>

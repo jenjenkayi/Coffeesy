@@ -23,6 +23,12 @@ const WholeBeansCategory = () => {
 
 
 return (
+  <>
+    <div className="background"></div>
+    <div className="category-title">
+      <div className="title1">Whole Beans</div>
+      <div className="title2">Find something you love</div>
+    </div>
     <div className="products-container">
         {wholeBeanProducts && wholeBeanProducts.map(product => {
           return (
@@ -48,6 +54,7 @@ return (
           )
         })}
     </div>
+  </>
  )
 }
 

@@ -22,6 +22,12 @@ const DrinkwareCategory = () => {
 
 
 return (
+  <>
+    <div className="background"></div>
+    <div className="category-title">
+      <div className="title1">Drinkware</div>
+      <div className="title2">Find something you love</div>
+    </div>
     <div className="products-container">
         {drinkwareProducts && drinkwareProducts.map(product => {
           return (
@@ -47,6 +53,7 @@ return (
           )
         })}
     </div>
+  </>
  )
 }
 

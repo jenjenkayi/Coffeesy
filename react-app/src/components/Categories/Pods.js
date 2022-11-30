@@ -23,6 +23,12 @@ const PodsCategory = () => {
 
 
 return (
+  <>
+    <div className="background"></div>
+    <div className="category-title">
+      <div className="title1">Coffee Pods</div>
+      <div className="title2">Find something you love</div>
+    </div>
     <div className="products-container">
         {podsProducts && podsProducts.map(product => {
           return (
@@ -44,10 +50,10 @@ return (
               </div>
             </NavLink>
             </>
-            
           )
         })}
     </div>
+  </>
  )
 }
 

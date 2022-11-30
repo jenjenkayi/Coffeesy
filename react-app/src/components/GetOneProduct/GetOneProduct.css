@@ -143,6 +143,11 @@ i {
     font-weight: 300;
     line-height: 42px;
     color: #222222;
+    align-items: baseline;
+}
+
+.product-numReviews {
+    padding: 5px;
 }
 
 .create-review-button {

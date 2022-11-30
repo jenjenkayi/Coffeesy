@@ -23,6 +23,12 @@ const EquipmentCategory = () => {
 
 
 return (
+  <>
+    <div className="background"></div>
+    <div className="category-title">
+      <div className="title1">Equipments</div>
+      <div className="title2">Find something you love</div>
+    </div>
     <div className="products-container">
         {equipmentProducts && equipmentProducts.map(product => {
           return (
@@ -48,6 +54,7 @@ return (
           )
         })}
     </div>
+  </>
  )
 }
 
