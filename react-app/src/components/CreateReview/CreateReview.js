@@ -22,8 +22,8 @@ const CreateReview = ({setShowModal}) => {
       let Review = {review, stars}
       
       if (!Review.review.length) return setErrors(["Review field can not be empty"]);
-      if (!Review.stars.length) return setErrors(["Star rating field can not be empty"]);
-      if (Review.stars > 5 || Review.stars < 1) return setErrors(["Star rating must be between 1 to 5"]);
+      if (!Review.stars.length) return setErrors(["Rating field can not be empty"]);
+      if (Review.stars > 5 || Review.stars < 1) return setErrors(["Rating must be between 1 to 5"]);
       
       const data = { 
         user_id: user.id,
@@ -33,7 +33,8 @@ const CreateReview = ({setShowModal}) => {
       }
     
     setErrors([]);  
-    dispatch(createReviewThunk(data)).then(() => {
+    dispatch(createReviewThunk(data))
+    .then(() => {
         history.push(`/products/${productId}`);
         // setShowModal(false)
     })

@@ -12,7 +12,7 @@ const EditReview = () => {
 
     const currReview = useSelector(state => state.review.singleReview);
     const productId = currReview.product_id
-    console.log("currReview", currReview)
+
     const [review, setReview] = useState(currReview.review);
     const [stars, setStars] = useState(currReview.stars);
     const [errors, setErrors] = useState([]);
@@ -32,9 +32,9 @@ const EditReview = () => {
         stars
     };
 
-    if (!data.stars) return setErrors(["Review field can not be empty"]);
-    if (!data.review.length) return setErrors(["Star rating field can not be empty"]);
-    if (data.stars > 5 || data.stars < 1) return setErrors(["Star rating must be between 1 to 5"]);
+    if (!data.review.length) return setErrors(["Review field can not be empty"]);
+    if (!data.stars) return setErrors(["Rating field can not be empty"]);
+    if (data.stars > 5 || data.stars < 1) return setErrors(["Rating must be between 1 to 5"]);
   
     dispatch(editReviewThunk(data)).then(() => {
         history.push(`/products/${productId}`);

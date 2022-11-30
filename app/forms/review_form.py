@@ -4,6 +4,5 @@ from wtforms.validators import DataRequired, Length
 
 
 class ReviewForm(FlaskForm):
-    review = StringField('Review', validators=[DataRequired(), Length(
-        max=200, message="Review must be less than 200 characters!")])
+    review = StringField('Review', validators=[DataRequired()])
     stars = IntegerField('Stars', validators=[DataRequired()])
