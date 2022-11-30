@@ -93,7 +93,7 @@ Once logged-in, you can see all your products and your reviews on the manage lis
 * Add the Favorites feature
 
 
-### **Contact Us**: 
+### **Contact Me**: 
 
 * Jenny Jiang
 [Linkedin](https://www.linkedin.com/in/jenny-jiang-81033b48)

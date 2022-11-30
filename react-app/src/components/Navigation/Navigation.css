@@ -21,7 +21,15 @@ a {
 }
 
 .fa-store {
-    align-content: flex-end;
+    padding: 25px 10px 10px 15px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.nav-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .nav-create-product-button {
@@ -45,7 +53,6 @@ a {
     box-shadow: rgba(0, 0, 0, 0.2);
     align-items: center;
     position: relative;
-    align-items: center;
 }
 
 .fa-user-circle {
@@ -53,7 +60,6 @@ a {
 }
 
 .profile-button {
-    /* padding: 12px; */
     justify-content: space-around;
     display: flex;
     flex-direction: row;

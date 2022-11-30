@@ -35,6 +35,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
+    <div className="nav-right">
      {user && 
      <button type="button" className='nav-create-product-button' 
         onClick={() => history.push("/products/new")}>
@@ -69,9 +70,10 @@ function ProfileButton({ user }) {
         </ul>
       )}
     </div>
-  }
-  </>
-  );
+    }
+  </div>
+</>
+);
 }
 
 export default ProfileButton;
