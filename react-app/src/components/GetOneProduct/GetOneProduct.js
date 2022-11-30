@@ -102,8 +102,8 @@ return (
                   </div>
           </div>)}
                 <div className="review-header">
-                  {reviewsArr && <div>{reviewsArr.length} reviews {product.avgRating}</div>}
-                   <i className="fa-solid fa-star"></i>
+                  {reviewsArr && <div>{reviewsArr.length} reviews</div>}
+                    {/* <div>{[...Array(product.avgRating)].map(star => <i className="fa-solid fa-star"></i>)}</div> */}
                 </div>
             <div>
                 <GetProductReviews />

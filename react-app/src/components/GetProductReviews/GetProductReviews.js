@@ -26,7 +26,9 @@ return (
             {reviewsArr.map((review) => {
                 return (
                   <>
-                  <div className="reviews-stars">{review.stars}</div>
+                  <div className="reviews-stars">
+                    {[...Array(review.stars)].map(star => <i className="fa-solid fa-star"></i>)}
+                  </div>
                   <div className="reviews-review">{review.review}</div>
                   <div className="reviews-user">Review by: {review.user?.firstName} {review.user?.firstName}  {review.created_at.slice(8, 11)} {review.created_at.slice(5, 7)}, {review.created_at.slice(12, 16)}</div>
                   </>
