@@ -112,11 +112,11 @@ const CreateProduct = () => {
                     onChange={(e) => setImage(e.target.value)}
                 />
                 <div>
-                    <img 
+                    {/* <img 
                         src="https://example.com/does_not_exist.png"
                         alt="coffee beans default"
                         onError={e => {e.currentTarget.src = "https://cdn.pixabay.com/photo/2021/01/18/12/45/coffee-beans-5928034__340.jpg"}}
-                    />
+                    /> */}
                 </div>
                 <div className="product-form-buttons">
                     <button className="product-form-submit-button" type="submit">Submit</button>

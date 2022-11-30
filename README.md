@@ -1,144 +1,99 @@
-# Flask React Project
-
-This is the starter for the Flask React project.
-
-## Getting started
-1. Clone this repository (only this branch)
-
-2. Install dependencies
-
-      ```bash
-      pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-
-4. Make sure the SQLite3 database connection URL is in the **.env** file
-
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
-
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+<img width="300" alt="" src=https://user-images.githubusercontent.com/92122927/204876317-def92747-9a7e-4cd9-80d9-c2cfe4bba51e.png>
 
 
-## Deployment through Render.com
+Coffeesy is a full-stack application clone of Etsy with a theme of coffee. It is an e-commerce company selling handmade items and craft supplies. This application incorporating React and Redux on the frontend with Flask, Python and SQLAlchemy on the backend.
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+Live site: https://coffeesy.onrender.com
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+### Please find below links for our project Wiki:
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+[API Documentation](https://github.com/jenjenkayi/Capstone/wiki/API-Routes)
 
-### Part A: Configure the Start and Build Commands
+[Database Schema](https://github.com/jenjenkayi/Capstone/wiki/Database-Schema)
 
-Start by giving your application a name.
+[Feature List](https://github.com/jenjenkayi/Capstone/wiki/Feature-List)
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+[User Stories](https://github.com/jenjenkayi/Capstone/wiki/User-stories)
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+[Wireframe](https://github.com/jenjenkayi/Capstone/wiki/Wireframe)
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
+### **This application was built with:**
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-orange?style=for-the-badge)
+![Sqlite](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=psqlite&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Render](https://img.shields.io/badge/render-%23430098.svg?style=for-the-badge&logo=render&logoColor=white)
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
 
-Now, add your start command in the Start field:
 
-```shell
-# start script
-gunicorn app:app
-```
+### **Features**
 
-### Part B: Add the Environment Variables
+#### Authentication
+* Create a new account 
+* Log in
+* Sign out
+* Demo user
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+#### Products Listings
+* View  all products and specific products
+* Create a product
+* Edit a product
+* Delete a product
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+#### Reviews
+* View all reviews on a specific product
+* Create a review for a specific product
+* Edit a review
+* Delete a review
+ 
 
-Add the following keys and values in the Render GUI form:
+### **Feature Highlights**
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
+#### Home Page
+<img width="614" alt="Screen Shot 2022-11-30 at 10 13 27 AM" src="https://user-images.githubusercontent.com/92122927/204877274-cf868995-f61c-4eff-956b-9a35c793564f.png">
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
 
-Add the following keys and values:
+#### Home Page Demo User:
+You will be able to test the features without signing up by clicking on the "Demo User" button.
 
-- DATABASE_URL (copy value from Internal Database URL field)
+<img width="352" alt="Screen Shot 2022-11-30 at 10 13 09 AM" src="https://user-images.githubusercontent.com/92122927/204877500-9e505eab-d86d-4ba8-a830-a19deef951cb.png">
 
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
+#### Profile Pages:
+Once logged-in, you can see all your products and your reviews on the manage listings and manage reviews page by clicking the profile button. You can also edit and delete your products and reviews.
 
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
+<img width="352" alt="Screen Shot 2022-11-30 at 10 13 39 AM" src="https://user-images.githubusercontent.com/92122927/204877777-16832f96-070f-43da-bffe-7bb4ca651d1f.png">
 
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
+<img width="414" alt="Screen Shot 2022-11-30 at 10 13 51 AM" src="https://user-images.githubusercontent.com/92122927/204877798-75708697-5a97-403b-b3ee-a4acb4917186.png">
 
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
+<img width="414" height="230" alt="Screen Shot 2022-11-30 at 10 14 01 AM" src="https://user-images.githubusercontent.com/92122927/204877811-b6023593-27a1-4036-a950-599f67aa8f3b.png">
 
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+#### Create a Listing
+
+<img width="300" src="https://user-images.githubusercontent.com/92122927/204879161-2f3e1910-d4d2-44df-af8c-07c54f240e06.png">
+
+#### Create a Review
+
+<img width="300" src="https://user-images.githubusercontent.com/92122927/204879303-febee45c-3179-4a19-9e9a-0b78406d61ff.png">
+
+
+
+
+### **Coming Soon**:
+* Add the Shopping Cart Feature
+* Add the Search Bar feature
+* Add the Categories feature
+* Add the Favorites feature
+
+
+### **Contact Us**: 
+
+* Jenny Jiang
+[Linkedin](https://www.linkedin.com/in/jenny-jiang-81033b48)
