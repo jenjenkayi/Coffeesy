@@ -94,8 +94,20 @@ return (
                     </div>
                     <div className="products-info">
                       <div className="products-name">{product.name}</div>
-                      <div className="products-rating-info">
+                      {/* <div className="products-rating-info">
                         <span className="products-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
+                      </div> */}
+                        <div className="products-rating-info">
+                          {product.avgRating % 1 ? 
+                            <div>{[...Array(Math.floor(product.avgRating))].map(star => <i className="fa-solid fa-star fa-xs"></i>)}
+                              <i className="fa-solid fa-star-half fa-xs"></i>
+                                <span className="products-reviewCount"> ({product.reviewCount})</span>
+                            </div>
+                            :
+                            <div>{[...Array(product.avgRating)].map(star => <i className="fa-solid fa-star fa-xs"></i>)}
+                              <span className="products-reviewCount"> ({product.reviewCount})</span>
+                            </div>
+                          }
                       </div>
                       <div className="products-price">${product.price}</div>
                     </div>

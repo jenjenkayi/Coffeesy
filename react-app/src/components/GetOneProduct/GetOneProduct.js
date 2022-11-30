@@ -103,7 +103,13 @@ return (
           </div>)}
                 <div className="review-header">
                   {reviewsArr && <div>{reviewsArr.length} reviews</div>}
-                    {/* <div>{[...Array(product.avgRating)].map(star => <i className="fa-solid fa-star"></i>)}</div> */}
+                  {product.avgRating % 1 ? 
+                    <div>{[...Array(Math.floor(product.avgRating))].map(star => <i className="fa-solid fa-star"></i>)}
+                      <i className="fa-solid fa-star-half"></i>
+                    </div>
+                    :
+                    <div>{[...Array(product.avgRating)].map(star => <i className="fa-solid fa-star"></i>)}</div>
+                  }
                 </div>
             <div>
                 <GetProductReviews />

@@ -5,7 +5,7 @@ const Footer = () => {
 return (
     <footer>
         <div className="footer-background"></div>
-            <div className='footer-info'>Meet The Developer!</div>
+            <div className='footer-info'>Connect With The Developer!</div>
                 <div className='footer-links'>
                     <i className="fa-brands fa-github"></i>
                     <a 

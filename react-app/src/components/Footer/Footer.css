@@ -32,6 +32,6 @@
     text-decoration: none;
 }
 
-.about-me-link {
-    padding: 5px;
+a {
+    padding-right: 5px;
 }
