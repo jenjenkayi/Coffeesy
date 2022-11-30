@@ -111,18 +111,21 @@ const CreateProduct = () => {
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                 />
-                <div>
-                    {/* <img 
-                        src="https://example.com/does_not_exist.png"
-                        alt="coffee beans default"
-                        onError={e => {e.currentTarget.src = "https://cdn.pixabay.com/photo/2021/01/18/12/45/coffee-beans-5928034__340.jpg"}}
-                    /> */}
-                </div>
                 <div className="product-form-buttons">
                     <button className="product-form-submit-button" type="submit">Submit</button>
                     <button type="button" className="product-form-cancel-button" onClick={cancelHandler}>
                     Cancel
                     </button>
+                </div>
+                <div>
+                    {/* <img 
+                        className="product-form-set-image"
+                        alt={name}
+                        src={image}
+                        onError={e => {
+                            e.target.src = "https://cdn.pixabay.com/photo/2018/01/31/09/57/coffee-3120750__340.jpg"
+                            e.onrror= null}}
+                    /> */}
                 </div>
             </form>
         </div> 
