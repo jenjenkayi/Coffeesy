@@ -111,7 +111,7 @@ return (
 
                 {/* {!userReviews.length && user && product.user_id !== user.id &&
                   <CreateReviewModal />} */}
-                  {user.id !== product.user_id && !userReviews.length && user && 
+                  {user?.id !== product.user_id && !userReviews.length && user && 
                     <NavLink to={`/products/${productId}/new-review`}>
                     <button 
                       type="submit"

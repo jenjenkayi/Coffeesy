@@ -57,7 +57,6 @@ const CreateReview = ({setShowModal}) => {
         <label className='CreateReviewForm-Label'>
           Write Your Review
           <textarea
-            maxLength={255}
             className='CreateReviewForm-Input'
             type="text"
             value={review}

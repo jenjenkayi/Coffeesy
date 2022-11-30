@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { authenticate } from './store/session';
 import { Modal } from './context/Modal';
@@ -20,6 +20,7 @@ import Equipment from './components/Categories/Equipment';
 import Navigation from './components/Navigation/Navigation';
 import SignupForm from './components/SignupFormModal';
 import LoginForm from './components/LoginFormModal';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,9 +37,8 @@ function App() {
   
 
   return (
-    <>
+     <BrowserRouter>
       <Navigation loaded={loaded}/>
-        {loaded && (
         <Switch>
           <Route path="/signup">
             <SignupForm />
@@ -89,8 +89,8 @@ function App() {
             <GetAllProducts />
           </Route>
         </Switch>
-      )}
-    </>
+        <Footer />
+      </BrowserRouter>
   );
 }
 
