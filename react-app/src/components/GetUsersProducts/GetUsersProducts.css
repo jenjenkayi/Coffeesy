@@ -154,3 +154,13 @@ a:active {
     font-size: 14px;
     line-height: 1.5;
 }
+
+.user-no-product {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-style: normal;
+    color: #222222;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 20%;
+    padding-top: 20px;
+}

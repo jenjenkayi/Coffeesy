@@ -17,9 +17,9 @@ useEffect(() => {
     dispatch(getUsersReviewsThunk(userId))
   }, [dispatch, userId]);
 
-  if (Object.keys(reviewsArr).length === 0) {
-    return null;
-  }
+  // if (Object.keys(reviewsArr).length === 0) {
+  //   return null;
+  // }
 
   const deleteReviewHandler = (reviewId) => {
   dispatch(deleteReviewThunk(reviewId));
@@ -30,7 +30,8 @@ useEffect(() => {
     <>
       <div className="background"></div>
       <div className="user-reviews-title">{user.firstName}'s Reviews</div>
-    {reviewsArr && (
+      {!reviewsArr.length && <div className="user-no-product">There is no review yet.</div>}
+      {reviewsArr && (
         <div className="user-reviews-container">
             {reviewsArr.map(review => {
                 return (

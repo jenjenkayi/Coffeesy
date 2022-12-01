@@ -17,9 +17,9 @@ const GetUsersProducts = () => {
     dispatch(getAllProductsThunk())
   }, [dispatch]);
 
-  if (Object.keys(userProducts).length === 0) {
-    return null;
-  }
+  // if (Object.keys(userProducts).length === 0) {
+  //   return null;
+  // }
 
   const deleteProductHandler = (productId) => {
   dispatch(deleteProductThunk(productId));
@@ -30,6 +30,7 @@ return (
   <>
     <div className="background"></div>
     <div className="user-products-title">{user.firstName}'s Shop</div>
+    {!userProducts.length && <div className="user-no-product">There is no listing yet.</div>}
     {userProducts && (
         <div className="user-product-container">
             {userProducts.map(product => {
