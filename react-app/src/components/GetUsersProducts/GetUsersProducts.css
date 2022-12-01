@@ -53,7 +53,6 @@ a:active {
     flex-wrap: wrap;
     border: .5px solid #BF9E87;
     border-radius: 20px;
-    cursor: pointer;
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 30px;
@@ -77,6 +76,7 @@ a:active {
     height: 356px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
     border: .5px solid #BF9E87;
 }
 
@@ -97,6 +97,7 @@ a:active {
 }
 
 .user-product-name {
+    cursor: pointer;
     font-size: 20px;
     line-height: 22px;
     font-weight: 400;
@@ -109,6 +110,7 @@ a:active {
     vertical-align: bottom;
     font-size: 16px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .user-product-reviewCount {
@@ -116,6 +118,7 @@ a:active {
     font-weight: 400;
     line-height: 18px;
     color: #595959;
+    cursor: pointer;
 }
 
 .user-product-price {
@@ -123,12 +126,14 @@ a:active {
     font-weight: 700;
     line-height: 26px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .user-product-description {
     font-size: 16px;
     font-weight: 400;
     line-height: 26px;
+    cursor: pointer;
 }
 
 .user-product-buttons {

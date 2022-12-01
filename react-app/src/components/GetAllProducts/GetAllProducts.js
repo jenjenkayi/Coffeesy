@@ -20,7 +20,6 @@ const GetAllProducts = () => {
     return null;
   }
 
-
 return (
   <>
   <div className="background"></div>

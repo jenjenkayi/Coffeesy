@@ -52,7 +52,6 @@ a:active {
     flex-wrap: nowrap;
     border: .5px solid #BF9E87;
     border-radius: 20px;
-    cursor: pointer;
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 40px;
@@ -78,6 +77,7 @@ a:active {
     border-radius: 20px;
     object-fit: cover;
     border: .5px solid #BF9E87;
+    cursor: pointer;
 }
 
 .user-reviews-info-title {
