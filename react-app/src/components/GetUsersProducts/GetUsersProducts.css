@@ -46,7 +46,7 @@ a:active {
 
 .user-product-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     border: .5px solid #BF9E87;
     border-radius: 20px;
@@ -84,6 +84,7 @@ a:active {
     border-radius: 20px;
     margin-left: 30px;
     padding: 20px;
+    min-width: 50%;
 }
 
 .user-product-name {
