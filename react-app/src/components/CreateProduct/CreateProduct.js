@@ -117,15 +117,6 @@ const CreateProduct = () => {
                     Cancel
                     </button>
                 </div>
-                <div>
-                    {/* <img 
-                        src={image}
-                        alt={name}
-                        onError={e => {
-                            e.currentTarget.src = "https://cdn.pixabay.com/photo/2021/01/18/12/45/coffee-beans-5928034__340.jpg"
-                            e.onerror=null}}
-                    /> */}
-                </div>
             </form>
         </div> 
     </>

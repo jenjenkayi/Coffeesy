@@ -38,6 +38,10 @@ return (
                 className="products-image"
                 src={product.image}
                 alt=""
+                onError={e => {
+                          e.currentTarget.src = "https://nckenya.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
+                          e.onerror=null;
+                        }}
                 />
             </div>
             <div className="products-info">
