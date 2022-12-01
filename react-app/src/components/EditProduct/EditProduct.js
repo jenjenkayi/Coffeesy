@@ -12,7 +12,7 @@ const EditProduct = () => {
   const user = useSelector((state) => state.session.user);
   const product = useSelector((state) => state.product.singleProduct)
   const categories = ["Whole Beans", "Ground Coffee", "Pods", "Drinkware", "Equipment", "Accessories"]
-
+    
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
@@ -20,7 +20,7 @@ const EditProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [image, setImage] = useState("");
   const [errors, setErrors] = useState([]);
-  
+
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
   }, [dispatch, productId])
@@ -40,19 +40,19 @@ const EditProduct = () => {
 
     const data = { category, name, description, price, quantity, image };
 
-    if (!data.name.length) return setErrors(['Name can not be empty'])
-    if (data.name.length > 200) return setErrors(['Name can not be greater than 200 characters'])
-    if (!data.category.length) return setErrors(['Category can not be empty'])
-    if (!data.description.length) return setErrors(['Description can not be empty'])
-    if (!data.price.length) return setErrors(['Price can not be empty'])
-    if (data.price < 0) return setErrors(['Price must be greater than 0'])
+    if (!data.name.length) return setErrors(['Name field can not be empty'])
+    if (data.name.length > 200) return setErrors(['Name field can not be greater than 200 characters'])
+    if (!data.category.length) return setErrors(['Category field can not be empty'])
+    if (!data.description.length) return setErrors(['Description field can not be empty'])
+    if (!price) return setErrors(['Price field can not be empty'])
+    if (data.price <= 0) return setErrors(['Price must be greater than 0'])
     if (isNaN(data.price)) return setErrors(['Price must be a number'])
-    if (!data.quantity.length || data.quantity < 0) return setErrors(['Quantity can not be empty and it must be greater than 1'])
-    if (!data.image.length) return setErrors(['Image can not be empty'])
-    if (!data.image.endsWith('.jpg') && !data.image.includes('.jpeg') && !data.image.includes('.png')) return setErrors(['Image must be in .jpg, .jpeg, or .png format']);
+    if (!data.quantity || data.quantity <= 0) return setErrors(['Quantity field can not be empty and it must be greater than 0'])
+    if (!data.image.length) return setErrors(['Image field can not be empty'])
+    if (!data.image.endsWith('.jpg') && !data.image.endsWith('.jpeg') && !data.image.endsWith('.png')) return setErrors(['Image must be in .jpg, .jpeg, or .png format']);
          
     dispatch(editProductThunk(productId, data)).then(() => {
-        history.push(`/`);
+        history.push(`/products/${productId}`);
         });
     };
     
