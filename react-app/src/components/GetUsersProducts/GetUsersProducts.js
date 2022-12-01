@@ -63,7 +63,7 @@ return (
                       {user && user.id === product.user_id && (
                         <button
                         className="edit-user-product-button"
-                        onClick={() => history.push(`/story/${product.id}/edit`)}>
+                        onClick={() => history.push(`/products/${product.id}/edit`)}>
                           Edit Listing
                         </button>
                       )}
