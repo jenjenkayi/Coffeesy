@@ -113,7 +113,7 @@ return (
                             </div>
                           }
                       </div>
-                      <div className="products-price">${product.price}</div>
+                      <div className="products-price">${(product.price).toFixed(2)}</div>
                     </div>
                     </NavLink>
                     </>

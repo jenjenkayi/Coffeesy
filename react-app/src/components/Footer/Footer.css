@@ -1,17 +1,32 @@
+a {
+    padding-right: 5px;
+    text-decoration: none;
+    color: black;
+}
+
 a:link {
     text-decoration: none;
-};
+    color: black;
+}
 
 a:visited {
     text-decoration: none;
-};
+    color: black;
+}
 
 a:hover {
     text-decoration: none;
-};
+    color: black;
+}
+
+a:focus {
+    text-decoration: none;
+    color: black;
+}
 
 a:active {
     text-decoration: none;
+    color: black;
 }
 
 .footer-container {
@@ -51,10 +66,5 @@ a:active {
     text-align: center;
     position: relative;
     top: -50px;
-    text-decoration: none;
-}
-
-a {
-    padding-right: 5px;
 }
 
