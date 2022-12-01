@@ -42,6 +42,9 @@ a:active {
     padding-left: 10%;
     padding-right: 10%;
     margin-top: 20px;
+    overflow: auto;
+    word-break: break-all;
+    word-wrap: break-word;    
 }
 
 .user-product-wrapper {
@@ -56,6 +59,10 @@ a:active {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-top: 15px;
+    width: 80%;
+    overflow: auto;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 .user-product-wrapper2 {
@@ -76,7 +83,6 @@ a:active {
 .user-product-info {
     display: flex;
     flex-direction: column;
-    white-space: wrap;
     font-family: 'Roboto', Georgia, serif;    
     font-style: normal;
     color: #222222;
@@ -84,7 +90,10 @@ a:active {
     border-radius: 20px;
     margin-left: 30px;
     padding: 20px;
-    min-width: 50%;
+    width: 90%;
+    overflow: auto;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 .user-product-name {

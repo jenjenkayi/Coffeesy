@@ -41,6 +41,9 @@ a:active {
     padding-left: 10%;
     padding-right: 10%;
     margin-top: 20px;
+    overflow: auto;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 .user-reviews-wrapper {
@@ -55,6 +58,7 @@ a:active {
     padding-top: 40px;
     padding-bottom: 30px;
     margin-top: 15px;
+    width: 90%;
 }
 
 .user-reviews-right-container {
@@ -62,11 +66,15 @@ a:active {
     border: .5px solid #BF9E87;
     border-radius: 20px;
     margin-left: 40px;
+    width: 80%;
+    overflow: auto;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 .user-product-image {
-    min-width: 325px;
-    min-height: 356px;
+    width: 325px;
+    height: 356px;
     border-radius: 20px;
     object-fit: cover;
     border: .5px solid #BF9E87;
@@ -105,8 +113,8 @@ a:active {
 .user-reviews-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    width: 500px;
+    justify-content: center;
+    width: 90%;
 }
 
 .user-edit-reviews-button {
@@ -134,4 +142,5 @@ a:active {
     cursor: pointer;
     font-size: 14px;
     line-height: 1.5;
+    margin-left: 10px;
 }
