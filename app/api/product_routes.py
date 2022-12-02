@@ -150,6 +150,6 @@ def create_review(productId):
 @product_routes.route('/<keyword>')
 def search_product(keyword):
     products = Product.query.filter(Product.name.ilike(f"%{keyword}%")).all()
-    return jsonify({'Products': [product.to_dict_search() for product in products]})
+    return jsonify({'Products': [product.to_dict() for product in products]})
 
 

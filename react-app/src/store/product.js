@@ -7,6 +7,7 @@ const LOAD_ONE_PRODUCT = 'products/LOAD_ONE_PRODUCT'
 const LOAD_USERS_PRODUCTS = 'products/LOAD_USERS_PRODUCTS'
 const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
+const LOAD_SEARCH_PRODUCTS = 'products/LOAD_SEARCH_PRODUCTS'
 
 // ACTION CREATORS
 export const createProduct = (product) => ({
@@ -37,6 +38,11 @@ export const editProduct = (product) => ({
 export const deleteProduct = (productId) => ({
     type: DELETE_PRODUCT,
     payload: productId
+})
+
+export const getSearchProduct = (products) => ({
+    type: LOAD_SEARCH_PRODUCTS,
+    payload: products
 })
 
 
@@ -109,8 +115,18 @@ export const deleteProductThunk = (productId) => async (dispatch) => {
   } 
 }
 
+export const getSearchProductsThunk = (keyword) => async (dispatch) => {
+  const response = await fetch(`/api/products/search/${keyword}`)
+
+  if (response.ok) {
+    const products = await response.json()
+    dispatch(getSearchProduct(products))
+    return products
+  }
+}
+
 // reducers
-let initialState = {allProducts:{}, singleProduct:{}};
+let initialState = {allProducts:{}, singleProduct:{}, searchProducts:{}};
 export const productReducer = (state = initialState, action) => {
   switch(action.type){
     case CREATE_PRODUCT: 
@@ -145,6 +161,13 @@ export const productReducer = (state = initialState, action) => {
       const newState = {...state, singleProduct:{...state.singleProduct}, allProducts:{...state.allProducts}}
       delete newState.singleProduct[action.payload]
       delete newState.allProducts[action.payload]
+      return newState
+    }
+      case LOAD_SEARCH_PRODUCTS: {
+      const newState = {...state, searchProducts: {}};
+      action.payload.Products.forEach(product => {
+        newState.searchProducts[product.id] = product
+      })
       return newState
     }
     default:
