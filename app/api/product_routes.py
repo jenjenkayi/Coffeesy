@@ -147,5 +147,9 @@ def create_review(productId):
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 
+@product_routes.route('/<keyword>')
+def search_product(keyword):
+    products = Product.query.filter(Product.name.ilike(f"%{keyword}%")).all()
+    return jsonify({'Products': [product.to_dict_search() for product in products]})
 
 
