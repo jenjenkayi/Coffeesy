@@ -24,7 +24,7 @@
     padding: 30px;
     margin: 10px 10px 10px 10px;
     overflow: auto;
-    word-break: break-all;
+    word-break: break-word;
     word-wrap: break-word;
 }
 
