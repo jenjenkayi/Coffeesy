@@ -7,6 +7,7 @@ import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
 import Coffeesy from '../../assets/Coffeesy.png';
 import logo from '../../assets/logo.png';
+import SearchProduct from '../SearchProduct/SearchProduct';
 
 function Navigation({ loaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -36,6 +37,9 @@ function Navigation({ loaded }){
           onClick={() => history.push('/')}
           >
           </img>
+          <div className='search-bar'>
+            <SearchProduct />
+          </div>
           {loaded && sessionLinks}
       </div>
   );
