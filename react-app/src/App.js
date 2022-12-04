@@ -21,6 +21,7 @@ import Navigation from './components/Navigation/Navigation';
 import SignupForm from './components/SignupFormModal';
 import LoginForm from './components/LoginFormModal';
 import Footer from './components/Footer/Footer';
+import SearchProduct from './components/SearchProduct/SearchProduct';
 
 function App() {
   const dispatch = useDispatch();
@@ -87,6 +88,9 @@ function App() {
           </Route>
           <Route path='/'>
             <GetAllProducts />
+          </Route>
+          <Route path='/search/:keyword'>
+            <SearchProduct />
           </Route>
         </Switch>
         <Footer />
