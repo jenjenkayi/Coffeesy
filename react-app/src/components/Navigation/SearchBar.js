@@ -28,7 +28,7 @@ return (
             onChange={(e) => setKeyword(e.target.value)}
         />
         <button className="search-bar-form-button">
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass fa-xl"></i>
         </button>
     </form>
 )
