@@ -26,7 +26,7 @@ return (
     <>
     <h1>Search Product</h1>
      <div className="products-container">
-            {productsArr && productsArr.map((product) => {
+            {productsArr && productsArr.map(product => {
                 return (
                     <>
                     <NavLink key={product.id} to={`/products/${product.id}`}>

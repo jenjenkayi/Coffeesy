@@ -89,7 +89,7 @@ function App() {
           <Route path='/'>
             <GetAllProducts />
           </Route>
-          <Route path='/search/:keyword'>
+          <Route path='products/search/:keyword'>
             <SearchProduct />
           </Route>
         </Switch>

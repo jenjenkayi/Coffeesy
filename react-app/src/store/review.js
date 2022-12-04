@@ -119,7 +119,7 @@ export const reviewReducer = (state=initialState, action) => {
     }
     case LOAD_ALL_REVIEWS: {
       const newState = { ...state, allReviews:{}}
-        action.payload.Reviews.forEach(review => {
+        action.payload.Reviews?.forEach(review => {
         newState.allReviews[review.id] = review
       });
      return newState

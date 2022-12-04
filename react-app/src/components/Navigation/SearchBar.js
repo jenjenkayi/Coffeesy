@@ -1,6 +1,6 @@
-import React, { useEffect, useState} from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory, useParams, NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getSearchProductsThunk } from '../../store/product'
 import "./Navigation";
 
@@ -11,11 +11,13 @@ function SearchBar() {
   const [keyword, setKeyword] = useState('');
  
   const submitHandler = async (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
   dispatch(getSearchProductsThunk(keyword)).then(() => {
-        history.push(`/search/${keyword}`);
+    history.push(`/products/search/${keyword}`);
     });
+
+    setKeyword("")
   }
 
 return (
