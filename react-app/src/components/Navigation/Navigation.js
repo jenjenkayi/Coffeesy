@@ -5,9 +5,8 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
-import Coffeesy from '../../assets/Coffeesy.png';
 import logo from '../../assets/logo.png';
-import SearchProduct from '../SearchProduct/SearchProduct';
+import SearchBar from './SearchBar';
 
 function Navigation({ loaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -38,7 +37,7 @@ function Navigation({ loaded }){
           >
           </img>
           <div className='search-bar'>
-            <SearchProduct />
+            <SearchBar />
           </div>
           {loaded && sessionLinks}
       </div>
