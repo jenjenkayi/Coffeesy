@@ -5,7 +5,6 @@ const LOAD_ONE_PRODUCT = 'products/LOAD_ONE_PRODUCT'
 const LOAD_USERS_PRODUCTS = 'products/LOAD_USERS_PRODUCTS'
 const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
-const LOAD_SEARCH_PRODUCTS = 'products/LOAD_SEARCH_PRODUCTS'
 
 // ACTION CREATORS
 export const createProduct = (product) => ({
@@ -125,7 +124,7 @@ export const getSearchProductsThunk = (keyword) => async (dispatch) => {
 
 // reducers
 let initialState = {allProducts:{}, singleProduct:{}, searchProducts:{}};
-export const productReducer = (state = initialState, action) => {
+export const cartReducer = (state = initialState, action) => {
   switch(action.type){
     case CREATE_PRODUCT: 
      const newState = { ...state, singleProduct: {}};

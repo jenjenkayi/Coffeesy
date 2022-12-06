@@ -1,5 +1,3 @@
-// import { fetch } from './csrf';
-
 // TYPES
 const CREATE_REVIEW = 'reviews/CREATE_REVIEW'
 const LOAD_ALL_REVIEWS = 'reviews/LOAD_ALL_REVIEWS'
