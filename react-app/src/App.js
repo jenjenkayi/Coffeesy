@@ -89,9 +89,12 @@ function App() {
           <Route path='/'>
             <GetAllProducts />
           </Route>
-          <Route path='products/search/:keyword'>
+          <Route path='/products/search/:keyword'>
             <SearchProduct />
           </Route>
+          {/* <Route path='/cart'>
+            < />
+          </Route> */}
         </Switch>
         <Footer />
       </BrowserRouter>

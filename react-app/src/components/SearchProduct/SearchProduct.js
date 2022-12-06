@@ -13,19 +13,19 @@ const SearchProduct = () => {
   const products = useSelector(state => state.product.searchProducts);
   const productsArr = Object.values(products);
 
+  console.log("product----------", productsArr)
   useEffect(() => {
     dispatch(getSearchProductsThunk(keyword))
   }, [dispatch, keyword]);
 
-  if (Object.keys(productsArr).length === 0) {
-    return null;
-  }
+  // if (Object.keys(productsArr).length === 0) {
+  //   return null;
+  // }
 
-  
 return (
     <>
     <h1>Search Product</h1>
-     <div className="products-container">
+     {/* <div className="products-container">
             {productsArr && productsArr.map(product => {
                 return (
                     <>
@@ -61,7 +61,7 @@ return (
                     </>
                 )
             })}
-        </div>
+        </div> */}
     </>
   )
 

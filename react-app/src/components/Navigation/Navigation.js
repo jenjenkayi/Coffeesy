@@ -37,7 +37,7 @@ function Navigation({ loaded }){
           >
           </img>
           <div className='search-bar'>
-            {/* <SearchBar /> */}
+            <SearchBar />
           </div>
           {loaded && sessionLinks}
       </div>

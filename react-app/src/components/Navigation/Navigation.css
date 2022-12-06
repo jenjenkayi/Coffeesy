@@ -21,9 +21,13 @@ a {
 }
 
 .fa-store {
-    padding: 25px 10px 10px 0px;
-    width: 50px;
+    padding: 25px 20px 10px 0px;
     cursor: pointer;
+}
+
+.fa-cart-shopping {
+    cursor: pointer;
+    padding: 25px 25px 10px 0px;
 }
 
 .nav-right {
@@ -35,13 +39,15 @@ a {
 .nav-create-product-button {
     border: none;
     background: transparent;
-    padding-left: 0px;
-    margin-left: 0px;
+}
+
+.nav-cart {
+    border: none;
+    background: transparent;
 }
 
 .profile-button {
     text-align: left;
-    padding: 5px 5px 5px 5px;
     justify-content: space-around;
     display: flex;
     flex-direction: row;
@@ -58,7 +64,7 @@ a {
 }
 
 .fa-user-circle {
-    padding: 25px 10px 10px 5px;
+    padding: 25px 0px 10px 25px;
 }
 
 .profile-button {
@@ -71,16 +77,16 @@ a {
     width: 60px;
     border: none;
     background: transparent;
-    box-shadow: rgba(0, 0, 0, 0.2);
+    /* box-shadow: rgba(0, 0, 0, 0.2); */
     align-items: center;
     position: relative;
     right: 50%;
 }
 
-.profile-button:hover {
+/* .profile-button:hover {
     box-shadow: 0px 1px 2px rgb(221, 221, 221, 0.5);
     background-color: rgb(239, 235, 235);
-}
+} */
 
 .profile-dropdown {
     flex-direction: column;
@@ -141,7 +147,7 @@ a {
 .search-bar-form-container {
     display: flex;
     border: 2px solid black;
-    min-width: 1030px;
+    min-width: 900px;
     height: 48px;
     border-radius: 50px;
     box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%);
@@ -149,7 +155,7 @@ a {
 }
 
 .search-bar-form-input {
-    width: 1030px;
+    width: 900px;
     height: 35px;
     margin: 5px 5px 5px 15px;
     border: none;
