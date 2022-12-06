@@ -83,14 +83,14 @@ function App() {
           <Route path="/equipment">
             <Equipment />
           </Route>
+          <Route path='/products/search/:keyword'>
+            <SearchProduct />
+          </Route>
           <Route path="/products/:productId">
             <GetOneProduct />
           </Route>
           <Route path='/'>
             <GetAllProducts />
-          </Route>
-          <Route path='/products/search/:keyword'>
-            <SearchProduct />
           </Route>
           {/* <Route path='/cart'>
             < />

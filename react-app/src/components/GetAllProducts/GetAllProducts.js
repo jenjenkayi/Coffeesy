@@ -26,7 +26,7 @@ return (
   {user ?  
     <h1>Welcome back, {user.firstName}!</h1>
     : 
-    <h1>Up to 60% off: shop the Cyber Week Sales Event!</h1>
+    <h1>Holiday magic starts with these merry finds.</h1>
   }
       <div className="category-container">
         <NavLink to='/accessories'>

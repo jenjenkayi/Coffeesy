@@ -1,31 +1,29 @@
 import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { getSearchProductsThunk } from '../../store/product'
 import "./SearchProduct.css";
 
 const SearchProduct = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const {keyword} = useParams();
 
-  const user = useSelector((state) => state.session.user);
   const products = useSelector(state => state.product.searchProducts);
   const productsArr = Object.values(products);
 
-  console.log("product----------", productsArr)
   useEffect(() => {
     dispatch(getSearchProductsThunk(keyword))
   }, [dispatch, keyword]);
 
-  // if (Object.keys(productsArr).length === 0) {
-  //   return null;
-  // }
 
 return (
     <>
-    <h1>Search Product</h1>
-     {/* <div className="products-container">
+    {!productsArr &&
+    <div>
+      <div className="search-products-no-item">We couldn't find any results for {keyword}</div>
+      <div className="search-products-no-item2">Try searching for something else instead?</div>
+    </div>}
+     <div className="search-products-container">
             {productsArr && productsArr.map(product => {
                 return (
                     <>
@@ -61,7 +59,7 @@ return (
                     </>
                 )
             })}
-        </div> */}
+        </div>
     </>
   )
 

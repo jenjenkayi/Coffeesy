@@ -1,0 +1,25 @@
+.search-products-no-item {
+    font-size: 16px;
+    font-style: normal;
+    line-height: 20px;
+    font-weight: 700;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    color: black;
+    font-size: 26px;
+    margin-top: 5%;
+    min-height: 350px;
+}
+
+.search-products-no-item2 {
+    font-size: 16px;
+}
+
+.search-products-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    margin-left: 20px;
+    justify-content: center;
+    gap: 2em;
+}
