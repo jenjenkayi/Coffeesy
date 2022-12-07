@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Product, db, Review
 from app.forms.product_form import ProductForm
 from app.forms.review_form import ReviewForm
+from app.forms.cart_form import CartForm
 from datetime import datetime
 
 product_routes = Blueprint('products', __name__)
@@ -160,3 +161,23 @@ def search_product(keyword):
 #     return jsonify({'Products': [product.to_dict() for product in products]})
 
 
+# Add an Item to the Cart
+# Method: POST
+# URL: /api/products/:productId/cart
+@product_routes.route('/<int:productId>/cart', methods=['POST'])
+@login_required
+def add_cartItem():
+    form = CartForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        new_cartItem = Cart(
+            user=current_user,
+            quantity = form.data['quantity'],
+            created_at = datetime.now(),
+        )
+        db.session.add(new_cartItem)
+        db.session.commit()
+        return jsonify(new_cartItem.to_dict())
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+ 
