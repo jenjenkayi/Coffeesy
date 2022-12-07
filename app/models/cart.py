@@ -17,5 +17,4 @@ class Cart(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
 
-    user = db.relationship("User", back_populates="products")
-    reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
+    user = db.relationship("User", back_populates="carts")
