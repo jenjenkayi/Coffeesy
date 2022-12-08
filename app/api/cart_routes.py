@@ -1,8 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import Product, db, Review, Cart
-from app.forms.product_form import ProductForm
-from app.forms.review_form import ReviewForm
+from app.models import Product, db, Review, CartItem
 from app.forms.cart_form import CartForm
 from datetime import datetime
 
@@ -23,7 +21,7 @@ def validation_errors_to_error_messages(validation_errors):
 @cart_routes.route('/current')
 @login_required
 def currentuser_cartitems():
-    cartItems = Cart.query.filter(Cart.user_id == current_user.id)
+    cartItems = CartItem.query.filter(CartItem.user_id == current_user.id)
     return jsonify({'CartItems': [cartItem.to_dict() for cartItem in cartItems]})
 
 
@@ -34,7 +32,7 @@ def edit_cartItem(cartItemId):
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    cartItem = Cart.query.get(cartItemId)
+    cartItem = CartItem.query.get(cartItemId)
 
     if not cartItem:
         return {"message": "Cart item not found", "statusCode": 404}
@@ -43,19 +41,17 @@ def edit_cartItem(cartItemId):
         return {"message": "You are not authorized to edit the item"}
   
     if form.validate_on_submit():
-        edited_cartItem = Cart.query.get(cartItemId)
+        edited_cartItem = CartItem.query.get(cartItemId)
         edited_cartItem.quantity = form.data['quantity']
         edited_cartItem.created_at = datetime.now()
         db.session.commit()
     return jsonify(edit_cartItem.to_dict())
 
 # Delete an Item in the Cart
-# Method: DELETE
-# URL: /api/cartItems/:cartItemId
 @cart_routes.route('/<int:cartItemId>', methods=['DELETE'])
 @login_required
 def delete_cartItem(cartItemId):
-    deleted_cartItem = Cart.query.get(cartItemId)
+    deleted_cartItem = CartItem.query.get(cartItemId)
 
     if not deleted_cartItem:
         return {"message": "Item not found", "statusCode": 404}
@@ -70,12 +66,10 @@ def delete_cartItem(cartItemId):
    
 
 # Delete All the Items in the Cart
-# Method: DELETE
-# URL: /api/cartItems/current
 @cart_routes.route('/current', methods=['DELETE'])
 @login_required
 def delete_cart():
-    deleted_cart = Cart.query.all()
+    deleted_cart = CartItem.query.all()
     
     if deleted_cart.user_id != current_user.id:
         return {"message": "You are not authorized to delete the cart"}

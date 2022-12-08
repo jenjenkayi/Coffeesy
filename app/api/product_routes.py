@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import Product, db, Review
+from app.models import Product, db, Review, CartItem
 from app.forms.product_form import ProductForm
 from app.forms.review_form import ReviewForm
 from app.forms.cart_form import CartForm
@@ -162,8 +162,6 @@ def search_product(keyword):
 
 
 # Add an Item to the Cart
-# Method: POST
-# URL: /api/products/:productId/cart
 @product_routes.route('/<int:productId>/cart', methods=['POST'])
 @login_required
 def add_cartItem():
@@ -171,7 +169,7 @@ def add_cartItem():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        new_cartItem = Cart(
+        new_cartItem = CartItem(
             user=current_user,
             quantity = form.data['quantity'],
             created_at = datetime.now(),
