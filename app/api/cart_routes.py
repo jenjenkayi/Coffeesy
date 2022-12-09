@@ -43,7 +43,7 @@ def edit_cartItem(cartItemId):
     if form.validate_on_submit():
         edited_cartItem = CartItem.query.get(cartItemId)
         edited_cartItem.quantity = form.data['quantity']
-        edited_cartItem.created_at = datetime.now()
+        edited_cartItem.updated_at = datetime.now()
         db.session.commit()
     return jsonify(edit_cartItem.to_dict())
 

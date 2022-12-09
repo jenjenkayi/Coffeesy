@@ -164,15 +164,17 @@ def search_product(keyword):
 # Add an Item to the Cart
 @product_routes.route('/<int:productId>/cart', methods=['POST'])
 @login_required
-def add_cartItem():
+def add_cartItem(productId):
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         new_cartItem = CartItem(
-            user=current_user,
+            user_id=current_user.id,
+            product_id = productId,
             quantity = form.data['quantity'],
             created_at = datetime.now(),
+            updated_at = datetime.now(),
         )
         db.session.add(new_cartItem)
         db.session.commit()
