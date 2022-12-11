@@ -187,11 +187,14 @@ def add_cartItem(productId):
             quantity = form.data['quantity'],
             created_at = datetime.now(),
             updated_at = datetime.now(),
-        )
-        db.session.add(new_cartItem)
-        db.session.commit()
-        return jsonify(new_cartItem.to_dict())
-    else: 
-        
-    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+            )
+            db.session.add(new_cartItem)
+            db.session.commit()
+            return jsonify(new_cartItem.to_dict())
+        else: 
+            cartItem.quantity += form.data['quantity']
+            db.session.commit()
+            return jsonify(new_cartItem.to_dict())
+    else:
+        return {"errors": validation_errors_to_error_messages(form.errors)}, 401
  
