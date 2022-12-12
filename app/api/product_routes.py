@@ -192,9 +192,15 @@ def add_cartItem(productId):
             db.session.commit()
             return jsonify(new_cartItem.to_dict())
         else: 
-            cartItem.quantity += form.data['quantity']
-            db.session.commit()
-            return jsonify(new_cartItem.to_dict())
+            if cartItem.quantity + form.data['quantity'] > cartItem.product.quantity:
+                cartItem.quantity = cartItem.product.quantity
+                cartItem.message = "You have reached the maximum quantity for this product."
+                db.session.commit()
+                return jsonify(cartItem.to_dict())
+            else:
+                cartItem.quantity += form.data['quantity']
+                db.session.commit()
+                return jsonify(cartItem.to_dict())
     else:
         return {"errors": validation_errors_to_error_messages(form.errors)}, 401
  

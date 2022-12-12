@@ -22,7 +22,7 @@ def validation_errors_to_error_messages(validation_errors):
 @login_required
 def currentuser_cartitems():
     cartItems = CartItem.query.filter(CartItem.user_id == current_user.id)
-    return jsonify({'CartItems': [cartItem.to_dict() for cartItem in cartItems]})
+    return jsonify({'CartItems': [cartItem.to_dict_with_product() for cartItem in cartItems]})
 
 
 # Edit an Item in the Cart
@@ -35,17 +35,18 @@ def edit_cartItem(cartItemId):
     cartItem = CartItem.query.get(cartItemId)
 
     if not cartItem:
-        return {"message": "Cart item not found", "statusCode": 404}
+        return {"message": "Cart item couldn't be found", "statusCode": 404}
     
     if cartItem.user_id != current_user.id:
         return {"message": "You are not authorized to edit the item"}
   
     if form.validate_on_submit():
-        edited_cartItem = CartItem.query.get(cartItemId)
-        edited_cartItem.quantity = form.data['quantity']
-        edited_cartItem.updated_at = datetime.now()
+        cartItem.quantity = form.data['quantity']
+        cartItem.updated_at = datetime.now()
         db.session.commit()
-    return jsonify(edit_cartItem.to_dict())
+        return jsonify(cartItem.to_dict())
+    else:
+        return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 # Delete an Item in the Cart
 @cart_routes.route('/<int:cartItemId>', methods=['DELETE'])
@@ -54,7 +55,7 @@ def delete_cartItem(cartItemId):
     deleted_cartItem = CartItem.query.get(cartItemId)
 
     if not deleted_cartItem:
-        return {"message": "Item not found", "statusCode": 404}
+        return {"message": "Item couldn't be found", "statusCode": 404}
 
     if deleted_cartItem.user_id != current_user.id:
         return {"message": "You are not authorized to delete the item"}
