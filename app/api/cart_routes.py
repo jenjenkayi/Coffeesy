@@ -70,9 +70,9 @@ def delete_cartItem(cartItemId):
 @login_required
 def delete_cart():
     deleted_cart = CartItem.query.all()
-    
-    if deleted_cart.user_id != current_user.id:
-        return {"message": "You are not authorized to delete the cart"}
+    print(deleted_cart)
+    # if deleted_cart.user_id != current_user.id:
+    #     return {"message": "You are not authorized to delete the cart"}
 
     if deleted_cart:
         db.session.delete(deleted_cart)
