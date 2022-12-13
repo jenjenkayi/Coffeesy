@@ -24,7 +24,6 @@ def currentuser_cartitems():
     cartItems = CartItem.query.filter(CartItem.user_id == current_user.id)
     return jsonify({'CartItems': [cartItem.to_dict_with_product() for cartItem in cartItems]})
 
-
 # Edit an Item in the Cart
 @cart_routes.route('/<int:cartItemId>', methods=['PUT'])
 @login_required
