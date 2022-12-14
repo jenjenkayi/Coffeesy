@@ -69,13 +69,15 @@ def delete_cartItem(cartItemId):
 @cart_routes.route('/current', methods=['DELETE'])
 @login_required
 def delete_cart():
-    deleted_cart = CartItem.query.all()
-    print(deleted_cart)
-    # if deleted_cart.user_id != current_user.id:
-    #     return {"message": "You are not authorized to delete the cart"}
+    cartItems = db.session.query(CartItem) \
+                             .filter(CartItem.user_id == current_user.id) \
+                             .all()
 
-    if deleted_cart:
-        db.session.delete(deleted_cart)
-        db.session.commit()
+    if not cartItems: 
+        return {'message': "Cart is empty."}
+
+    for cartItem in cartItems:
+        db.session.delete(cartItem)
+    db.session.commit()
     return {"message": "Cart successfully deleted.", "statusCode": 200}
    
