@@ -66,6 +66,11 @@ return (
                 <div className="product-name">{product.name}</div>
                 <div className="product-price">${product.price}</div>
                 <div className="product-quantity">Only {product.quantity} left!</div>
+                <button className="product-add-to-cart"
+                    onClick={() => history.push('/cart')}
+                  >
+                  Add to cart
+                </button>
                 <div className="product-info2">
                   <i className="fa-solid fa-cart-shopping fa-lg"></i>
                     Over 20 people have this in their carts.

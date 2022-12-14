@@ -22,6 +22,7 @@ import SignupForm from './components/SignupFormModal';
 import LoginForm from './components/LoginFormModal';
 import Footer from './components/Footer/Footer';
 import SearchProduct from './components/SearchProduct/SearchProduct';
+import Cart from './components/Cart/Cart';
 
 function App() {
   const dispatch = useDispatch();
@@ -89,12 +90,12 @@ function App() {
           <Route path="/products/:productId">
             <GetOneProduct />
           </Route>
+          <Route path='/cart'>
+            <Cart />
+          </Route>
           <Route path='/'>
             <GetAllProducts />
           </Route>
-          {/* <Route path='/cart'>
-            < />
-          </Route> */}
         </Switch>
         <Footer />
       </BrowserRouter>
