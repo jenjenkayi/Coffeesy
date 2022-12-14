@@ -1,50 +1,34 @@
 // TYPES
-const CREATE_PRODUCT = 'products/CREATE_PRODUCT'
-const LOAD_ALL_PRODUCTS = 'products/LOAD_ALL_PRODUCTS'
-const LOAD_ONE_PRODUCT = 'products/LOAD_ONE_PRODUCT'
-const LOAD_USERS_PRODUCTS = 'products/LOAD_USERS_PRODUCTS'
-const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
-const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
+const ADD_CART = 'products/ADD_CART'
+const LOAD_CART = 'products/LOAD_CART'
+const EDIT_CART = 'products/EDIT_CART'
+const DELETE_CART = 'products/DELETE_CART'
 
 // ACTION CREATORS
-export const createProduct = (product) => ({
-    type: CREATE_PRODUCT,
-    payload: product
+export const addCart = (cartItems) => ({
+    type: ADD_CART,
+    payload: cartItems
 })
 
-export const getAllProducts = (products) => ({
-    type: LOAD_ALL_PRODUCTS,
-    payload: products
+export const getCart = (cartItems) => ({
+    type: LOAD_CART,
+    payload: cartItems
 })
 
-export const getOneProduct = (product) => ({
-    type: LOAD_ONE_PRODUCT,
-    payload: product
+
+export const editCart = (cartItemsId) => ({
+    type: EDIT_CART,
+    payload: cartItemsId
 })
 
-export const getUsersProducts = (products) => ({
-    type: LOAD_USERS_PRODUCTS,
-    payload: products
-})
-
-export const editProduct = (product) => ({
-    type: EDIT_PRODUCT,
-    payload: product
-})
-
-export const deleteProduct = (productId) => ({
-    type: DELETE_PRODUCT,
-    payload: productId
-})
-
-export const getSearchProduct = (products) => ({
-    type: LOAD_SEARCH_PRODUCTS,
-    payload: products
+export const deleteCart = (cartItemsId) => ({
+    type: DELETE_CART,
+    payload: cartItemsId
 })
 
 
 // THUNKS
-export const createProductThunk = (data) => async (dispatch) => {
+export const addCartThunk = (data) => async (dispatch) => {
   const response = await fetch('/api/products/', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -52,44 +36,24 @@ export const createProductThunk = (data) => async (dispatch) => {
   });
 
   if (response.ok) {
-    const product = await response.json() 
-    dispatch(createProduct(product))
-    return product
+    const cartItem = await response.json() 
+    dispatch(addCart(cartItem))
+    return cartItem
     }
 }
 
-export const getAllProductsThunk = () => async (dispatch) => {
+export const getCartThunk = () => async (dispatch) => {
   const response = await fetch('/api/products/')
 
   if (response.ok) {
     const products = await response.json()
-    dispatch(getAllProducts(products))
+    dispatch(getCart(products))
     return products
   }
 }
 
-export const getOneProductThunk = (productId) => async (dispatch) => {
-  const response = await fetch(`/api/products/${productId}`)
-
-  if(response.ok){
-    const product = await response.json()
-    dispatch(getOneProduct(product))
-    return product
-  }
-}
-
-export const getUsersProductsThunk = (userId) => async (dispatch) => {
-  const response = await fetch(`api/users/${userId}/products`);
-
-  if(response.ok){
-    const products = await response.json()
-    dispatch(getUsersProducts(products))
-    return products
-  } 
-}
-
-export const editProductThunk = (productId, data) => async (dispatch) => {
-  const response = await fetch(`/api/products/${productId}`, {
+export const editCartThunk = (cartItemId, data) => async (dispatch) => {
+  const response = await fetch(`/api/products/${cartItemId}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(data)
@@ -97,74 +61,43 @@ export const editProductThunk = (productId, data) => async (dispatch) => {
 
   if(response.ok){
     const product = await response.json()
-    dispatch(editProduct(product))
+    dispatch(editCart(product))
     return product
   }
 }
 
-export const deleteProductThunk = (productId) => async (dispatch) => {
-  const response = await fetch(`/api/products/${productId}`, {
+export const deleteCartThunk = (cartItemId) => async (dispatch) => {
+  const response = await fetch(`/api/products/${cartItemId}`, {
     method: 'DELETE'
   });
 
   if(response.ok){
-    dispatch(deleteProduct(productId))
+    dispatch(deleteCart(cartItemId))
   } 
 }
 
-export const getSearchProductsThunk = (keyword) => async (dispatch) => {
-  const response = await fetch(`/api/products/search/${keyword}`)
-
-  if (response.ok) {
-    const products = await response.json()
-    dispatch(getSearchProduct(products))
-    return products
-  }
-}
-
 // reducers
-let initialState = {allProducts:{}, singleProduct:{}, searchProducts:{}};
-export const cartReducer = (state = initialState, action) => {
+export const cartReducer = (state = {}, action) => {
   switch(action.type){
-    case CREATE_PRODUCT: 
-     const newState = { ...state, singleProduct: {}};
+    case ADD_CART: 
+     const newState = { ...state};
       newState.singleProduct = action.payload;
       return newState;
-    case LOAD_ALL_PRODUCTS: {
-      const newState = {...state, allProducts: {}};
+    case LOAD_CART: {
+      const newState = {...state};
       action.payload.Products.forEach(product => {
         newState.allProducts[product.id] = product
       })
       return newState
     }
-    case LOAD_ONE_PRODUCT: {
-      const newState = {...state, singleProduct: action.payload}
-    //   newState.singleProduct = action.payload
-      return { ...newState }
-    }
-    case LOAD_USERS_PRODUCTS: {
-      const newState = {...state, allProducts: {}}
-      action.payload.Products.forEach(product => {
-        newState.allProducts[product.id] = product
-      })      
-      return newState
-    }
-    case EDIT_PRODUCT: {
-      const newState = {...state, singleProduct: {}}
+    case EDIT_CART: {
+      const newState = {...state}
       newState.singleProduct = action.payload
       return newState
     }
-    case DELETE_PRODUCT:{
-      const newState = {...state, singleProduct:{...state.singleProduct}, allProducts:{...state.allProducts}}
+    case DELETE_CART:{
+      const newState = {...state}
       delete newState.singleProduct[action.payload]
-      delete newState.allProducts[action.payload]
-      return newState
-    }
-      case LOAD_SEARCH_PRODUCTS: {
-      const newState = {...state, searchProducts: {}};
-      action.payload.Products.forEach(product => {
-        newState.searchProducts[product.id] = product
-      })
       return newState
     }
     default:
