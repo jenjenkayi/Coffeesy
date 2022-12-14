@@ -81,23 +81,23 @@ export const cartReducer = (state = {}, action) => {
   switch(action.type){
     case ADD_CART: 
      const newState = { ...state};
-      newState.singleProduct = action.payload;
+      newState[action.payload.id] = action.payload;
       return newState;
     case LOAD_CART: {
       const newState = {...state};
-      action.payload.Products.forEach(product => {
-        newState.allProducts[product.id] = product
+      action.payload.CartItems.forEach(cartItem => {
+        newState.CartItem[cartItem.id] = cartItem
       })
       return newState
     }
     case EDIT_CART: {
       const newState = {...state}
-      newState.singleProduct = action.payload
+      newState[action.payload.id] = action.payload
       return newState
     }
     case DELETE_CART:{
       const newState = {...state}
-      delete newState.singleProduct[action.payload]
+      delete newState[action.payload]
       return newState
     }
     default:
