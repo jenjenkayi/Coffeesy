@@ -1,13 +1,13 @@
 // TYPES
-const ADD_CART = 'products/ADD_CART'
+const ADD_CART_ITEM = 'products/ADD_CART_ITEM'
 const LOAD_CART = 'products/LOAD_CART'
 const EDIT_CART = 'products/EDIT_CART'
 const DELETE_CART_ITEM = 'products/DELETE_CART_ITEM'
 const DELETE_CART = 'products/DELETE_CART'
 
 // ACTION CREATORS
-export const addCart = (cartItems) => ({
-    type: ADD_CART,
+export const addCartItem = (cartItems) => ({
+    type: ADD_CART_ITEM,
     payload: cartItems
 })
 
@@ -34,16 +34,16 @@ export const deleteCart = () => ({
 
 
 // THUNKS
-export const addCartThunk = (data, productId) => async (dispatch) => {
-  const response = await fetch(`/api/products/${productId}/cart`, {
+export const addCartItemThunk = (quantity, id) => async (dispatch) => {
+  const response = await fetch(`/api/products/${id}/cart`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(data)
+    body: JSON.stringify(quantity)
   });
 
   if (response.ok) {
     const cartItem = await response.json() 
-    dispatch(addCart(cartItem))
+    dispatch(addCartItem(cartItem))
     return cartItem
     }
 }
@@ -95,7 +95,7 @@ export const deleteCartThunk = () => async (dispatch) => {
 // reducers
 export const cartReducer = (state = {}, action) => {
   switch(action.type){
-    case ADD_CART: 
+    case ADD_CART_ITEM: 
      const newState = { ...state};
       newState[action.payload.id] = action.payload;
       return newState;

@@ -4,19 +4,20 @@ import { NavLink, useHistory } from "react-router-dom";
 import "./Cart.css";
 import {getCartItemsThunk} from '../../store/cart';
 import {getAllProductsThunk} from '../../store/product';
+import AddItem from "./EditItem";
 
 const GetCartItems = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const user = useSelector((state) => state.session.user);
   const cartItems = useSelector(state => state.cart);
   const cartItemsArr = Object.values(cartItems);
-
+  console.log('cartItems------', cartItems)
+  
   useEffect(() => {
     dispatch(getCartItemsThunk())
     dispatch(getAllProductsThunk())
-  }, [dispatch]);
+  }, [dispatch, cartItemsArr.length]);
 
   if (Object.keys(cartItemsArr).length === 0) {
     return (
@@ -51,6 +52,7 @@ return (
             <div className="products-name">{cartItem.quantity}</div>
             <div className="products-price">${(cartItem.product.price).toFixed(2)}</div>
             </NavLink>
+            <AddItem cartItem={cartItem} />
             </>
           )
         })}

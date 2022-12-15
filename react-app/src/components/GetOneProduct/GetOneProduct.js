@@ -8,6 +8,8 @@ import GetProductReviews from '../GetProductReviews/GetProductReviews'
 import CreateReviewModal from "../CreateReview";
 import EditReviewModal from "../EditReview";
 import {getAllReviewsThunk} from '../../store/review'
+import AddItem from "../Cart/EditItem";
+import { addCartItemThunk } from "../../store/cart";
 
 const GetOneProduct = () => {
   const dispatch = useDispatch();
@@ -17,24 +19,32 @@ const GetOneProduct = () => {
   const user = useSelector((state) => state.session.user);
   const product = useSelector(state => state.product.singleProduct);
   const productArr = Object.values(product);
-
+  console.log('product--------', productId)
   const reviews = useSelector(state => state.review.allReviews);
   const reviewsArr = Object.values(reviews);
   const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
   const [isLoaded, setIsLoaded] = useState(false)
-  
+  const [quantity, setQuantity] = useState[1]
+
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
     dispatch(getAllReviewsThunk(productId))
+    dispatch(addCartItemThunk(productId))
     .then(() => setIsLoaded(true))
   }, [dispatch, productId]);
 
   if (Object.keys(productArr).length === 0) {
     return null;
   }
+  const addItem = async () => {
+    if (user && product.user.id !== user.id) {
+      await dispatch(addCartItemThunk(product.id, quantity))
+      history.push('/cart')
+    }
+  }
 
-  const deleteProductHandler = (productId) => {
+   const deleteProductHandler = (productId) => {
     dispatch(deleteProductThunk(productId))
     history.push("/");
   };
@@ -66,11 +76,18 @@ return (
                 <div className="product-name">{product.name}</div>
                 <div className="product-price">${product.price}</div>
                 <div className="product-quantity">Only {product.quantity} left!</div>
-                <button className="product-add-to-cart"
-                    onClick={() => history.push('/cart')}
-                  >
+                <select 
+                  className="product-quantity-field"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                >
+                </select>
+                {!user ? <div>Please sign in to add item to cart</div> 
+                :
+                <button onClick={() => addItem()}>
                   Add to cart
-                </button>
+                </button>}
+
                 <div className="product-info2">
                   <i className="fa-solid fa-cart-shopping fa-lg"></i>
                     Over 20 people have this in their carts.
