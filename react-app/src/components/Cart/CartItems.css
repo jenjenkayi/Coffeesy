@@ -29,8 +29,8 @@
     line-height: 36px;
     padding-top: 20px;
     padding-bottom: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 16%;
+    margin-right: 16%;
 }
 
 .cart-container {
@@ -41,39 +41,50 @@
     margin-right: 10%;
     justify-content: space-around;
     align-items: flex-start;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 15px;
 }
 
 .items-wrapper {
-    border: 1px solid green;
-    /* padding: 20px; */
+    /* border: 1px solid green; */
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    width: 90%;
+
 }
 
 .items-container {
     border-bottom: 1px solid rgba(34, 34, 34, 0.15);
     display: flex;
     flex-direction: row;
-    /* padding: 15px; */
+    padding: 15px;
     justify-content: space-around;
-    /* align-items: stretch; */
+    align-items: stretch;
 }
 
 .items-info-container {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    border: 1px solid blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    /* border: 1px solid blue; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    /* flex: 3 1 0%; */
+    width: 30%;
+    gap: 20px;
+}
+
+.items-price {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
 }
 
 .items-image {
-    max-width: 212px;
-    max-height: 168px;
-    width: 100%;
+    width: 212px;
+    height: 168px;
     border-radius: 6px;
     box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
 }
@@ -90,7 +101,6 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
 
 .cart-button {
     color: white;
@@ -111,4 +121,20 @@
     cursor: pointer;
     border-radius: 24px;
     text-align: left;
+}
+
+.edit-item-container {
+    display: flex;
+}
+
+.edit-item-input {
+    box-shadow: 0 1px 6px 0 rgb(34 34 34 / 15%);
+    width: 60px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 6px;
+    background: #FFFFFF;
+    border-width: .5px solid rgba(34, 34, 34, 0, 15);
+    cursor: pointer;
+    border: none;
 }

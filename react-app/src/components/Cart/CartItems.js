@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import "./CartItems.css";
-import {getCartItemsThunk, deleteCartItemThunk} from '../../store/cart';
+import {getCartItemsThunk, deleteCartItemThunk, deleteCartThunk} from '../../store/cart';
 import {getAllProductsThunk} from '../../store/product';
+import EditItem from "./EditItem";
 
-const GetCartItems = () => {
+const GetCartItems = ({item}) => {
   const dispatch = useDispatch();
- const history = useHistory();
+  const history = useHistory();
   const {cartItemId} = useParams();
 
   const user = useSelector((state) => state.session.user);
@@ -32,8 +33,14 @@ const GetCartItems = () => {
     )
   }
 
-  const deleteHandler = (cartItemId) => {
+  const deleteItemHandler = (cartItemId) => {
     dispatch(deleteCartItemThunk(cartItemId))
+    dispatch(getCartItemsThunk())
+    history.push("/cart");
+  };
+
+  const deleteCartHandler = () => {
+    dispatch(deleteCartThunk())
     history.push("/cart");
   };
 
@@ -54,25 +61,25 @@ return (
                         onError={e => {
                           e.currentTarget.src = "https://nckenya.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
                           e.onerror=null;
-                          }}
-                      />  
+                        }}
+                        />  
                     </NavLink>
                     <div className="items-info-container">            
                       <NavLink key={item.product.id} to={`/products/${item.product.id}`}>    
                         <div>{item.product.name}</div>
-                        <div>{item.quantity}</div>
-                        <div>${item.product.price}</div>
                       </NavLink>
                       {user && user.id === item.user_id && (
                         <button
                           className="cart-remove-button"
-                          onClick={() => deleteHandler(item.id)}
+                          onClick={() => deleteItemHandler(item.id)}
                           >
                           Remove
                         </button>
                       )}
                     </div>
-              </div>
+                        <EditItem item={item} />
+                      <div className="items-price">${(item.product.price).toFixed(2)}</div>
+                    </div>
               </>
             )
           })}
@@ -80,7 +87,11 @@ return (
         <div className="payment-container">
           <div>Total price</div>
           <div>Item(s) total</div>
-          <button className="cart-button">Proceed to checkout</button>
+          <button className="cart-button" 
+          onClick={() => deleteCartHandler()}
+          >
+            Proceed to checkout
+          </button>
         </div>
       </div>
     </>

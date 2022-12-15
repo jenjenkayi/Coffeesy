@@ -26,6 +26,7 @@ const GetOneProduct = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [quantity, setQuantity] = useState('')
 
+  
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
     dispatch(getAllReviewsThunk(productId))

@@ -1,56 +1,54 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, useParams } from "react-router-dom";
-import "./Cart.css";
-import {addCartItemThunk} from '../../store/cart';
+import { useHistory, useParams } from "react-router-dom";
+import "./CartItems.css";
+import {editCartItemThunk} from '../../store/cart';
 
-const EditItem = ({cartItem}) => {
+const EditItem = ({item}) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const {productId} = useParams();
+  const {cartItemId} = useParams();
 
   const user = useSelector((state) => state.session.user);
 
-  const [quantity, setQuantity] = useState(cartItem.quantity);
+  const [quantity, setQuantity] = useState(item.quantity);
   const [errors, setErrors] = useState([]);
+
+  const stock = item.product.quantity
+
+  const quantities = []
+  for (let i = 1; i <= stock; i++) {
+    quantities.push(i)
+  }
 
   const submitHandler = async (e) => {
     e.preventDefault();
-      
-    let cartItems = {quantity}
-      
-    if (!cartItems.quantity) return setErrors(["Review field can not be empty"]);
- 
-      const data = { 
-        user_id: user.id,
-        productId: productId,
-        quantity, 
-      }
-    
     setErrors([]);  
-    dispatch(addCartItemThunk(data))
+
+     const data = {
+        quantity, 
+    };
+    
+    dispatch(editCartItemThunk(data, cartItemId))
     .then(() => {
         history.push(`/cart`);
     })
-    }
+  }
 
   return (
     <section>
-      <form className="AddItem-Container" onSubmit={submitHandler}>
+      <form className="edit-item-container" onSubmit={submitHandler}>
         <ul className="errors">
           {errors.length > 0 &&
           errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
-        <label className='AddItem-Label'>
-          Quantity
-        <input
-            className='AddItem-Input'
+        <select
+            className='edit-item-input'
             type="number"
             value={quantity}
-            onChange={(e) => setQuantity(e.target.value)} 
-        />
-        </label>
-        <button type="submit" className='AddItem-Submit-Button'>Add to cart</button>
+            onChange={(e) => setQuantity(e.target.value)}>
+            {quantities.map(quantity => (<option key={quantity} value={quantity}>{quantity}</option>))}
+        </select>
       </form>
     </section>
   );
