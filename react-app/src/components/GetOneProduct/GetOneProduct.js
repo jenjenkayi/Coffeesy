@@ -79,7 +79,7 @@ return (
                 </div>
                 <div className="product-name">{product.name}</div>
                 <div className="product-price">${product.price}</div>
-                <div className="product-quantity">Only {product.quantity} left!</div>
+                {/* <div className="product-quantity">Only {product.quantity} left!</div> */}
                 <select 
                   className="product-quantity-field"
                   value={quantity}
@@ -89,8 +89,8 @@ return (
                 </select>
                 {!user ? <div>Please sign in to add item to cart</div> 
                 :
-                <button onClick={() => addItem()}>
-                  Add to cart
+                <button className="cart-button" onClick={() => addItem()}>
+                  Add to cart | Only {product.quantity} available
                 </button>}
 
                 <div className="product-info2">
