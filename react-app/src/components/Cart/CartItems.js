@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
-import "./Cart.css";
+import "./CartItems.css";
 import {getCartItemsThunk} from '../../store/cart';
 import {getAllProductsThunk} from '../../store/product';
 
@@ -31,24 +31,36 @@ const GetCartItems = () => {
   }
 
 return (  
-      <div className="products-container">
+      <div className="cart-container">
+        <div className="cart-title">{itemsArr.length} Item(s) in your cart</div>
         {itemsArr && itemsArr.map((item) => {
           return (
             <>
-              <NavLink key={item.product.id} to={`/products/${item.product.id}`}>
-                <img
-                  className="cart-image"
-                  src={item.product.image}
-                  alt=""
-                  onError={e => {
-                    e.currentTarget.src = "https://nckenya.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
-                    e.onerror=null;
-                    }}
-                />                  
-                <div>{item.product.name}</div>
-                <div>${item.product.price}</div>
-                <div>{item.quantity}</div>
-              </NavLink>
+            <div className="items-container">
+                <div className="items-image-container">           
+                  <NavLink key={item.product.id} to={`/products/${item.product.id}`}>
+                    <img
+                      className="items-image"
+                      src={item.product.image}
+                      alt=""
+                      onError={e => {
+                        e.currentTarget.src = "https://nckenya.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
+                        e.onerror=null;
+                        }}
+                    />  
+                  </NavLink>
+                </div>
+                  <div className="items-info-container">            
+                    <NavLink key={item.product.id} to={`/products/${item.product.id}`}>    
+                      <div>{item.product.name}</div>
+                      <div>{item.quantity}</div>
+                      <div>${item.product.price}</div>
+                    </NavLink>
+                  </div>
+                <div className="payment-container">
+                    <div>${item.product.price}</div>
+                </div>
+            </div>
             </>
           )
         })}

@@ -18,12 +18,14 @@ const SearchProduct = () => {
 
 return (
     <>
-    {!productsArr.length &&
-    <div className="search-products-no-item">
-      <div className="search-products-no-item1">We couldn't find any results for {keyword}</div>
-      <div className="search-products-no-item2">Try searching for something else instead?</div>
-    </div>}
-     <div className="search-products-container">
+      {!productsArr.length &&
+      <div className="search-products-no-item">
+        <div className="search-products-no-item1">We couldn't find any results for {keyword}</div>
+        <div className="search-products-no-item2">Try searching for something else instead?</div>
+      </div>}
+      {productsArr.length && 
+        <div className="search-products-title">{productsArr.length} search results for "{keyword}"</div>}
+          <div className="search-products-container">
             {productsArr && productsArr.map(product => {
                 return (
                     <>
