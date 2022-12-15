@@ -4,22 +4,20 @@ import { NavLink, useHistory } from "react-router-dom";
 import "./Cart.css";
 import {getCartItemsThunk} from '../../store/cart';
 import {getAllProductsThunk} from '../../store/product';
-import AddItem from "./EditItem";
 
 const GetCartItems = () => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.session.user);
-  const cartItems = useSelector(state => state.cart);
-  const cartItemsArr = Object.values(cartItems);
-  console.log('cartItems------', cartItems)
+  const items = useSelector(state => state.cart);
+  const itemsArr = Object.values(items);
   
   useEffect(() => {
     dispatch(getCartItemsThunk())
     dispatch(getAllProductsThunk())
-  }, [dispatch, cartItemsArr.length]);
+  }, [dispatch, itemsArr.length]);
 
-  if (Object.keys(cartItemsArr).length === 0) {
+  if (Object.keys(itemsArr).length === 0) {
     return (
       <>
         <div className="empty-cart-container">
@@ -34,25 +32,23 @@ const GetCartItems = () => {
 
 return (  
       <div className="products-container">
-        {cartItemsArr && cartItemsArr.map((cartItem) => {
+        {itemsArr && itemsArr.map((item) => {
           return (
             <>
-            <NavLink key={cartItem.product.id} to={`/products/${cartItem.product.id}`}>
-            <div>
-            <img
-                className="products-image"
-                src={cartItem.product.image}
-                alt=""
-                onError={e => {
-                  e.currentTarget.src = "https://nckenya.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
-                  e.onerror=null;
-                }}
-              />
-            </div>
-            <div className="products-name">{cartItem.quantity}</div>
-            <div className="products-price">${(cartItem.product.price).toFixed(2)}</div>
-            </NavLink>
-            <AddItem cartItem={cartItem} />
+              <NavLink key={item.product.id} to={`/products/${item.product.id}`}>
+                <img
+                  className="cart-image"
+                  src={item.product.image}
+                  alt=""
+                  onError={e => {
+                    e.currentTarget.src = "https://nckenya.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
+                    e.onerror=null;
+                    }}
+                />                  
+                <div>{item.product.name}</div>
+                <div>${item.product.price}</div>
+                <div>{item.quantity}</div>
+              </NavLink>
             </>
           )
         })}

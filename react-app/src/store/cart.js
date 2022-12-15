@@ -34,8 +34,8 @@ export const deleteCart = () => ({
 
 
 // THUNKS
-export const addCartItemThunk = (quantity, id) => async (dispatch) => {
-  const response = await fetch(`/api/products/${id}/cart`, {
+export const addCartItemThunk = (quantity, productId) => async (dispatch) => {
+  const response = await fetch(`/api/products/${productId}/cart`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(quantity)

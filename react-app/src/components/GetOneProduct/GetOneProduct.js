@@ -8,7 +8,6 @@ import GetProductReviews from '../GetProductReviews/GetProductReviews'
 import CreateReviewModal from "../CreateReview";
 import EditReviewModal from "../EditReview";
 import {getAllReviewsThunk} from '../../store/review'
-import AddItem from "../Cart/EditItem";
 import { addCartItemThunk } from "../../store/cart";
 
 const GetOneProduct = () => {
@@ -19,13 +18,13 @@ const GetOneProduct = () => {
   const user = useSelector((state) => state.session.user);
   const product = useSelector(state => state.product.singleProduct);
   const productArr = Object.values(product);
-  console.log('product--------', productId)
+
   const reviews = useSelector(state => state.review.allReviews);
   const reviewsArr = Object.values(reviews);
   const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
   const [isLoaded, setIsLoaded] = useState(false)
-  const [quantity, setQuantity] = useState[1]
+  const [quantity, setQuantity] = useState('')
 
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
@@ -39,9 +38,14 @@ const GetOneProduct = () => {
   }
   const addItem = async () => {
     if (user && product.user.id !== user.id) {
-      await dispatch(addCartItemThunk(product.id, quantity))
+      await dispatch(addCartItemThunk(productId, quantity))
       history.push('/cart')
     }
+  }
+
+  const quantities = []
+  for (let i = 1; i <= product.quantity; i++) {
+    quantities.push(i)
   }
 
    const deleteProductHandler = (productId) => {
@@ -80,7 +84,8 @@ return (
                   className="product-quantity-field"
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
-                >
+                  >
+                  {quantities.map(quantity => (<option key={quantity} value={quantity}>{quantity}</option>))}
                 </select>
                 {!user ? <div>Please sign in to add item to cart</div> 
                 :
