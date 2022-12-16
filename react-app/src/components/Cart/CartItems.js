@@ -9,24 +9,21 @@ import EditItem from "./EditItem";
 const GetCartItems = ({item}) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const {cartItemId} = useParams();
 
   const user = useSelector((state) => state.session.user);
   const items = useSelector(state => state.cart);
   const itemsArr = Object.values(items);
+  const [sum, setSum] = useState(0)
 
-  function totalPrice() {
-    let total = [];
-    if (items) {
-      for (let i = 0; i < items.length; i++) {
-        let sum = item.quantity * item.product.price
-        total.push(sum)
+  useEffect(() => {
+      let total = [];
+      if (items) {
+        for (let i=0; i <= items.length; i++) {
+          total += items[i].quantity * items[i].product.price
+          setSum(total)
+        }
       }
-    }
-    console.log(items)
-    return total;
-  }
-
+  }, [items])
 
   useEffect(() => {
     dispatch(getCartItemsThunk())
@@ -98,9 +95,9 @@ return (
           })}
         </div>
         <div className="payment-container">
-          <div>Item(s) total</div>
-          <div>{totalPrice()}</div>
+          <div>Item(s) total {sum}</div>
           <div>Sales Tax</div>
+          <div>Subtotal</div>
           <div className="payment-shipping">
             <span>Shipping</span>
             <span>FREE</span>

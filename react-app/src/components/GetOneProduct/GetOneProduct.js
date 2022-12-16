@@ -26,7 +26,7 @@ const GetOneProduct = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [quantity, setQuantity] = useState('')
 
-  
+
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
     dispatch(getAllReviewsThunk(productId))
@@ -80,19 +80,20 @@ return (
                 </div>
                 <div className="product-name">{product.name}</div>
                 <div className="product-price">${product.price}</div>
-                {/* <div className="product-quantity">Only {product.quantity} left!</div> */}
+              {user && user.id !== product.user_id && (
                 <select 
                   className="product-quantity-field"
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                   >
                   {quantities.map(quantity => (<option key={quantity} value={quantity}>{quantity}</option>))}
-                </select>
-                {!user ? <div>Please sign in to add item to cart</div> 
-                :
-                <button className="cart-button" onClick={() => addItem()}>
+                </select>)}
+                {!user && <div>Please sign in to add item to cart</div>} 
+                
+                {user && user.id !== product.user_id && (
+                  <button className="cart-button" onClick={() => addItem()}>
                   Add to cart | Only {product.quantity} available
-                </button>}
+                </button>)}
 
                 <div className="product-info2">
                   <i className="fa-solid fa-cart-shopping fa-lg"></i>

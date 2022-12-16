@@ -73,6 +73,12 @@
     flex-direction: column;
     width: 30%;
     gap: 20px;
+    cursor: pointer;
+}
+
+.items-info-container:hover {
+    text-decoration: underline;
+
 }
 
 .items-image {
@@ -80,6 +86,8 @@
     height: 168px;
     border-radius: 6px;
     box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
+    cursor: pointer;
+    object-fit: cover;
 }
 
 .payment-container {
@@ -92,12 +100,12 @@
     padding: 18px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .paymemt-shipping {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
