@@ -211,3 +211,22 @@ i {
 .delete-review-button:hover {
     box-shadow: rgba(0, 0, 0, 0.2);
 }
+
+.cart-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 45px;
+    /* width: 400px; */
+    margin-top: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.product-quantity-field {
+    /* height: 45px;
+    width: 400px; */
+}
