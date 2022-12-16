@@ -38,10 +38,6 @@ const EditItem = ({item}) => {
   return (
     <section>
       <form className="edit-item-container" onSubmit={submitHandler}>
-        <ul className="errors">
-          {errors.length > 0 &&
-          errors.map((error) => <li key={error}>{error}</li>)}
-        </ul>
         <select
             className='edit-item-input'
             type="number"
@@ -49,6 +45,7 @@ const EditItem = ({item}) => {
             onChange={(e) => setQuantity(e.target.value)}>
             {quantities.map(quantity => (<option key={quantity} value={quantity}>{quantity}</option>))}
         </select>
+      <div className="items-price">${(quantity * item.product.price).toFixed(2)}</div>
       </form>
     </section>
   );

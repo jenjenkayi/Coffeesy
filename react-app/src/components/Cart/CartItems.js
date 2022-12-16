@@ -14,7 +14,20 @@ const GetCartItems = ({item}) => {
   const user = useSelector((state) => state.session.user);
   const items = useSelector(state => state.cart);
   const itemsArr = Object.values(items);
-  
+
+  function totalPrice() {
+    let total = [];
+    if (items) {
+      for (let i = 0; i < items.length; i++) {
+        let sum = item.quantity * item.product.price
+        total.push(sum)
+      }
+    }
+    console.log(items)
+    return total;
+  }
+
+
   useEffect(() => {
     dispatch(getCartItemsThunk())
     dispatch(getAllProductsThunk())
@@ -32,6 +45,7 @@ const GetCartItems = ({item}) => {
       </>
     )
   }
+
 
   const deleteItemHandler = (cartItemId) => {
     dispatch(deleteCartItemThunk(cartItemId))
@@ -78,16 +92,20 @@ return (
                       )}
                     </div>
                         <EditItem item={item} />
-                      <div className="items-price">${(item.product.price).toFixed(2)}</div>
                     </div>
               </>
             )
           })}
         </div>
         <div className="payment-container">
-          <div>Total price</div>
           <div>Item(s) total</div>
-          <button className="cart-button" 
+          <div>{totalPrice()}</div>
+          <div>Sales Tax</div>
+          <div className="payment-shipping">
+            <span>Shipping</span>
+            <span>FREE</span>
+          </div>
+          <button className="payment-button" 
           onClick={() => deleteCartHandler()}
           >
             Proceed to checkout
