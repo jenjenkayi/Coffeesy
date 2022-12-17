@@ -24,28 +24,34 @@ const GetOneProduct = () => {
   const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
   const [isLoaded, setIsLoaded] = useState(false)
-  const [quantity, setQuantity] = useState('')
-
+  const [quantity, setQuantity] = useState('0')
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
     dispatch(getAllReviewsThunk(productId))
-    dispatch(addCartItemThunk(productId))
     .then(() => setIsLoaded(true))
-  }, [dispatch, productId]);
+  }, [dispatch, productId, reviewsArr.length]);
 
   if (Object.keys(productArr).length === 0) {
     return null;
   }
+
   const addItem = async () => {
-    if (user && product.user.id !== user.id) {
-      await dispatch(addCartItemThunk(productId, quantity))
-      history.push('/cart')
-    }
-  }
+      
+    const data = {
+        productId: productId,
+        quantity, 
+    };
+    console.log('data-------', data)
+    dispatch(addCartItemThunk(data, quantity))
+      .then(() => {
+        history.push('/cart')
+    })
+}
 
   const quantities = []
-  for (let i = 1; i <= product.quantity; i++) {
+  for (let i = 0; i <= product.quantity; i++) {
     quantities.push(i)
   }
 
@@ -96,7 +102,7 @@ return (
                 </button>)}
 
                 <div className="product-info2">
-                  <i className="fa-solid fa-cart-shopping fa-lg"></i>
+                  <i className="fa-solid fa-cart-plus fa-lg"></i>
                     Over 20 people have this in their carts.
                     <br></br>
                   <i className="fa-solid fa-gifts fa-lg" ></i>
@@ -185,6 +191,5 @@ return (
     </>
   )
 }
-
 
 export default GetOneProduct;
