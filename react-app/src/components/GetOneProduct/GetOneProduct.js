@@ -88,7 +88,7 @@ return (
                   >
                   {quantities.map(quantity => (<option key={quantity} value={quantity}>{quantity}</option>))}
                 </select>)}
-                {!user && <div>Please sign in to add item to cart</div>} 
+                {!user && <button className="cart-button1">Please sign in to add item to cart</button>} 
                 
                 {user && user.id !== product.user_id && (
                   <button className="cart-button" onClick={() => addItem()}>

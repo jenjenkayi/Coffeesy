@@ -79,6 +79,10 @@
     margin-bottom: 20px;
 }
 
+.fa-cart-shopping {
+    /* margin-right: 0px; */
+}
+
 i {
     margin-right: 5px;
     margin-bottom: 20px;
@@ -221,6 +225,19 @@ i {
     /* width: 400px; */
     margin-top: 5px;
     cursor: pointer;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.cart-button1 {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 45px;
+    /* width: 400px; */
+    margin-top: 5px;
     vertical-align: middle;
     font-size: 14px;
     line-height: 1.5;
