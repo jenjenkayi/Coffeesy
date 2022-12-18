@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./CartItems.css";
-import {getCartItemsThunk, deleteCartItemThunk, deleteCartThunk} from '../../store/cart';
-import {getAllProductsThunk} from '../../store/product';
-import EditItem from "./EditItem";
-import CheckoutCart from './CheckoutCart';
+import {deleteCartThunk} from '../../store/cart';
 
 const CheckOutCart = ({sum}) => {
   const dispatch = useDispatch();
   const history = useHistory();
-
-  const user = useSelector((state) => state.session.user);
-  const items = useSelector(state => state.cart);
-  const itemsArr = Object.values(items);
 
   const itemsTotal = Number(sum).toFixed(2)
   const salesTax = Number(sum * 0.0725).toFixed(2)

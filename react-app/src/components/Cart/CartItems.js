@@ -21,7 +21,6 @@ const GetCartItems = ({item}) => {
     if (itemsArr) {
       for (let i=0; i < itemsArr.length; i++) {
         total += itemsArr[i]?.quantity * itemsArr[i]?.product?.price
-        console.log("total------", total)
         setSum(total)
       }
     }
@@ -48,11 +47,6 @@ const GetCartItems = ({item}) => {
   const deleteItemHandler = (cartItemId) => {
     dispatch(deleteCartItemThunk(cartItemId))
     dispatch(getCartItemsThunk())
-    history.push("/cart");
-  };
-
-  const deleteCartHandler = () => {
-    dispatch(deleteCartThunk())
     history.push("/cart");
   };
 
@@ -89,33 +83,12 @@ return (
                         </button>
                       )}
                     </div>
-                        <EditItem item={item} />
+                        <EditItem item={item} sum={sum} />
                     </div>
               </>
             )
           })}
         </div>
-        {/* <div className="payment-container">
-          <div>Item(s) total {sum}</div>
-          <div>Sales Tax</div>
-          <div>Subtotal</div>
-          <div className="payment-shipping">
-            <span>Shipping</span>
-            <span>FREE</span>
-          </div>
-          <button className="payment-button" 
-          onClick={() => deleteCartHandler()}
-          >
-            Proceed to checkout
-          </button>
-        </div> */}
-        {/* {itemsArr.map(item => {
-                return (
-                    <>
-                    <div>{(quantity * item?.product?.price).toFixed(2)}</div>
-                    </>
-                )
-        })} */}
         <CheckoutCart sum={sum} />
       </div>
     </>
