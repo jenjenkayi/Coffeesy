@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "./CartItems.css";
 import {getCartItemsThunk, deleteCartItemThunk, deleteCartThunk} from '../../store/cart';
 import {getAllProductsThunk} from '../../store/product';
@@ -14,16 +14,17 @@ const GetCartItems = ({item}) => {
   const user = useSelector((state) => state.session.user);
   const items = useSelector(state => state.cart);
   const itemsArr = Object.values(items);
-  const [sum, setSum] = useState(Number(item?.quantity * item?.product?.price))
+  const [sum, setSum] = useState(item?.quantity * item?.product?.price)
 
   useEffect(() => {
-      let total = 0;
-      if (itemsArr) {
-        for (let i=0; i <= itemsArr.length; i++) {
-          total += itemsArr[i]?.quantity * itemsArr[i]?.product?.price
-          setSum(total)
-        }
+    let total = 0;
+    if (itemsArr) {
+      for (let i=0; i < itemsArr.length; i++) {
+        total += itemsArr[i]?.quantity * itemsArr[i]?.product?.price
+        console.log("total------", total)
+        setSum(total)
       }
+    }
   }, [itemsArr])
 
   useEffect(() => {
