@@ -27,12 +27,21 @@ const CheckOutCart = ({sum}) => {
 return (  
     <>
         <div className="payment-container">
-          <div>Item(s) total ${itemsTotal}</div>
-          <div>Sales Tax ${salesTax}</div>
-          <div>Subtotal ${subTotal}</div>
-          <div className="payment-shipping">
-            <span>Shipping</span>
-            <span>FREE</span>
+          <div className="payment-info">
+            <div>Item(s) total</div>
+            <div>${itemsTotal}</div>
+          </div>
+          <div className="payment-info-tax">
+            <div>Sales Tax</div>
+            <div>${salesTax}</div>
+          </div>
+          <div className="payment-info">
+            <div>Shipping</div>
+            <div>FREE</div>
+          </div>
+          <div className="payment-info-total">
+            <div>Subtotal</div>
+            <div>${subTotal}</div>
           </div>
           <button className="payment-button" 
           onClick={() => deleteCartHandler()}
