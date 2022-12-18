@@ -8,7 +8,7 @@ import GetProductReviews from '../GetProductReviews/GetProductReviews'
 import CreateReviewModal from "../CreateReview";
 import EditReviewModal from "../EditReview";
 import {getAllReviewsThunk} from '../../store/review'
-import { addCartItemThunk, getCartItemsThunk } from "../../store/cart";
+import { addCartItemThunk } from "../../store/cart";
 
 const GetOneProduct = () => {
   const dispatch = useDispatch();
@@ -24,8 +24,7 @@ const GetOneProduct = () => {
   const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
   const [isLoaded, setIsLoaded] = useState(false)
-  const [quantity, setQuantity] = useState('')
-  const [errors, setErrors] = useState([]);
+  const [quantity, setQuantity] = useState(1)
 
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
@@ -38,14 +37,8 @@ const GetOneProduct = () => {
   }
 
   const addItem = async () => {
-      
-    const data = {
-        productId: productId,
-        quantity, 
-    };
     
     dispatch(addCartItemThunk(productId, quantity))
-    // dispatch(getCartItemsThunk())
       .then(() => {
         history.push('/cart')
     })
@@ -93,6 +86,9 @@ return (
                         <span className="products-reviewCount"> ({product.reviewCount})</span>
                       </div>
                   }
+                  {/* <div>{!product.avgRating}
+                    <i className="fa-regular fa-star"></i>
+                  </div> */}
                 </div>
                 <div className="product-name">{product.name}</div>
                 <div className="product-price">${product.price.toFixed(2)}</div>

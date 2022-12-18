@@ -5,6 +5,7 @@ import "./CartItems.css";
 import {getCartItemsThunk, deleteCartItemThunk, deleteCartThunk} from '../../store/cart';
 import {getAllProductsThunk} from '../../store/product';
 import EditItem from "./EditItem";
+import CheckoutCart from './CheckoutCart';
 
 const GetCartItems = ({item}) => {
   const dispatch = useDispatch();
@@ -13,17 +14,17 @@ const GetCartItems = ({item}) => {
   const user = useSelector((state) => state.session.user);
   const items = useSelector(state => state.cart);
   const itemsArr = Object.values(items);
-  const [sum, setSum] = useState(0)
+  const [sum, setSum] = useState(Number(item?.quantity * item?.product?.price))
 
   useEffect(() => {
-      let total = [];
-      if (items) {
-        for (let i=0; i <= items.length; i++) {
-          total += items[i].quantity * items[i].product.price
+      let total = 0;
+      if (itemsArr) {
+        for (let i=0; i <= itemsArr.length; i++) {
+          total += itemsArr[i]?.quantity * itemsArr[i]?.product?.price
           setSum(total)
         }
       }
-  }, [items])
+  }, [itemsArr])
 
   useEffect(() => {
     dispatch(getCartItemsThunk())
@@ -42,7 +43,6 @@ const GetCartItems = ({item}) => {
       </>
     )
   }
-
 
   const deleteItemHandler = (cartItemId) => {
     dispatch(deleteCartItemThunk(cartItemId))
@@ -94,7 +94,7 @@ return (
             )
           })}
         </div>
-        <div className="payment-container">
+        {/* <div className="payment-container">
           <div>Item(s) total {sum}</div>
           <div>Sales Tax</div>
           <div>Subtotal</div>
@@ -107,7 +107,15 @@ return (
           >
             Proceed to checkout
           </button>
-        </div>
+        </div> */}
+        {/* {itemsArr.map(item => {
+                return (
+                    <>
+                    <div>{(quantity * item?.product?.price).toFixed(2)}</div>
+                    </>
+                )
+        })} */}
+        <CheckoutCart sum={sum} />
       </div>
     </>
   )

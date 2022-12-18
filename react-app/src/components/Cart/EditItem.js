@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import "./CartItems.css";
 import {editCartItemThunk} from '../../store/cart';
 
-const EditItem = ({item}) => {
+const EditItem = ({item, sum}) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const {cartItemId} = useParams();
 
-  const user = useSelector((state) => state.session.user);
-
   const [quantity, setQuantity] = useState(item?.quantity);
-  const [errors, setErrors] = useState([]);
-
   const stock = item?.product?.quantity
 
   const quantities = []
@@ -23,7 +19,6 @@ const EditItem = ({item}) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setErrors([]);  
 
      const data = {
         quantity, 
@@ -48,7 +43,9 @@ const EditItem = ({item}) => {
         </select>
       </form>
     </section>
-     <div className="items-price">${(quantity * item?.product?.price).toFixed(2)}</div>
+    <div className="items-price">${(quantity * item?.product?.price).toFixed(2)}
+      {quantity > 1 && <span className='item-price'>(${item.product.price} each)</span>}
+    </div>
    </>
   );
 }
