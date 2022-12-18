@@ -36,7 +36,7 @@
 
 .product-rating-info {
     font-weight: 400;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 18px;
 }
 
@@ -79,9 +79,6 @@
     margin-bottom: 20px;
 }
 
-.fa-cart-shopping {
-    /* margin-right: 0px; */
-}
 
 i {
     margin-right: 5px;

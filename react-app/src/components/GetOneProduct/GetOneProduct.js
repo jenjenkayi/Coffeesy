@@ -43,8 +43,9 @@ const GetOneProduct = () => {
         productId: productId,
         quantity, 
     };
-    console.log('data-------', data)
-    dispatch(addCartItemThunk(data, quantity))
+    
+    console.log('res', productId)
+    dispatch(addCartItemThunk(productId, quantity))
       .then(() => {
         history.push('/cart')
     })
@@ -82,10 +83,19 @@ return (
               <div className="product-info">
                 <div className="shop-name">{product.user.firstName}'s Shop</div>
                 <div className="product-rating-info">
-                  <span className="product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
+                  {product.avgRating % 1 ? 
+                      <div>{[...Array(Math.floor(product.avgRating))].map(star => <i className="fa-solid fa-star fa-xs"></i>)}
+                        <i className="fa-solid fa-star-half fa-xs"></i>
+                          <span className="products-reviewCount"> ({product.reviewCount})</span>
+                      </div>
+                      :
+                      <div>{[...Array(product.avgRating)].map(star => <i className="fa-solid fa-star fa-xs"></i>)}
+                        <span className="products-reviewCount"> ({product.reviewCount})</span>
+                      </div>
+                  }
                 </div>
                 <div className="product-name">{product.name}</div>
-                <div className="product-price">${product.price}</div>
+                <div className="product-price">${product.price.toFixed(2)}</div>
               {user && user.id !== product.user_id && (
                 <select 
                   className="product-quantity-field"
