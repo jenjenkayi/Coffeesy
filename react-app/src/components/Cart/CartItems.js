@@ -64,10 +64,10 @@ return (
             return (
               <>
               <div className="items-container">
-                    <NavLink key={item.product.id} to={`/products/${item.product.id}`}>
+                    <NavLink key={item?.product?.id} to={`/products/${item?.product?.id}`}>
                       <img
                         className="items-image"
-                        src={item.product.image}
+                        src={item?.product?.image}
                         alt=""
                         onError={e => {
                           e.currentTarget.src = "https://nckenya.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
@@ -76,8 +76,8 @@ return (
                         />  
                     </NavLink>
                     <div className="items-info-container">            
-                      <NavLink key={item.product.id} to={`/products/${item.product.id}`}>    
-                        <div>{item.product.name}</div>
+                      <NavLink key={item?.product?.id} to={`/products/${item?.product?.id}`}>    
+                        <div>{item?.product?.name}</div>
                       </NavLink>
                       {user && user.id === item.user_id && (
                         <button

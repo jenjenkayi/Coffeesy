@@ -11,10 +11,10 @@ const EditItem = ({item}) => {
 
   const user = useSelector((state) => state.session.user);
 
-  const [quantity, setQuantity] = useState(item.quantity);
+  const [quantity, setQuantity] = useState(item?.quantity);
   const [errors, setErrors] = useState([]);
 
-  const stock = item.product.quantity
+  const stock = item?.product?.quantity
 
   const quantities = []
   for (let i = 1; i <= stock; i++) {
@@ -48,7 +48,7 @@ const EditItem = ({item}) => {
         </select>
       </form>
     </section>
-     <div className="items-price">${(quantity * item.product.price).toFixed(2)}</div>
+     <div className="items-price">${(quantity * item?.product?.price).toFixed(2)}</div>
    </>
   );
 }

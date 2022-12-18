@@ -8,7 +8,7 @@ import GetProductReviews from '../GetProductReviews/GetProductReviews'
 import CreateReviewModal from "../CreateReview";
 import EditReviewModal from "../EditReview";
 import {getAllReviewsThunk} from '../../store/review'
-import { addCartItemThunk } from "../../store/cart";
+import { addCartItemThunk, getCartItemsThunk } from "../../store/cart";
 
 const GetOneProduct = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const GetOneProduct = () => {
   const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
   const [isLoaded, setIsLoaded] = useState(false)
-  const [quantity, setQuantity] = useState('0')
+  const [quantity, setQuantity] = useState('')
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -44,15 +44,15 @@ const GetOneProduct = () => {
         quantity, 
     };
     
-    console.log('res', productId)
     dispatch(addCartItemThunk(productId, quantity))
+    // dispatch(getCartItemsThunk())
       .then(() => {
         history.push('/cart')
     })
 }
 
   const quantities = []
-  for (let i = 0; i <= product.quantity; i++) {
+  for (let i = 1; i <= product.quantity; i++) {
     quantities.push(i)
   }
 
