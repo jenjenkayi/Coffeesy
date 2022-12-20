@@ -11,6 +11,8 @@ const CheckOutCart = ({sum}) => {
   const itemsTotal = Number(sum).toFixed(2)
   const salesTax = Number(sum * 0.0725).toFixed(2)
   const subTotal = (Number(itemsTotal) + Number(salesTax)).toFixed(2)
+  const items = useSelector(state => state.cart);
+  const itemsArr = Object.values(items);
 
   const deleteCartHandler = () => {
     dispatch(deleteCartThunk())
@@ -21,6 +23,15 @@ return (
     <>
         <div className="payment-container">
           <div className="payment-info">
+            {/* <div>{itemsArr.map(item => {
+              return (
+                <>
+                {cartTotal += item.quantity * item.product.price}
+                <div>{cartTotal}</div>
+                </>
+                )
+              })}
+              </div> */}
             <div>Item(s) total</div>
             <div>${itemsTotal}</div>
           </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import "./CartItems.css";
-import {getCartItemsThunk, deleteCartItemThunk, deleteCartThunk} from '../../store/cart';
+import {getCartItemsThunk, deleteCartItemThunk} from '../../store/cart';
 import {getAllProductsThunk} from '../../store/product';
 import EditItem from "./EditItem";
 import CheckoutCart from './CheckoutCart';
@@ -21,6 +21,7 @@ const GetCartItems = ({item}) => {
     if (itemsArr) {
       for (let i=0; i < itemsArr.length; i++) {
         total += itemsArr[i]?.quantity * itemsArr[i]?.product?.price
+        console.log('total', total)
         setSum(total)
       }
     }
@@ -29,7 +30,13 @@ const GetCartItems = ({item}) => {
   useEffect(() => {
     dispatch(getCartItemsThunk())
     dispatch(getAllProductsThunk())
-  }, [dispatch, itemsArr.length]);
+  }, [dispatch]);
+
+  const deleteItemHandler = (cartItemId) => {
+    dispatch(deleteCartItemThunk(cartItemId))
+    dispatch(getCartItemsThunk())
+    history.push("/cart");
+  };
 
   if (Object.keys(itemsArr).length === 0) {
     return (
@@ -44,11 +51,6 @@ const GetCartItems = ({item}) => {
     )
   }
 
-  const deleteItemHandler = (cartItemId) => {
-    dispatch(deleteCartItemThunk(cartItemId))
-    dispatch(getCartItemsThunk())
-    history.push("/cart");
-  };
 
 return (  
   <>

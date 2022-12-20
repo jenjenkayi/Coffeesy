@@ -108,7 +108,7 @@ export const cartReducer = (state = {}, action) => {
     }
     case EDIT_CART: {
       const newState = {...state}
-      newState[action.payload.id] = action.payload
+      newState[action.payload.id].quantity = action.payload.quantity
       return newState
     }
     case DELETE_CART_ITEM:{
