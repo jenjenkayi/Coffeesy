@@ -19,7 +19,7 @@ export const getCartItems = (cartItems) => ({
 
 export const editCartItem = (cartItemId, quantity) => ({
     type: EDIT_CART,
-    payload: cartItemId,
+    cartItemId,
     quantity
 })
 
@@ -83,7 +83,7 @@ export const deleteCartItemThunk = (cartItemId) => async (dispatch) => {
 }
 
 export const deleteCartThunk = () => async (dispatch) => {
-  const response = await fetch('/api/cartItems/current}', {
+  const response = await fetch('/api/cartItems/current', {
     method: 'DELETE'
   });
 
@@ -108,7 +108,7 @@ export const cartReducer = (state = {}, action) => {
     }
     case EDIT_CART: {
       const newState = {...state}
-      newState[action.payload.id].quantity = action.payload.quantity
+      newState[action.cartItemId].quantity = action.quantity
       return newState
     }
     case DELETE_CART_ITEM:{

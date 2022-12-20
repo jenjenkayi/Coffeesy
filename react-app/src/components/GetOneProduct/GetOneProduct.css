@@ -238,5 +238,6 @@ i {
     vertical-align: middle;
     font-size: 14px;
     line-height: 1.5;
+    cursor: not-allowed;
 }
 

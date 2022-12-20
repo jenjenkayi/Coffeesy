@@ -21,7 +21,6 @@ const GetCartItems = ({item}) => {
     if (itemsArr) {
       for (let i=0; i < itemsArr.length; i++) {
         total += itemsArr[i]?.quantity * itemsArr[i]?.product?.price
-        console.log('total', total)
         setSum(total)
       }
     }
