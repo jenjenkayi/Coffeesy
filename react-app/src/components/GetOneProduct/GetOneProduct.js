@@ -8,6 +8,7 @@ import GetProductReviews from '../GetProductReviews/GetProductReviews'
 import CreateReviewModal from "../CreateReview";
 import EditReviewModal from "../EditReview";
 import {getAllReviewsThunk} from '../../store/review'
+import { addCartItemThunk } from "../../store/cart";
 
 const GetOneProduct = () => {
   const dispatch = useDispatch();
@@ -23,18 +24,32 @@ const GetOneProduct = () => {
   const userReviews = Object.values(reviews).filter(review => review.user_id === user?.id)
 
   const [isLoaded, setIsLoaded] = useState(false)
-  
+  const [quantity, setQuantity] = useState(1)
+
   useEffect(() => {
     dispatch(getOneProductThunk(productId))
     dispatch(getAllReviewsThunk(productId))
     .then(() => setIsLoaded(true))
-  }, [dispatch, productId]);
+  }, [dispatch, productId, reviewsArr.length]);
 
   if (Object.keys(productArr).length === 0) {
     return null;
   }
 
-  const deleteProductHandler = (productId) => {
+  const addItem = async () => {
+    
+    dispatch(addCartItemThunk(productId, quantity))
+      .then(() => {
+        history.push('/cart')
+    })
+}
+
+  const quantities = []
+  for (let i = 1; i <= product.quantity; i++) {
+    quantities.push(i)
+  }
+
+   const deleteProductHandler = (productId) => {
     dispatch(deleteProductThunk(productId))
     history.push("/");
   };
@@ -61,13 +76,39 @@ return (
               <div className="product-info">
                 <div className="shop-name">{product.user.firstName}'s Shop</div>
                 <div className="product-rating-info">
-                  <span className="product-avgRating">{product.avgRating}</span> <span className="products-reviewCount">({product.reviewCount})</span>
+                  {product.avgRating % 1 ? 
+                      <div>{[...Array(Math.floor(product.avgRating))].map(star => <i className="fa-solid fa-star fa-xs"></i>)}
+                        <i className="fa-solid fa-star-half fa-xs"></i>
+                          <span className="products-reviewCount"> ({product.reviewCount})</span>
+                      </div>
+                      :
+                      <div>{[...Array(product.avgRating)].map(star => <i className="fa-solid fa-star fa-xs"></i>)}
+                        <span className="products-reviewCount"> ({product.reviewCount})</span>
+                      </div>
+                  }
+                  {/* <div>{!product.avgRating}
+                    <i className="fa-regular fa-star"></i>
+                  </div> */}
                 </div>
                 <div className="product-name">{product.name}</div>
-                <div className="product-price">${product.price}</div>
-                <div className="product-quantity">Only {product.quantity} left!</div>
+                <div className="product-price">${product.price.toFixed(2)}</div>
+              {user && user.id !== product.user_id && (
+                <select 
+                  className="product-quantity-field"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                  >
+                  {quantities.map(quantity => (<option key={quantity} value={quantity}>{quantity}</option>))}
+                </select>)}
+                {!user && <button className="cart-button1">Please sign in to add item to cart</button>} 
+                
+                {user && user.id !== product.user_id && (
+                  <button className="cart-button" onClick={() => addItem()}>
+                  Add to cart | Only {product.quantity} available
+                </button>)}
+
                 <div className="product-info2">
-                  <i className="fa-solid fa-cart-shopping fa-lg"></i>
+                  <i className="fa-solid fa-cart-plus fa-lg"></i>
                     Over 20 people have this in their carts.
                     <br></br>
                   <i className="fa-solid fa-gifts fa-lg" ></i>
@@ -156,6 +197,5 @@ return (
     </>
   )
 }
-
 
 export default GetOneProduct;

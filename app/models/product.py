@@ -22,6 +22,7 @@ class Product(db.Model):
 
     user = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
+    cartItems = db.relationship("CartItem", back_populates="product", cascade="all, delete")
 
     def avgRating(self):
         if len(self.reviews) > 0:

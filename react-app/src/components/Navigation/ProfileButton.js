@@ -41,6 +41,10 @@ function ProfileButton({ user }) {
         onClick={() => history.push("/products/new")}>
         <i className="fa-solid fa-store fa-xl"></i>
       </button>}
+      <button type="button" className="nav-cart"
+        onClick={() => history.push("/cart")}>
+        <i className="fa-solid fa-cart-shopping fa-xl"></i>
+      </button>
     {user && 
     <div className="dropdown-menu">
       <button className="profile-button" onClick={openMenu}>

@@ -1,5 +1,3 @@
-// import { fetch } from './csrf';
-
 // TYPES
 const CREATE_PRODUCT = 'products/CREATE_PRODUCT'
 const LOAD_ALL_PRODUCTS = 'products/LOAD_ALL_PRODUCTS'

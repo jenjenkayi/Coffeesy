@@ -34,7 +34,6 @@ const CreateReview = ({setShowModal}) => {
     
     setErrors([]);  
     dispatch(createReviewThunk(data))
-    
     .then(() => {
         history.push(`/products/${productId}`);
         // setShowModal(false)

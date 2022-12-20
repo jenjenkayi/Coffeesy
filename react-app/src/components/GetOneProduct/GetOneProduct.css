@@ -36,7 +36,7 @@
 
 .product-rating-info {
     font-weight: 400;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 18px;
 }
 
@@ -78,6 +78,7 @@
     line-height: 18px;
     margin-bottom: 20px;
 }
+
 
 i {
     margin-right: 5px;
@@ -211,3 +212,32 @@ i {
 .delete-review-button:hover {
     box-shadow: rgba(0, 0, 0, 0.2);
 }
+
+.cart-button {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 45px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.cart-button1 {
+    color: white;
+    background-color: #BF9E87;
+    border-radius: 24px;
+    border: none;
+    height: 45px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: not-allowed;
+}
+

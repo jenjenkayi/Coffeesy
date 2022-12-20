@@ -1,8 +1,9 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import Product, db, Review
+from app.models import Product, db, Review, CartItem
 from app.forms.product_form import ProductForm
 from app.forms.review_form import ReviewForm
+from app.forms.cart_form import CartForm
 from datetime import datetime
 
 product_routes = Blueprint('products', __name__)
@@ -150,6 +151,8 @@ def create_review(productId):
 @product_routes.route('/search/<keyword>')
 def search_product(keyword):
     products = Product.query.filter(Product.name.ilike(f"%{keyword}%")).all()
+    if not products:
+        return {"Products": []}
     return jsonify({'Products': [product.to_dict() for product in products]})
 
 # @product_routes.route('/search/accessories')
@@ -158,3 +161,46 @@ def search_product(keyword):
 #     return jsonify({'Products': [product.to_dict() for product in products]})
 
 
+# Add an Item to the Cart
+@product_routes.route('/<int:productId>/cart', methods=['POST'])
+@login_required
+def add_cartItem(productId):
+    product = Product.query.get(productId)
+
+    if not product: 
+        return {"message": "Product not found", "statusCode": 404}
+
+    cartItem = db.session.query(CartItem) \
+                         .filter(CartItem.user_id == current_user.id) \
+                         .filter(CartItem.product_id == productId) \
+                         .first()
+
+
+    form = CartForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        if not cartItem:
+            new_cartItem = CartItem(
+            user_id=current_user.id,
+            product_id = productId,
+            quantity = form.data['quantity'],
+            created_at = datetime.now(),
+            updated_at = datetime.now(),
+            )
+            db.session.add(new_cartItem)
+            db.session.commit()
+            return jsonify(new_cartItem.to_dict())
+        else: 
+            if cartItem.quantity + form.data['quantity'] > cartItem.product.quantity:
+                cartItem.quantity = cartItem.product.quantity
+                cartItem.message = "You have reached the maximum quantity for this product."
+                db.session.commit()
+                return jsonify(cartItem.to_dict())
+            else:
+                cartItem.quantity += form.data['quantity']
+                db.session.commit()
+                return jsonify(cartItem.to_dict())
+    else:
+        return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+ 
