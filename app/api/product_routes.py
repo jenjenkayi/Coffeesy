@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Product, db, Review, CartItem
 from app.forms.product_form import ProductForm
 from app.forms.review_form import ReviewForm
-from app.forms.cart_form import CartForm
+from app.forms.cartItem_form import CartForm
 from datetime import datetime
 
 product_routes = Blueprint('products', __name__)
