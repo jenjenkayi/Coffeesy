@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Product, db, Review, CartItem
 from app.forms.product_form import ProductForm
 from app.forms.review_form import ReviewForm
-from app.forms.cartItem_form import CartForm
+from app.forms.cartItem_form import CartItemForm
 from datetime import datetime
 
 product_routes = Blueprint('products', __name__)
@@ -176,7 +176,7 @@ def add_cartItem(productId):
                          .first()
 
 
-    form = CartForm()
+    form = CartItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():

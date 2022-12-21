@@ -28,7 +28,7 @@ def currentuser_cartitems():
 @cartItem_routes.route('/<int:cartItemId>', methods=['PUT'])
 @login_required
 def edit_cartItem(cartItemId):
-    form = CartForm()
+    form = CartItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     cartItem = CartItem.query.get(cartItemId)
