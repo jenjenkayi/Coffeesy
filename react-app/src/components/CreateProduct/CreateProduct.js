@@ -110,6 +110,10 @@ const CreateProduct = () => {
                     type="text"
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
+                    onError={e => {
+                          e.currentTarget.src = "https://nckenya.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
+                          e.onerror=null;
+                    }}
                 />
                 <div className="product-form-buttons">
                     <button className="product-form-submit-button" type="submit">Submit</button>
