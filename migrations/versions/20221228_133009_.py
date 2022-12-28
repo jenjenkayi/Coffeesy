@@ -77,7 +77,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "reviews":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
