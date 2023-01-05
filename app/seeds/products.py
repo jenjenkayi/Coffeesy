@@ -1,4 +1,4 @@
-from app.models import db, Product, environment, SCHEMA
+userfrom app.models import db, Product, environment, SCHEMA
 
 def seed_products():
     product1 = Product(
@@ -330,8 +330,8 @@ def seed_products():
 def undo_products():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.products RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM products")
+        db.session.execute("DELETE FROM users")
 
     db.session.commit()
