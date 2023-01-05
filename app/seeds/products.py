@@ -1,4 +1,4 @@
-userfrom app.models import db, Product, environment, SCHEMA
+from app.models import db, Product, environment, SCHEMA
 
 def seed_products():
     product1 = Product(
