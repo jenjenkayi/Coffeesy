@@ -13,7 +13,10 @@ const CheckOutCart = ({sum}) => {
   const subTotal = (Number(itemsTotal) + Number(salesTax)).toFixed(2)
  
   const deleteCartHandler = () => {
-    dispatch(deleteCartThunk())
+    if (window.confirm("Are you sure you want to checkout?")) {
+      dispatch(deleteCartThunk())
+    }
+    window.alert("Thank you for your purchase!")
     history.push("/cart");
   };
 

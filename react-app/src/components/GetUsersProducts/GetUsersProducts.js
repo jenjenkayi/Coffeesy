@@ -17,13 +17,11 @@ const GetUsersProducts = () => {
     dispatch(getAllProductsThunk())
   }, [dispatch]);
 
-  // if (Object.keys(userProducts).length === 0) {
-  //   return null;
-  // }
-
   const deleteProductHandler = (productId) => {
-  dispatch(deleteProductThunk(productId));
-  history.push("/");
+    if (window.confirm("Are you sure you want to delete this listing?")) {
+      dispatch(deleteProductThunk(productId));
+    }
+    history.push("/");
   };
 
 return (

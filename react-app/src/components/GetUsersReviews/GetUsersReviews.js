@@ -17,13 +17,11 @@ useEffect(() => {
     dispatch(getUsersReviewsThunk(userId))
   }, [dispatch, userId]);
 
-  // if (Object.keys(reviewsArr).length === 0) {
-  //   return null;
-  // }
-
   const deleteReviewHandler = (reviewId) => {
-  dispatch(deleteReviewThunk(reviewId));
-  history.push("/reviews/current");
+    if (window.confirm("Are you sure you want to delete this review?")) {
+      dispatch(deleteReviewThunk(reviewId));
+    }
+    history.push("/reviews/current");
   };
 
   return (

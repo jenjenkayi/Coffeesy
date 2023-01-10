@@ -32,7 +32,9 @@ const GetCartItems = ({item}) => {
   }, [dispatch]);
 
   const deleteItemHandler = (cartItemId) => {
-    dispatch(deleteCartItemThunk(cartItemId))
+    if (window.confirm("Are you sure you want to remove this item?")) {
+      dispatch(deleteCartItemThunk(cartItemId))
+    }
     dispatch(getCartItemsThunk())
     history.push("/cart");
   };
