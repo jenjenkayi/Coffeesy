@@ -23,6 +23,14 @@ return (
                         rel="noreferrer">
                         LinkedIn
                     </a>
+                    <i class="fa-regular fa-envelope"></i>                    
+                    <a 
+                        className='about-me-link'
+                        href="mailto:jennyjiang0830@hotmail.com"
+                        target="_blank"
+                        rel="noreferrer">
+                        Email
+                    </a>
                 </div>
     </footer>
     )

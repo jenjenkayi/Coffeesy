@@ -39,6 +39,7 @@ a {
 .nav-create-product-button {
     border: none;
     background: transparent;
+    margin-left: 15px;
 }
 
 .nav-create-product-button .hover-text{
@@ -190,11 +191,10 @@ a {
     align-items: baseline;
 }
 
-
 .search-bar-form-container {
     display: flex;
     border: 2px solid black;
-    min-width: 900px;
+    max-width: 900px;
     height: 48px;
     border-radius: 50px;
     box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%);
