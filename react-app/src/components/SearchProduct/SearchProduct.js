@@ -15,7 +15,6 @@ const SearchProduct = () => {
     dispatch(getSearchProductsThunk(keyword))
   }, [dispatch, keyword]);
 
-
 return (
     <>
       {!productsArr.length &&

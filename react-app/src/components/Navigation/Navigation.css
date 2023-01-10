@@ -47,14 +47,6 @@ a {
     position: absolute;
 }
 
-/* .nav-create-product-button:hover {
-    cursor: pointer;
-    background-color: #f2f0f0;
-    border-radius: 48%;
-    height: 2rem;
-    width: 2rem;
-} */
-
 .nav-create-product-button:hover .hover-text {
     visibility: visible;
     width: 100px;
@@ -217,4 +209,46 @@ a {
     align-items: center;
     padding: 15px 10px 10px 10px;
     cursor: pointer;
+    position: relative;
+}
+
+.searchbar-dropdown {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 15px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    overflow: visible;
+    z-index: 1;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%);
+}
+
+.searchbar-results {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    z-index: 1;
+}
+
+.searchbar-product-img {
+    width: 100px;
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 10px;
+    gap: 2em;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.searchbar-product-info {
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 10px;
 }
