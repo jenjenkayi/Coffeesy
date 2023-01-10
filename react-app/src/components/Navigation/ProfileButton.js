@@ -40,15 +40,18 @@ function ProfileButton({ user }) {
      <button type="button" className='nav-create-product-button' 
         onClick={() => history.push("/products/new")}>
         <i className="fa-solid fa-store fa-xl"></i>
+        <span className="hover-text">Shop Manager</span>
       </button>}
       <button type="button" className="nav-cart"
         onClick={() => history.push("/cart")}>
         <i className="fa-solid fa-cart-shopping fa-xl"></i>
+        <span className="hover-text">Cart</span>
       </button>
     {user && 
     <div className="dropdown-menu">
       <button className="profile-button" onClick={openMenu}>
         <i className="fas fa-user-circle fa-2xl" />
+        <span className="hover-text">Your account</span>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
