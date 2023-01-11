@@ -241,3 +241,6 @@ i {
     cursor: not-allowed;
 }
 
+.review-container {
+    min-height: 450px;
+}

@@ -50,13 +50,17 @@ const GetOneProduct = () => {
   }
 
    const deleteProductHandler = (productId) => {
+    if (window.confirm("Are you sure you want to delete this listing?")) {
     dispatch(deleteProductThunk(productId))
+    }
     history.push("/");
   };
 
   const deleteReviewHandler = (reviewId) => {
-  dispatch(deleteReviewThunk(reviewId));
-  history.push(`/products/${productId}`);
+    if (window.confirm("Are you sure you want to delete this review?")) {
+      dispatch(deleteReviewThunk(reviewId));
+    }
+    history.push(`/products/${productId}`);
   };
 
 return ( 
@@ -147,7 +151,7 @@ return (
                   </div>
           </div>)}
                 <div className="review-header">
-                  {reviewsArr && <div className="product-numReviews">{reviewsArr.length} reviews</div>}
+                  {reviewsArr && <div className="product-numReviews">{reviewsArr.length} review(s)</div>}
                   {product.avgRating % 1 ? 
                     <div>{[...Array(Math.floor(product.avgRating))].map(star => <i className="fa-solid fa-star"></i>)}
                       <i className="fa-solid fa-star-half"></i>
@@ -156,9 +160,11 @@ return (
                     <div>{[...Array(product.avgRating)].map(star => <i className="fa-solid fa-star"></i>)}</div>
                   }
                 </div>
-            <div>
-                <GetProductReviews />
-            </div> 
+
+                <div className="review-container">
+                <div>
+                    <GetProductReviews />
+                </div> 
 
                 {/* {!userReviews.length && user && product.user_id !== user.id &&
                   <CreateReviewModal />} */}
@@ -194,6 +200,7 @@ return (
                       </>
                     )
                 })}
+              </div>
     </>
   )
 }
