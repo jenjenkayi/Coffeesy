@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, NavLink } from "react-router-dom";
-import { getSearchProductsThunk } from '../../store/product'
+import { getSearchProductsThunk, getAllProductsThunk } from '../../store/product'
 import "./Navigation";
 
 function SearchBar() {
@@ -44,6 +44,7 @@ function SearchBar() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
+  dispatch(getAllProductsThunk())  
   dispatch(getSearchProductsThunk(keyword)).then(() => {
     history.push(`/products/search/${keyword}`);
     });
