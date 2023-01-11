@@ -5,8 +5,8 @@ import "./GetOneProduct.css";
 import {deleteProductThunk, getOneProductThunk} from '../../store/product';
 import { deleteReviewThunk } from '../../store/review';
 import GetProductReviews from '../GetProductReviews/GetProductReviews'
-import CreateReviewModal from "../CreateReview";
-import EditReviewModal from "../EditReview";
+// import CreateReviewModal from "../CreateReview";
+// import EditReviewModal from "../EditReview";
 import {getAllReviewsThunk} from '../../store/review'
 import { addCartItemThunk } from "../../store/cart";
 

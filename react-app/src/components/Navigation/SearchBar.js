@@ -31,10 +31,6 @@ function SearchBar() {
     return res
   }
 
-  // useEffect(() => {
-  //   dispatch(getSearchProductsThunk(keyword))
-  // }, [dispatch, keyword]);
-
   useEffect(() => {
     if (keyword.length) {
       setShowDropdown(true)
@@ -52,7 +48,6 @@ function SearchBar() {
     history.push(`/products/search/${keyword}`);
     });
 
-    // setKeyword("")
   }
 
 return (
